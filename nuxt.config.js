@@ -38,9 +38,26 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
+
+  axios: {
+    https: true,
+    headers: {
+      common: {
+        Accept: 'application/json'
+      }
+    },
+    baseURL: 'https://estudioflow.com.br'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // Tailwindcss
+  tailwindcss: {
+    cssPath: '~/styles/tailwind.css',
+    configPath: 'tailwind.config.js'
   }
 }
