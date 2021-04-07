@@ -17,7 +17,7 @@
     "database:migrate:latest": "yarn workspace @apps/server run knex:migrate:latest",
     "database:migrate:rollback": "yarn workspace @apps/server run knex:migrate:rollback"
   },
-  "repository": "https://github.com/yumartins/doctero.git",
+  "repository": "https://github.com/yumartins/erp.git",
   "workspaces": {
     "packages": [
       "apps/*",
