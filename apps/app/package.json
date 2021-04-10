@@ -1,0 +1,10 @@
+{
+  "name": "@apps/app",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "author": {
+    "name": "Yuri Martins",
+    "email": "develop@yumartins.com.br"
+  },
+  "private": false
+}
