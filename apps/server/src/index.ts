@@ -8,7 +8,7 @@ import { User as Users } from './@types';
 import { createGatter } from './auth';
 import { User, connect } from './database';
 import { info } from './helpers';
-import { errors } from './middlewares';
+import { handler, listener } from './middlewares';
 import router from './routes';
 
 const setupGates = () => {
@@ -51,10 +51,23 @@ const App = async (): Promise<Koa<DefaultState, DefaultContext>> => {
     return Authorize(this.state.auth, ...args);
   };
 
+  /**
+   * Register error handler listener.
+   */
+  app.on('error', listener);
+
+  /**
+   * Register error handler middleware.
+   */
+   app.use(handler);
+
+  /**
+   * Set up base middlewares.
+   */
   app.use(cors())
   app.use(helmet())
-  app.use(errors)
   app.use(parser({ jsonLimit: '2mb' }))
+
   app.use(router.routes())
   app.use(router.allowedMethods())
 
