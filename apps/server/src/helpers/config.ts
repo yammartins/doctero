@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { join, parse } from 'path';
+import { parse, resolve } from 'path';
 
 import create from './create';
 
@@ -18,8 +18,6 @@ let dir;
 try {
   const path = require.resolve(__dirname);
 
-  console.log(path);
-
   dir = parse(path).dir;
 } catch (e) {
   dir = parse('./').dir;
@@ -28,7 +26,9 @@ try {
 /**
  * Get env from root directory.
  */
-const path = join(process.env.PATH || join(dir, '../../../../'), files[env] || files.default);
+const path = resolve(dir, '../../../../', files[env] || files.default);
+
+console.log('MY DIR', path);
 
 /**
  * Set Environment variables.

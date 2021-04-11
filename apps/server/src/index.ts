@@ -2,14 +2,52 @@ import cors from '@koa/cors';
 import Koa, { DefaultState, DefaultContext } from 'koa';
 import parser from 'koa-bodyparser';
 import helmet from 'koa-helmet';
+import { Document } from 'mongoose';
 
-import { connect } from './database';
+import { User as Users } from './@types';
+import { createGatter } from './auth';
+import { User, connect } from './database';
 import { info } from './helpers';
+
+const setupGates = () => {
+  const {
+    policy,
+    ability,
+    authorize,
+  } = createGatter();
+
+   /**
+   * Add root gate.
+   */
+  ability('root', (user) => user.root);
+
+   /**
+   * Create user gate.
+   */
+  policy(User, {
+
+    /**
+     * Authorize user update model.
+     */
+    update: (user: Users, model: Document) => user._id.toString() === model._id.toString(),
+  });
+
+  return authorize;
+};
 
 const App = async (): Promise<Koa<DefaultState, DefaultContext>> => {
   info('Bootstraping application');
 
   const app = new Koa();
+
+  const Authorize = setupGates();
+
+  /**
+   * Register authorize function in context.
+   */
+   app.context.authorize = function authorize (...args: any[]) {
+    return Authorize(this.state.auth, ...args);
+  };
 
   app.use(cors())
   app.use(helmet())
@@ -25,5 +63,3 @@ const App = async (): Promise<Koa<DefaultState, DefaultContext>> => {
 };
 
 App();
-
-export default App;
