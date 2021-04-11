@@ -64,10 +64,11 @@ if (env === 'testing') {
 export default logger;
 
 const {
-  info,
   error,
   warning: warn,
 } = logger;
+
+const info = logger.info.bind(logger);
 
 export {
   info,

@@ -7,7 +7,9 @@
     "email": "develop@yumartins.com.br"
   },
   "scripts": {
+    "tsc": "tsc --skipLibCheck",
     "web": "yarn workspace @apps/web run dev",
+    "server": "yarn workspace @apps/server run dev",
     "commit": "cz"
   },
   "husky": {

@@ -1,9 +1,9 @@
 import Mongoose, { Schema, Types } from 'mongoose';
 
 import { info, error, config } from '../helpers';
-import LogSlowQueries from './logSlowQueries';
+// import LogSlowQueries from './logSlowQueries';
 
-Mongoose.plugin(LogSlowQueries);
+// Mongoose.plugin(LogSlowQueries);
 
 info('Setting up Mongoose');
 
