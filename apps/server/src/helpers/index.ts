@@ -18,10 +18,6 @@ export {
 } from './config';
 
 export {
-  createRouter,
-} from './router';
-
-export {
   default as createSchemaRegister,
 } from './schema';
 

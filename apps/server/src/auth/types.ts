@@ -15,7 +15,7 @@ export type Ability = (
 
 export type Authorize = (
   user: User,
-  method?: 'get' | 'put' | 'post' | 'delete',
+  method?: 'GET' | 'PUT' | 'POST' | 'DELETE',
   model?: Document,
 ) => void;
 
