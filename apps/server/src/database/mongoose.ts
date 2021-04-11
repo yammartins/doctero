@@ -1,7 +1,6 @@
-import Config from '@server/config';
-import { info, error } from '@server/log';
 import Mongoose, { Schema, Types } from 'mongoose';
 
+import { info, error, config } from '../helpers';
 import LogSlowQueries from './logSlowQueries';
 
 Mongoose.plugin(LogSlowQueries);
@@ -14,7 +13,7 @@ Mongoose.SchemaTypes.String.set('trim', true);
 
 Mongoose.connection.on('open', () => info('Mongoose connection opened'));
 
-Mongoose.connection.on('connected', () => info(`Mongoose connected to ${Config('mongo.db')}!`));
+Mongoose.connection.on('connected', () => info(`Mongoose connected to ${config('mongo.db')}!`));
 
 Mongoose.connection.on('error', (err) => error(`Mongoose error ${err}`));
 
@@ -26,7 +25,7 @@ export {
   Mongoose,
 };
 
-export const connect = (): Promise<typeof Mongoose> => Mongoose.connect(Config('mongo.uri'), {
+export const connect = (): Promise<typeof Mongoose> => Mongoose.connect(config('mongo.uri'), {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,

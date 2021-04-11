@@ -1,11 +1,11 @@
-export type Get = (key: string, def: null | string) => void;
+export type Get = (key: string, def?: null | string) => string;
 
 export type Dot = (
   target: Record<any, any>,
   path: string | string[],
   def: null | string,
   shouldReturnUndefined?: boolean,
-) => void;
+) => string | void | Record<any, any>;
 
 export type Value = (
   target: (def?: string) => any,
