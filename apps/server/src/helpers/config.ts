@@ -28,8 +28,6 @@ try {
  */
 const path = resolve(dir, '../../../../', files[env] || files.default);
 
-console.log('MY DIR', path);
-
 /**
  * Set Environment variables.
  */

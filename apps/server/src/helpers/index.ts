@@ -8,8 +8,18 @@ export {
 } from './log';
 
 export {
+  random,
+  encrypt,
+  compare,
+} from './hash';
+
+export {
   default as config,
 } from './config';
+
+export {
+  createRouter,
+} from './router';
 
 export {
   default as createSchemaRegister,

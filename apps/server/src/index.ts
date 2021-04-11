@@ -8,6 +8,8 @@ import { User as Users } from './@types';
 import { createGatter } from './auth';
 import { User, connect } from './database';
 import { info } from './helpers';
+import { errors } from './middlewares';
+import router from './routes';
 
 const setupGates = () => {
   const {
@@ -51,7 +53,10 @@ const App = async (): Promise<Koa<DefaultState, DefaultContext>> => {
 
   app.use(cors())
   app.use(helmet())
+  app.use(errors)
   app.use(parser({ jsonLimit: '2mb' }))
+  app.use(router.routes())
+  app.use(router.allowedMethods())
 
   await connect();
 

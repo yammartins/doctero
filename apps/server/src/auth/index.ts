@@ -7,6 +7,11 @@ import { config, ObjectId } from '../helpers';
 import Forbidden from './forbidden';
 import Unauthorized from './unauthorized';
 
+type Hash = {
+  _id: string,
+  email: string,
+};
+
 /**
  * JWT secret.
  */
@@ -48,7 +53,7 @@ export const verifyToken = (token: string, secret: string): any => {
 /**
  * Generate JWT token.
  */
-export const generate = (payload: Users): string => JWT.sign(payload, secret);
+export const generate = (payload: Hash): string => JWT.sign(payload, secret);
 
 /**
  * Authentication middleware.
