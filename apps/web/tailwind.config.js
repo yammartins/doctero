@@ -28,6 +28,8 @@ const grid = {
 }
 
 module.exports = {
+  mode: 'jit',
+
   purge: [
     'pages/*.vue',
     'layouts/*.vue',
@@ -36,7 +38,37 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
+    colors: {
+      blue: {
+        100: '#EBF5FF',
+        200: '#5AACFF',
+        DEFAULT: '#0C66FF',
+        400: '#0D55CF'
+      },
+
+      gray: {
+        300: '#B0B7C3',
+        400: '#8A94A6',
+        500: '#4E5D78',
+        600: '#0A1F44'
+      },
+
+      info: {
+        DEFAULT: '#0284FE'
+      },
+
+      danger: {
+        DEFAULT: '#F03D3D'
+      },
+
+      success: {
+        DEFAULT: '#0BB07B'
+      },
+
+      warning: {
+        DEFAULT: '#FFAD0D'
+      }
+    },
 
     screens: {
       xs: '576px',
@@ -45,88 +77,14 @@ module.exports = {
       lg: '1200px',
       xl: '1280px',
       xxl: '1536px'
-    }
-  },
+    },
 
-  variants: {
-    rotate: [],
-    zIndex: [],
-    margin: [],
-    padding: [],
-    opacity: [],
-    spacing: [],
-    outline: [],
-    fontSize: ['responsive'],
-    transform: [],
-    translate: [],
-    textColor: [],
-    boxShadow: [],
-    lineHeight: [],
-    fontWeight: [],
-    textOpacity: [],
-    borderWidth: [],
-    borderColor: [],
-    borderRadius: [],
-    borderOpacity: [],
-    letterSpacing: [],
-    textDecoration: [],
-    backgroundColor: [],
-    placeholderColor: [],
-    backgroundOpacity: [],
-    gridTemplateColumns: ['responsive']
+    fontFamily: {
+      DEFAULT: "'Inter', sans-serif"
+    }
   },
 
   plugins: [
     plugin(({ addComponents }) => addComponents(grid))
-  ],
-
-  corePlugins: {
-    fill: false,
-    skew: false,
-    float: false,
-    scale: false,
-    clear: false,
-    stroke: false,
-    minWidth: false,
-    maxWidth: false,
-    minHeight: false,
-    container: false,
-    maxHeight: false,
-    ringColor: false,
-    ringWidth: false,
-    placeSelf: false,
-    alignSelf: false,
-    visibility: false,
-    placeItems: false,
-    strokeWidth: false,
-    tableLayout: false,
-    ringOpacity: false,
-    divideWidth: false,
-    justifySelf: false,
-    divideColor: false,
-    divideStyle: false,
-    placeContent: false,
-    alignContent: false,
-    justifyItems: false,
-    listStyleType: false,
-    divideOpacity: false,
-    accessibility: false,
-    objectPosition: false,
-    backgroundSize: false,
-    borderCollapse: false,
-    backgroundClip: false,
-    backgroundImage: false,
-    ringOffsetColor: false,
-    ringOffsetWidth: false,
-    transformOrigin: false,
-    placeholderColor: false,
-    backgroundRepeat: false,
-    listStylePosition: false,
-    fontVariantNumeric: false,
-    overscrollBehavior: false,
-    placeholderOpacity: false,
-    backgroundPosition: false,
-    gradientColorStops: false,
-    backgroundAttachment: false
-  }
+  ]
 }
