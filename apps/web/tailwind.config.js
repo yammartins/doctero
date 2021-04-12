@@ -28,8 +28,6 @@ const grid = {
 }
 
 module.exports = {
-  mode: 'jit',
-
   purge: [
     'pages/*.vue',
     'layouts/*.vue',
@@ -38,6 +36,12 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      }
+    },
+
     colors: {
       blue: {
         100: '#EBF5FF',
@@ -77,10 +81,6 @@ module.exports = {
       lg: '1200px',
       xl: '1280px',
       xxl: '1536px'
-    },
-
-    fontFamily: {
-      DEFAULT: "'Inter', sans-serif"
     }
   },
 
