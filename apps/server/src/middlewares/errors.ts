@@ -40,11 +40,11 @@ export const handler = async (ctx: Context, next: () => Promise<void>): Promise<
       return;
     }
 
-    ctx.status = error.status || 500;
+    ctx.status = error.status || error.statusCode || 500;
 
     ctx.body = ctx.status === 500
       ? 'Internal Server Error'
-      : ctx.body || error.message;
+      : ctx.body = { error: error.message };
 
     ctx.app.emit('error', error, ctx);
   }

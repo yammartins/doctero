@@ -1,19 +1,18 @@
-import Joi from 'joi';
 import { Context } from 'koa';
 
 import { generate } from '../../auth';
 import { User } from '../../database';
+import { compare } from '../../helpers';
 
 /**
  * Auth login handler.
- *
- * @todo analytic login.success login.attempt
  */
-export const auth = async (ctx: Context, next: () => Promise<void>): Promise<any> => {
+const auth = async (ctx: Context, next: () => Promise<void>): Promise<any> => {
   await next();
 
   const {
     email,
+    password,
   } = ctx.request.body;
 
   const user = await User
@@ -22,6 +21,10 @@ export const auth = async (ctx: Context, next: () => Promise<void>): Promise<any
     })
     .select('+password')
     .lean();
+
+  if (! user) ctx.throw(401, 'Esse e-mail não está registrado.');
+
+  if (! await compare(password, user.password)) ctx.throw(401, 'Senha inválida.');
 
   const {
     _id,
@@ -37,13 +40,4 @@ export const auth = async (ctx: Context, next: () => Promise<void>): Promise<any
   };
 };
 
-/**
- * Auth login schema.
- */
-export const schema = Joi
-  .object()
-  .keys({
-    email: Joi.string().email().max(60).required(),
-    password: Joi.string().min(6).max(254).required(),
-  })
-  .required();
+export default auth;

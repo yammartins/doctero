@@ -1,5 +1,5 @@
 export {
-  auth,
+  default as auth,
 } from './login';
 
 export {
