@@ -1,3 +1,4 @@
+import { config } from '../../helpers';
 import { Schema } from '../mongoose';
 
 const {
@@ -6,6 +7,11 @@ const {
 
 const model = new Schema({
   name: {
+    type: String,
+    required: true,
+  },
+
+  cpf: {
     type: String,
     required: true,
   },
@@ -38,6 +44,20 @@ const model = new Schema({
   toJSON: {
     virtuals: true,
   },
+});
+
+model.index({
+  cpf: 1,
+}, {
+  unique: true,
+  background: config('env') !== 'testing',
+});
+
+model.index({
+  email: 1,
+}, {
+  unique: true,
+  background: config('env') !== 'testing',
 });
 
 export default model;
