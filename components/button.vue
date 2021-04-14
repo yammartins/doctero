@@ -30,7 +30,7 @@ export default {
   computed: {
     attrs () {
       const {
-        actived,
+        active,
         success,
 
         ...attrs
@@ -45,7 +45,7 @@ export default {
       ],
 
       state: [
-        'idle', 'loading', 'actived', 'disabled'
+        'idle', 'loading', 'active', 'disabled'
       ],
 
       width: [
@@ -53,7 +53,7 @@ export default {
       ],
 
       appearance: [
-        'error', 'primary', 'secondary', 'terciary', 'success'
+        'primary', 'secondary', 'terciary', 'success', 'error'
       ]
     })
   }
@@ -62,6 +62,14 @@ export default {
 
 <style lang="postcss">
 .button {
-  @apply outline-none;
+  @apply text-white transition-all duration-300 rounded-lg outline-none font-semibold;
+
+  &.is-medium {
+    @apply px-10 py-4 text-base ;
+  }
+
+  &.is-primary {
+    @apply bg-blue hover:bg-blue-400;
+  }
 }
 </style>

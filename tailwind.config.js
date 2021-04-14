@@ -57,6 +57,9 @@ module.exports = {
         600: '#0A1F44'
       },
 
+      white: '#FFF',
+      black: '#000',
+
       info: {
         DEFAULT: '#0284FE'
       },

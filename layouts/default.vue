@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <nav class="head">
-      <Button label="Hello" />
+      <Button label="Hello" medium />
     </nav>
     <Nuxt />
   </div>
