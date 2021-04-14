@@ -15,7 +15,15 @@
           />
         </div>
 
-        <Button label="Hello" medium />
+        <div class="head-actions">
+          <NuxtLink to="/signup">
+            <Button label="Registrar" medium secondary />
+          </NuxtLink>
+
+          <NuxtLink to="/auth">
+            <Button label="Entrar" medium />
+          </NuxtLink>
+        </div>
       </div>
     </nav>
     <Nuxt />
@@ -52,20 +60,26 @@ export default {
 .head {
   @apply py-8 fixed w-full;
 
+  &-menu,
+  &-actions,
+  &-wrapper {
+    @apply flex items-center;
+  }
+
   &-menu {
-    @apply flex ml-12 items-center space-x-8;
+    @apply ml-12 space-x-8;
 
     a {
       @apply transition-all text-base font-semibold text-gray-600 duration-300 hover:text-blue;
     }
   }
 
-  &-wrapper {
-    @apply flex w-full container items-center;
+  &-actions {
+    @apply ml-auto space-x-4;
   }
 
-  .button {
-    @apply ml-auto;
+  &-wrapper {
+    @apply w-full container;
   }
 }
 </style>

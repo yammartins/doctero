@@ -62,7 +62,7 @@ export default {
 
 <style lang="postcss">
 .button {
-  @apply text-white transition-all duration-300 rounded-lg outline-none font-semibold;
+  @apply border border-solid text-white transition-all duration-300 rounded-lg outline-none font-semibold focus:outline-none;
 
   &.is-full {
     @apply w-full;
@@ -77,7 +77,11 @@ export default {
   }
 
   &.is-primary {
-    @apply bg-blue hover:bg-blue-400;
+    @apply bg-blue border-blue hover:bg-blue-400;
+  }
+
+  &.is-secondary {
+    @apply border-gray-300 text-gray-400 hover:border-gray-400 hover:text-gray-600;
   }
 }
 </style>
