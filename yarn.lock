@@ -1047,6 +1047,11 @@
   dependencies:
     purgecss "^3.1.3"
 
+"@heroicons/vue@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-1.0.0.tgz#45abc5ee7035072140712fd80b0ad35be104de51"
+  integrity sha512-yjufbyMSsAX1SOKDvPiSONS6yovXWKne7QacGKEokfGoc3jssxyo2pATvQt+HPzTIug/EfDaxDvPHABMnwncRA==
+
 "@koa/router@^9.0.1":
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/@koa/router/-/router-9.4.0.tgz#734b64c0ae566eb5af752df71e4143edc4748e48"
