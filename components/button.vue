@@ -64,6 +64,14 @@ export default {
 .button {
   @apply text-white transition-all duration-300 rounded-lg outline-none font-semibold;
 
+  &.is-full {
+    @apply w-full;
+  }
+
+  &.is-auto {
+    @apply w-auto;
+  }
+
   &.is-medium {
     @apply px-10 py-4 text-base ;
   }
