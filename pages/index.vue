@@ -15,6 +15,14 @@
           medium
           class="mt-16"
         />
+
+        <FormInput
+          v-model="form.email"
+          type="text"
+          name="input"
+          label="Olá"
+          placeholder="Ok"
+        />
       </div>
 
       <img
@@ -24,6 +32,22 @@
     </div>
   </div>
 </template>
+
+<script>
+import FormInput from '@/components/form/input'
+export default {
+  components: {
+    FormInput
+  },
+
+  data: () => ({
+    form: {
+      email: 'dev@doctero.io',
+      password: 'password'
+    }
+  })
+}
+</script>
 
 <style lang="postcss">
 .home {
