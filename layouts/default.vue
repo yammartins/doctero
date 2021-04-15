@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <nav class="head">
-      <div class="head-wrapper">
+      <div class="container head-wrapper">
         <NuxtLink to="/">
           <img src="~/assets/svgs/logo.svg">
         </NuxtLink>
@@ -79,7 +79,7 @@ export default {
   }
 
   &-wrapper {
-    @apply w-full container;
+    @apply w-full;
   }
 }
 </style>
