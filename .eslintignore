@@ -1,0 +1,5 @@
+dist
+node_modules
+.eslintrc.js
+tailwind.config.js
+commitlint.config.js
