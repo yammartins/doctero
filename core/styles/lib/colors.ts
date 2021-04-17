@@ -1,3 +1,6 @@
+/**
+ * Colors.
+ */
 const colors = {
   white: '#FFF',
   black: '#000',

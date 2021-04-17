@@ -14,5 +14,8 @@
     "presets": [
       "module:@core/babel"
     ]
+  },
+  "dependencies": {
+    "@uxoctopus/styles": "^0.0.10"
   }
 }
