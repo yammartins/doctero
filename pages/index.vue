@@ -16,13 +16,15 @@
           class="mt-16"
         />
 
-        <FormInput
-          v-model="form.email"
-          type="text"
-          name="input"
-          label="Olá"
-          placeholder="Ok"
-        />
+        <form @submit.prevent="login">
+          <FormInput
+            v-model="form.email"
+            type="text"
+            name="email"
+            label="Olá"
+            placeholder="Ok"
+          />
+        </form>
       </div>
 
       <img
@@ -34,18 +36,25 @@
 </template>
 
 <script>
-import FormInput from '@/components/form/input'
 export default {
-  components: {
-    FormInput
-  },
-
   data: () => ({
     form: {
       email: 'dev@doctero.io',
       password: 'password'
     }
-  })
+  }),
+
+  methods: {
+    async login () {
+      try {
+        await this.$store.dispatch('user/login', this.form)
+
+        this.$router.push('/')
+      } catch (e) {
+        //
+      }
+    }
+  }
 }
 </script>
 
