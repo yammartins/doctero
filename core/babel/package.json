@@ -1,0 +1,17 @@
+{
+  "name": "@core/babel",
+  "main": "index.js",
+  "author": "Yuri Martins",
+  "version": "0.0.1",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/register": "^7.13.14",
+    "@babel/runtime": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
+    "babel-preset-minify": "^0.5.1"
+  }
+}

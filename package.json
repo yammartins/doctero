@@ -1,7 +1,6 @@
 {
   "name": "doctero",
   "version": "0.0.1",
-  "main": "src/index.js",
   "author": {
     "name": "Yuri Martins",
     "email": "develop@yumartins.com.br"
@@ -32,15 +31,16 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/register": "^7.13.14",
+    "@babel/cli": "^7.13.14",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "commitizen": "^4.2.3",
