@@ -1,3 +1,42 @@
-const Auth: React.FC = () => <h1>Auth</h1>;
+import { useRef } from 'react';
+
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import { Button, FormInput } from '@uxoctopus/core';
+
+import { Auth as Layout } from '../../layouts';
+
+const Auth: React.FC = () => {
+  const ref = useRef<FormHandles>(null);
+
+  return (
+    <Layout
+      title="Entrar"
+      description={'Acesse sua conta para ter acesso \nà todas as suas informações.'}
+    >
+      <Form
+        ref={ref}
+        onSubmit={() => null}
+      >
+        <FormInput
+          name="email"
+          label="E-mail"
+        />
+
+        <FormInput
+          name="password"
+          label="Senha"
+          isPassword
+          className="mt-24"
+        />
+
+        <Button
+          label="Entrar"
+          className="ml-auto mt-48"
+        />
+      </Form>
+    </Layout>
+  );
+};
 
 export default Auth;
