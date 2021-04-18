@@ -15,8 +15,10 @@ const {
 const View = styled(Button)`
   color: ${white};
   border: 1px solid transparent;
+  display: flex;
+  transition: all .3s ease-in-out;
+  align-items: center;
   font-weight: ${weight.semiBold};
-  border-radius: .5rem;
 
   &.is-md {
     padding: 1rem 2.5rem;

@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "web": "yarn workspace @apps/web run develop",
+    "core": "bash .bin/run.sh core watch $*",
     "build": "bash .bin/run.sh core build $*",
     "admin": "yarn workspace @apps/admin run develop",
     "commit": "cz",
