@@ -5,7 +5,7 @@
   "author": "Yuri Martins",
   "private": false,
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build",
     "develop": "next"
   },
   "dependencies": {

@@ -1,5 +1,4 @@
-import { Button } from '@core/components';
-import { Col, Grid } from '@uxoctopus/core';
+import { Col, Grid, Button } from '@uxoctopus/core';
 import Image from 'next/image';
 
 import View from './styles';
