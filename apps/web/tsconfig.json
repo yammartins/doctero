@@ -1,19 +1,15 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": [
-    "node_modules"
-  ],
   "include": [
-    "custom.d.ts",
-    "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "next-env.d.ts"
   ],
   "compilerOptions": {
+    "jsx": "preserve",
     "strict": false,
-    "isolatedModules": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "jsx": "preserve"
+    "isolatedModules": true,
+    "resolveJsonModule": true
   }
 }

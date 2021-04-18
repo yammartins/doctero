@@ -13,6 +13,8 @@ module.exports = () => ({
     'minify',
   ],
   plugins: [
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-object-rest-spread',
     [
       'styled-components',
       {

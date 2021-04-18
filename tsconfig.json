@@ -5,6 +5,7 @@
   ],
   "exclude": [
     "dist",
+    "build",
     "node_modules"
   ],
   "compilerOptions": {
@@ -18,10 +19,10 @@
     ],
     "paths": {
       "@apps/*": [
-        "apps/*/src"
+        "apps/*"
       ],
       "@core/*": [
-        "core/*/lib"
+        "core/*/dist"
       ]
     },
     "noEmit": true,

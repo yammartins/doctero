@@ -1,3 +1,7 @@
-const Home: React.FC = () => <h1>Hello world</h1>;
+import { Head } from '../layouts';
+
+const Home: React.FC = () => (
+  <Head />
+);
 
 export default Home;
