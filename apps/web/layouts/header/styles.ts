@@ -1,4 +1,9 @@
+import { colors } from '@core/styles';
 import styled from 'styled-components';
+
+const {
+  gray,
+} = colors;
 
 const View = styled.div`
   .header {
@@ -20,6 +25,15 @@ const View = styled.div`
       align-items: flex-start;
       flex-direction: column;
       justify-content: center;
+
+      .text-p {
+        color: ${gray[400]};
+        max-width: 24rem;
+      }
+
+      .text-h1 {
+        max-width: 36rem;
+      }
     }
   }
 
