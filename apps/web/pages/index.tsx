@@ -1,7 +1,11 @@
-import { Head } from '../layouts';
+import { Head, Header } from '../layouts';
 
 const Home: React.FC = () => (
-  <Head />
+  <>
+    <Head />
+
+    <Header />
+  </>
 );
 
 export default Home;

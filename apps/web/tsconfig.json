@@ -8,8 +8,6 @@
   "compilerOptions": {
     "jsx": "preserve",
     "strict": false,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true
+    "isolatedModules": true
   }
 }

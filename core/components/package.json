@@ -15,8 +15,5 @@
     "presets": [
       "module:@core/babel"
     ]
-  },
-  "dependencies": {
-    "@uxoctopus/core": "^0.0.17"
   }
 }
