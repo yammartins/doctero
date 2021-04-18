@@ -9,7 +9,6 @@
     "develop": "next"
   },
   "dependencies": {
-    "@core/components": "*",
     "@core/styles": "*",
     "next": "^10.1.3"
   },

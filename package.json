@@ -12,7 +12,8 @@
     "build": "bash .bin/run.sh core build $*",
     "admin": "yarn workspace @apps/admin run develop",
     "commit": "cz",
-    "build:web": "yarn workspace @apps/web run build"
+    "build:web": "yarn workspace @apps/web run build",
+    "build:admin": "yarn workspace @apps/admin run build"
   },
   "husky": {
     "hooks": {
