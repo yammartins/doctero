@@ -12,7 +12,7 @@ const Auth: React.FC = () => {
   return (
     <Layout
       title="Entrar"
-      description={'Acesse sua conta para ter acesso \nà todas as suas informações.'}
+      description="Acesse sua conta para ter acesso à todas as suas informações."
     >
       <Form
         ref={ref}
@@ -27,13 +27,9 @@ const Auth: React.FC = () => {
           name="password"
           label="Senha"
           isPassword
-          className="mt-24"
         />
 
-        <Button
-          label="Entrar"
-          className="ml-auto mt-48"
-        />
+        <Button label="Entrar" />
       </Form>
     </Layout>
   );
