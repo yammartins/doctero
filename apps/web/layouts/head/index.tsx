@@ -26,15 +26,15 @@ const Head: React.FC = () => {
   } = useRouter();
 
   return (
-    <View className="head">
-      <div className="container head-wrapper">
+    <View className="head py-32 fixed w-full">
+      <div className="flex items-center container head-wrapper">
         <Link href="/">
           <a>
             <Logo />
           </a>
         </Link>
 
-        <div className="head-menu">
+        <div className="flex ml-48 items-center space-x-32 head-menu">
           {routes.map(({ route, label }) => (
             <Link
               key={route}
@@ -45,7 +45,7 @@ const Head: React.FC = () => {
           ))}
         </div>
 
-        <div className="head-actions">
+        <div className="flex ml-auto space-x-16 items-center head-actions">
           <Button
             label="Registrar"
             onClick={() => push('/auth/signup')}
