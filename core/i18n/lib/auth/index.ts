@@ -7,5 +7,9 @@ export {
 } from './signup';
 
 export {
+  default as fields,
+} from './fields';
+
+export {
   default as recovery,
 } from './recovery';

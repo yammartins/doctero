@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { auth } from '@core/i18n';
+import { auth, fields } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
@@ -17,11 +17,15 @@ const Auth: React.FC = () => {
 
   const {
     title,
-    fields,
     button,
     recovery,
     description,
   } = auth;
+
+  const {
+    email,
+    password,
+  } = fields;
 
   return (
     <Layout
@@ -35,12 +39,12 @@ const Auth: React.FC = () => {
       >
         <FormInput
           name="email"
-          label={fields.email.label}
+          label={email.label}
         />
 
         <FormInput
           name="password"
-          label={fields.email.password}
+          label={password.label}
           isPassword
         />
 

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { signup } from '@core/i18n';
+import { fields, signup } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Button, FormInput } from '@uxoctopus/core';
@@ -12,10 +12,15 @@ const Signup: React.FC = () => {
 
   const {
     title,
-    fields,
     button,
     description,
   } = signup;
+
+  const {
+    name,
+    email,
+    password,
+  } = fields;
 
   return (
     <Layout
@@ -29,17 +34,17 @@ const Signup: React.FC = () => {
       >
         <FormInput
           name="name"
-          label={fields.name.label}
+          label={name.label}
         />
 
         <FormInput
           name="email"
-          label={fields.email.label}
+          label={email.label}
         />
 
         <FormInput
           name="password"
-          label={fields.name.password}
+          label={password.label}
           isPassword
         />
 

@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { Lottie } from '@core/components';
-import { recovery } from '@core/i18n';
+import { fields, recovery } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Button, FormInput } from '@uxoctopus/core';
@@ -9,14 +9,23 @@ import { Button, FormInput } from '@uxoctopus/core';
 import { Auth as Layout } from '../../layouts';
 
 const Auth: React.FC = () => {
+  const [send, onSend] = useState(false);
+
   const ref = useRef<FormHandles>(null);
 
   const {
+    email,
+  } = fields;
+
+  const {
     title,
-    fields,
     button,
     description,
   } = recovery;
+
+  const submit = () => {
+    onSend(true);
+  };
 
   return (
     <Layout
@@ -26,7 +35,8 @@ const Auth: React.FC = () => {
       <div className="auth-lottie">
         <Lottie
           loop
-          height="64px"
+          width="164px"
+          height="164px"
           animation="email"
         />
       </div>
@@ -34,10 +44,11 @@ const Auth: React.FC = () => {
       <Form
         ref={ref}
         onSubmit={() => null}
+        className="mt-48"
       >
         <FormInput
           name="email"
-          label={fields.email.label}
+          label={email.label}
         />
 
         <Button label={button.one} />

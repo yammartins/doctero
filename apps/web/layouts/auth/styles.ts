@@ -38,10 +38,6 @@ const View = styled.div`
       }
     }
 
-    &-lottie {
-      height: 5rem;
-    }
-
     &-footer .is-action {
       transition: all .3s ease-in-out;
 
