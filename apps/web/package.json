@@ -11,6 +11,7 @@
   "dependencies": {
     "@core/components": "*",
     "@core/i18n": "*",
+    "@core/schemas": "*",
     "@core/styles": "*",
     "next": "^10.1.3"
   },

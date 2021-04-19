@@ -1813,6 +1813,14 @@
     react-input-mask "3.0.0-alpha.2"
     react-select "^4.3.0"
 
+"@uxoctopus/helpers@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/helpers/-/helpers-0.0.2.tgz#09cd14be9ba64e53797f1438ef66ab774010b02e"
+  integrity sha512-yrG8FDHfVdeRU+RKVyIaY8aSwDz7jnNNmGZ69EB7TjIr8CNBdkZY3uSVQoNPyeCvJCn/GVQ6Zr3MAoH5eItN1Q==
+  dependencies:
+    "@unform/core" "^2.1.6"
+    yup "^0.32.9"
+
 "@uxoctopus/hooks@0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@uxoctopus/hooks/-/hooks-0.0.3.tgz#46e25101cdc922ef10dacd974f05d6f181f72f23"

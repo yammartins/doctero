@@ -1,14 +1,21 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 
 import { Lottie } from '@core/components';
 import { fields, recovery } from '@core/i18n';
+import { email as schema } from '@core/schemas';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import { Button, FormInput } from '@uxoctopus/core';
+import { Text, Button, FormInput } from '@uxoctopus/core';
+import { request } from '@uxoctopus/helpers';
+import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../layouts';
 
 const Auth: React.FC = () => {
+  const {
+    push,
+  } = useRouter();
+
   const [send, onSend] = useState(false);
 
   const ref = useRef<FormHandles>(null);
@@ -18,41 +25,65 @@ const Auth: React.FC = () => {
   } = fields;
 
   const {
+    sent,
     title,
     button,
     description,
   } = recovery;
 
-  const submit = () => {
-    onSend(true);
+  const submit = useCallback(async () => onSend(true), []);
+
+  const schemas = {
+    email: schema,
   };
 
   return (
     <Layout
       title={title}
-      description={description}
+      description={! send ? description : ''}
     >
       <div className="auth-lottie">
         <Lottie
-          loop
-          width="164px"
-          height="164px"
-          animation="email"
+          loop={! send}
+          width={! send ? '164px' : '240px'}
+          height={! send ? '164px' : '240px'}
+          animation={! send ? 'email' : 'email-send'}
         />
       </div>
 
-      <Form
-        ref={ref}
-        onSubmit={() => null}
-        className="mt-48"
-      >
-        <FormInput
-          name="email"
-          label={email.label}
-        />
+      {send && (
+        <div className="flex mt-48 flex-col auth-send">
+          <Text
+            type="p"
+            label={sent}
+            className="text-center"
+          />
 
-        <Button label={button.one} />
-      </Form>
+          <Button
+            label={button.two}
+            onClick={() => push('/auth')}
+            className="mt-24"
+          />
+        </div>
+      )}
+
+      {! send && (
+        <Form
+          ref={ref}
+          onSubmit={(data) => request(submit, ref, data, schemas)}
+          className="mt-48"
+        >
+          <FormInput
+            name="email"
+            label={email.label}
+          />
+
+          <Button
+            label={button.one}
+            submit
+          />
+        </Form>
+      )}
     </Layout>
   );
 };

@@ -27,6 +27,7 @@ const Animation: React.FC<Handles> = ({
   return (
     <Lottie
       {...rest}
+      style={{ pointerEvents: 'none' }}
       options={configs}
     />
   );
