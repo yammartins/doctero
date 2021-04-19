@@ -18,7 +18,7 @@ const View = styled.div`
         transition: all .3s ease-in-out;
 
         &:hover {
-          color: ${gray[600]};
+          color: ${primary[300]};
         }
       }
 

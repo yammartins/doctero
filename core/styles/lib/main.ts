@@ -1,3 +1,4 @@
+import { rgba } from '@uxoctopus/helpers';
 import { createGlobalStyle } from 'styled-components';
 
 import { colors, typograph } from './index';
@@ -30,10 +31,38 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .input {
+    &-icon,
+    &-label {
+      color: ${gray[400]};
+    }
+
+    &-target {
+      color: ${gray[600]};
+      border-color: ${rgba(gray[300], '.32')};
+    }
+
+    &-label,
+    &-target {
+      transition: all .3s ease-out;
+    }
+
+    &:hover & {
+      &-label {
+        color: ${gray[500]};
+      }
+
+      &-target {
+        border-color: ${gray[300]};
+      }
+    }
+  }
+
   .button {
     color: ${white};
     border: 1px solid transparent;
     display: flex;
+    box-shadow: none;
     transition: all .3s ease-in-out;
     align-items: center;
     font-weight: ${weight.semiBold};
@@ -47,6 +76,7 @@ const GlobalStyles = createGlobalStyle`
       border-color: ${primary[300]};
 
       &:hover {
+        box-shadow: 0 1rem 1.5rem ${rgba(primary[300], '.08')};
         background: ${primary[400]};
       }
     }
