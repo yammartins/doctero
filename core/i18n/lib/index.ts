@@ -1,7 +1,5 @@
 export {
-  default as auth,
+  auth,
+  signup,
+  recovery,
 } from './auth';
-
-export {
-  default as signup,
-} from './signup';

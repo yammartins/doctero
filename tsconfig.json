@@ -17,14 +17,6 @@
       "esnext",
       "dom.iterable"
     ],
-    "paths": {
-      "@apps/*": [
-        "apps/*"
-      ],
-      "@core/*": [
-        "core/*"
-      ]
-    },
     "noEmit": true,
     "module": "esnext",
     "target": "es5",
