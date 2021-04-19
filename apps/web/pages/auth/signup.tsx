@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 
+import { signup } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Button, FormInput } from '@uxoctopus/core';
@@ -9,11 +10,18 @@ import { Auth as Layout } from '../../layouts';
 const Signup: React.FC = () => {
   const ref = useRef<FormHandles>(null);
 
+  const {
+    title,
+    fields,
+    button,
+    description,
+  } = signup;
+
   return (
     <Layout
       type="signup"
-      title="Cadastrar"
-      description="Crie sua conta gratuitamente e em poucos segundos."
+      title={title}
+      description={description}
     >
       <Form
         ref={ref}
@@ -21,21 +29,21 @@ const Signup: React.FC = () => {
       >
         <FormInput
           name="name"
-          label="Nome"
+          label={fields.name.label}
         />
 
         <FormInput
           name="email"
-          label="E-mail"
+          label={fields.email.label}
         />
 
         <FormInput
           name="password"
-          label="Senha"
+          label={fields.name.password}
           isPassword
         />
 
-        <Button label="Avançar" />
+        <Button label={button.one} />
       </Form>
     </Layout>
   );

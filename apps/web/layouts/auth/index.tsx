@@ -1,3 +1,4 @@
+import { auth, signup } from '@core/i18n';
 import { Icon, Text } from '@uxoctopus/core';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -19,18 +20,12 @@ const Auth: React.FC<Handles> = ({
   const footer = {
     auth: {
       route: '/auth/signup',
-      labels: [
-        'Não possui conta?',
-        'Cadastrar',
-      ],
+      labels: auth.signup,
     },
 
     signup: {
       route: '/auth',
-      labels: [
-        'Já é cadastrado?',
-        'Entrar',
-      ],
+      labels: signup.auth,
     },
   };
 

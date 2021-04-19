@@ -9,6 +9,7 @@
     "develop": "next"
   },
   "dependencies": {
+    "@core/i18n": "*",
     "@core/styles": "*",
     "next": "^10.1.3"
   },

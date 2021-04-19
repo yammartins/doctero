@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 
+import { auth } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
@@ -14,10 +15,18 @@ const Auth: React.FC = () => {
 
   const ref = useRef<FormHandles>(null);
 
+  const {
+    title,
+    fields,
+    button,
+    recovery,
+    description,
+  } = auth;
+
   return (
     <Layout
-      title="Entrar"
-      description="Acesse sua conta para ter acesso à todas as suas informações."
+      title={title}
+      description={description}
     >
       <Form
         ref={ref}
@@ -26,23 +35,23 @@ const Auth: React.FC = () => {
       >
         <FormInput
           name="email"
-          label="E-mail"
+          label={fields.email.label}
         />
 
         <FormInput
           name="password"
-          label="Senha"
+          label={fields.email.password}
           isPassword
         />
 
         <Text
           type="span"
-          label="Esqueceu a senha?"
+          label={recovery}
           onClick={() => push('/auth/recovery')}
           className="ml-auto mt-16 cursor-pointer"
         />
 
-        <Button label="Entrar" />
+        <Button label={button} />
       </Form>
     </Layout>
   );
