@@ -13,8 +13,19 @@ const View = styled.div`
         margin-top: 1.5rem;
       }
 
+      .text-span {
+        color: ${gray[400]};
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          color: ${gray[600]};
+        }
+      }
+
       .button {
-        margin: 3rem 0 0 auto;
+        width: 100%;
+        margin-top: 3rem;
+        justify-content: center;
       }
     }
 

@@ -2,11 +2,16 @@ import { useRef } from 'react';
 
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import { Button, FormInput } from '@uxoctopus/core';
+import { Text, Button, FormInput } from '@uxoctopus/core';
+import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../layouts';
 
 const Auth: React.FC = () => {
+  const {
+    push,
+  } = useRouter();
+
   const ref = useRef<FormHandles>(null);
 
   return (
@@ -17,6 +22,7 @@ const Auth: React.FC = () => {
       <Form
         ref={ref}
         onSubmit={() => null}
+        className="flex flex-col"
       >
         <FormInput
           name="email"
@@ -27,6 +33,13 @@ const Auth: React.FC = () => {
           name="password"
           label="Senha"
           isPassword
+        />
+
+        <Text
+          type="span"
+          label="Esqueceu a senha?"
+          onClick={() => push('/auth/recovery')}
+          className="ml-auto mt-16 cursor-pointer"
         />
 
         <Button label="Entrar" />
