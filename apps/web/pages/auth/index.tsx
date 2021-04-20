@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useCallback } from 'react';
 
 import { auth, fields } from '@core/i18n';
+import * as schema from '@core/schemas';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
+import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../layouts';
@@ -27,6 +29,13 @@ const Auth: React.FC = () => {
     password,
   } = fields;
 
+  const schemas = {
+    email: schema.email,
+    password: schema.password,
+  };
+
+  const submit = useCallback(async () => null, []);
+
   return (
     <Layout
       title={title}
@@ -34,7 +43,7 @@ const Auth: React.FC = () => {
     >
       <Form
         ref={ref}
-        onSubmit={() => null}
+        onSubmit={(data) => request(submit, ref, data, schemas)}
         className="flex flex-col"
       >
         <FormInput
@@ -55,7 +64,10 @@ const Auth: React.FC = () => {
           className="ml-auto mt-16 cursor-pointer"
         />
 
-        <Button label={button} />
+        <Button
+          label={button}
+          submit
+        />
       </Form>
     </Layout>
   );
