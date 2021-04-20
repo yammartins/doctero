@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import { fields, signup } from '@core/i18n';
-import { FormHandles } from '@unform/core';
+import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Button, FormInput, FormRadio } from '@uxoctopus/core';
 
@@ -19,9 +19,16 @@ const Signup: React.FC = () => {
   } = signup;
 
   const {
+    city,
     name,
     email,
+    state,
+    phone,
+    street,
+    number,
+    document,
     password,
+    neighborhood,
   } = fields;
 
   return (
@@ -68,19 +75,45 @@ const Signup: React.FC = () => {
             <FormInput
               name="cpf"
               mask="999.999.999-99"
-              label="CPF"
+              label={document.label}
             />
 
             <FormInput
               name="phone"
               mask="(99) 99999-9999"
-              label="Telefone"
+              label={phone.label}
             />
 
-            <FormInput
-              name="address"
-              label="Endereço"
-            />
+            <Scope path="address">
+              <div className="flex is-row mt-24 space-x-24 items-center">
+                <FormInput
+                  name="state"
+                  label={state.label}
+                />
+
+                <FormInput
+                  name="city"
+                  label={city.label}
+                />
+              </div>
+
+              <FormInput
+                name="street"
+                label={street.label}
+              />
+
+              <div className="flex is-row mt-24 space-x-24 items-center">
+                <FormInput
+                  name="number"
+                  label={number.label}
+                />
+
+                <FormInput
+                  name="neighborhood"
+                  label={neighborhood.label}
+                />
+              </div>
+            </Scope>
           </div>
         )}
 

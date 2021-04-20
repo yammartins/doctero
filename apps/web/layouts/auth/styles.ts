@@ -13,6 +13,10 @@ const View = styled.div`
         margin-top: 1.5rem;
       }
 
+      .is-row > div {
+        margin-top: 0 !important;
+      }
+
       .text-span {
         color: ${gray[400]};
         transition: all .3s ease-in-out;
