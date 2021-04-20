@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { fields, signup } from '@core/i18n';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import { Button, FormInput } from '@uxoctopus/core';
+import { Button, FormInput, FormRadio } from '@uxoctopus/core';
 
 import { Auth as Layout } from '../../layouts';
 
@@ -56,10 +56,30 @@ const Signup: React.FC = () => {
 
         {step === 2 && (
           <div className="flex flex-col">
+            <FormRadio
+              name="type"
+              options={[
+                { value: '1', label: 'Doador' },
+                { value: '2', label: 'Donatário' },
+              ]}
+              orientation="horizontal"
+            />
+
             <FormInput
               name="cpf"
               mask="999.999.999-99"
-              label={name.label}
+              label="CPF"
+            />
+
+            <FormInput
+              name="phone"
+              mask="(99) 99999-9999"
+              label="Telefone"
+            />
+
+            <FormInput
+              name="address"
+              label="Endereço"
             />
           </div>
         )}
