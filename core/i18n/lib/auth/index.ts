@@ -11,9 +11,5 @@ export {
 } from './fields';
 
 export {
-  default as password,
-} from './password';
-
-export {
   default as recovery,
 } from './recovery';
