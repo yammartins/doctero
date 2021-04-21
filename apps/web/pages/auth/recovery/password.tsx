@@ -45,7 +45,7 @@ const Password: React.FC = () => {
       {send && (
         <div className="flex flex-col recovery-send">
           <Lottie
-            width="200px"
+            width="280px"
             height="200px"
             animation="success"
           />
