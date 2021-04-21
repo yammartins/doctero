@@ -1,6 +1,12 @@
 import { fields } from '@core/i18n';
 import * as Yup from 'yup';
 
+/**
+ * Fields.
+ */
+export const type = Yup.string()
+  .oneOf(['GIVER', 'GRANTEE'], fields.type.required);
+
 export const city = Yup.string()
   .required(fields.city.required);
 
@@ -10,6 +16,9 @@ export const name = Yup.string()
 export const email = Yup.string()
   .email(fields.email.valid)
   .required(fields.email.required);
+
+export const state = Yup.string()
+  .required(fields.state.required);
 
 export const phone = Yup.string()
   .required(fields.phone.required);
@@ -29,3 +38,14 @@ export const password = Yup.string()
 
 export const neighborhood = Yup.string()
   .required(fields.neighborhood.required);
+
+/**
+ * Groups.
+ */
+export const address = Yup.object().shape({
+  city,
+  state,
+  street,
+  number,
+  neighborhood,
+});

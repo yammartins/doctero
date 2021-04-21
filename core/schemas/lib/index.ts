@@ -1,10 +1,13 @@
 export {
+  type,
   city,
   name,
   email,
   phone,
+  state,
   street,
   number,
+  address,
   document,
   password,
   neighborhood,

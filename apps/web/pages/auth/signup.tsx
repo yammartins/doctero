@@ -21,6 +21,7 @@ const Signup: React.FC = () => {
   } = signup;
 
   const {
+    type,
     city,
     name,
     email,
@@ -41,12 +42,10 @@ const Signup: React.FC = () => {
     },
 
     two: {
-      city: schema.city,
+      type: schema.type,
       phone: schema.phone,
-      street: schema.street,
-      number: schema.number,
+      address: schema.address,
       document: schema.document,
-      neighborhood: schema.neighborhood,
     },
   };
 
@@ -92,10 +91,7 @@ const Signup: React.FC = () => {
           <div className="flex flex-col">
             <FormRadio
               name="type"
-              options={[
-                { value: '1', label: 'Doador' },
-                { value: '2', label: 'Donatário' },
-              ]}
+              options={type.options}
               orientation="horizontal"
             />
 
