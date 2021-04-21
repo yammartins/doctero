@@ -42,10 +42,12 @@ export const neighborhood = Yup.string()
 /**
  * Groups.
  */
-export const address = Yup.object().shape({
-  city,
-  state,
-  street,
-  number,
-  neighborhood,
-});
+export const address = Yup.array().of(
+  Yup.object().shape({
+    city,
+    state,
+    street,
+    number,
+    neighborhood,
+  }),
+);
