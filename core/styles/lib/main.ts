@@ -31,6 +31,36 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .radio {
+    &-box {
+      border-color: ${gray[400]};
+    }
+
+    &-label {
+      color: ${gray[400]};
+    }
+
+    &-box,
+    &-label {
+      transition: all .3s ease-out;
+    }
+
+    &.is-checked .radio-box::after,
+    input[type=radio]:checked + span::after {
+      background: ${gray[600]}
+    }
+
+    &:hover & {
+      &-box {
+        border-color: ${gray[500]};
+      }
+
+      &-label {
+        color: ${gray[500]};
+      }
+    }
+  }
+
   .input {
     &-icon,
     &-label {

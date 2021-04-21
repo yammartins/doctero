@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 
 import { fields, signup } from '@core/i18n';
+import * as schema from '@core/schemas';
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Button, FormInput, FormRadio } from '@uxoctopus/core';
+import { request } from '@uxoctopus/helpers';
 
 import { Auth as Layout } from '../../layouts';
 
@@ -31,6 +33,19 @@ const Signup: React.FC = () => {
     neighborhood,
   } = fields;
 
+  const schemas = {
+    city: schema.city,
+    name: schema.name,
+    email: schema.email,
+    street: schema.street,
+    number: schema.number,
+    document: schema.document,
+    password: schema.password,
+    neighborhood: schema.neighborhood,
+  };
+
+  const submit = useCallback(async () => null, []);
+
   return (
     <Layout
       type="signup"
@@ -39,7 +54,7 @@ const Signup: React.FC = () => {
     >
       <Form
         ref={ref}
-        onSubmit={() => null}
+        onSubmit={(data) => request(submit, ref, data, schemas)}
       >
         {step === 1 && (
           <div className="flex flex-col">
@@ -73,7 +88,7 @@ const Signup: React.FC = () => {
             />
 
             <FormInput
-              name="cpf"
+              name="document"
               mask="999.999.999-99"
               label={document.label}
             />
