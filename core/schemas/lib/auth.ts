@@ -39,6 +39,10 @@ export const password = Yup.string()
 export const neighborhood = Yup.string()
   .required(fields.neighborhood.required);
 
+export const confirm_password = Yup.string()
+  .oneOf([Yup.ref('password'), null], fields.confirm_password.valid)
+  .required(fields.confirm_password.required);
+
 /**
  * Groups.
  */

@@ -8,6 +8,16 @@ const recovery = {
     one: 'Recuperar',
     two: 'Ir para a tela de login',
   },
+
+  recover: {
+    title: 'Redefinir senha',
+
+    button: 'Alterar senha',
+
+    feedback: 'Senha alterada com sucesso.',
+
+    description: 'Digite uma nova senha e sua confirmação.',
+  },
 };
 
 export default recovery;

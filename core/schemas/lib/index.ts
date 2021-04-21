@@ -11,4 +11,5 @@ export {
   document,
   password,
   neighborhood,
+  confirm_password,
 } from './auth';

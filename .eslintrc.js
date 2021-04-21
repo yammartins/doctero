@@ -60,6 +60,13 @@ module.exports = {
       specialLink: ['hrefLeft', 'hrefRight'],
       aspects: ['invalidHref', 'preferButton'],
     }],
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        selector: "variable",
+        format: ["snake_case", "PascalCase", "camelCase"]
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'space-before-function-paren': ['error', {

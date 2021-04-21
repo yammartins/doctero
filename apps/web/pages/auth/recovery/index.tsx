@@ -9,7 +9,7 @@ import { Text, Button, FormInput } from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
-import { Auth as Layout } from '../../layouts';
+import { Auth as Layout } from '../../../layouts';
 
 const Auth: React.FC = () => {
   const {
@@ -45,8 +45,8 @@ const Auth: React.FC = () => {
       <div className="auth-lottie">
         <Lottie
           loop={! send}
-          width={! send ? '164px' : '240px'}
-          height={! send ? '164px' : '240px'}
+          width={! send ? '164px' : '200px'}
+          height={! send ? '164px' : '200px'}
           animation={! send ? 'email' : 'email-send'}
         />
       </div>

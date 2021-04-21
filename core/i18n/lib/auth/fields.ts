@@ -58,6 +58,12 @@ const fields = {
     label: 'Bairro',
     required: 'Digite o bairro da sua residência.',
   },
+
+  confirm_password: {
+    label: 'Confirmação de senha',
+    valid: 'As senhas precisam ser iguais.',
+    required: 'Digite a confirmação da senha.',
+  },
 };
 
 export default fields;

@@ -71,20 +71,20 @@ const GlobalStyles = createGlobalStyle`
     }
 
     &.is-error & {
-        &-label {
-          color: ${danger};
-        }
-
-        &-error {
+      &-label {
         color: ${danger};
-        bottom: -1.5rem;
-        position: absolute;
       }
 
       &-target {
         background: ${rgba(danger, '.04')};
         border-color: ${danger};
       }
+    }
+
+    &-error {
+      color: ${danger};
+      bottom: -1.5rem;
+      position: absolute;
     }
 
     &-target {
@@ -140,6 +140,10 @@ const GlobalStyles = createGlobalStyle`
         border-color: ${gray[400]};
       }
     }
+  }
+
+  .multi-radio {
+    position: relative;
   }
 `;
 
