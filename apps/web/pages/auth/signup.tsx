@@ -1,16 +1,27 @@
 import { useRef, useState, useCallback } from 'react';
 
+import { Lottie } from '@core/components';
 import { fields, signup } from '@core/i18n';
 import * as schema from '@core/schemas';
 import { Type } from '@types';
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import { Button, FormInput, FormRadio } from '@uxoctopus/core';
+import {
+  Text,
+  Button,
+  FormInput,
+  FormRadio,
+} from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
+import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../layouts';
 
 const Signup: React.FC = () => {
+  const {
+    push,
+  } = useRouter();
+
   const [type, onType] = useState<Type>();
   const [step, onStep] = useState(1);
 
@@ -150,7 +161,22 @@ const Signup: React.FC = () => {
 
       {step === 3 && (
         <div className="flex flex-col">
-          <h1>Sucesso</h1>
+          <Lottie
+            width="280px"
+            height="200px"
+            animation="success"
+          />
+
+          <Text
+            type="p"
+            label={success[type].message}
+            className="text-center"
+          />
+
+          <Button
+            label={success[type].button}
+            onClick={() => push(type === 'GIVER' ? '/auth' : '/')}
+          />
         </div>
       )}
     </Layout>

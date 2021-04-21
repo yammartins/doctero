@@ -16,9 +16,9 @@ const signup = {
     title: 'Parabéns',
 
     GIVER: {
-      button: 'Acessar o painel',
+      button: 'Acessar a tela de login',
 
-      message: 'É isso ai, deseja acessar o painel?',
+      message: 'É isso ai, deseja acessar a tela de login?',
 
       description: 'Conta criada com sucesso.',
     },
