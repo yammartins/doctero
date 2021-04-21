@@ -6,6 +6,7 @@ import { colors, typograph } from './index';
 const {
   gray,
   white,
+  danger,
   primary,
 } = colors;
 
@@ -62,9 +63,28 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .input {
+    position: relative;
+
     &-icon,
     &-label {
       color: ${gray[400]};
+    }
+
+    &.is-error & {
+        &-label {
+          color: ${danger};
+        }
+
+        &-error {
+        color: ${danger};
+        bottom: -1.5rem;
+        position: absolute;
+      }
+
+      &-target {
+        background: ${rgba(danger, '.04')};
+        border-color: ${danger};
+      }
     }
 
     &-target {
@@ -77,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
       transition: all .3s ease-out;
     }
 
-    &:hover & {
+    &:hover:not(.is-error) & {
       &-label {
         color: ${gray[500]};
       }

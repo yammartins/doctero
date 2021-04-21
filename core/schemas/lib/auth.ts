@@ -11,6 +11,9 @@ export const email = Yup.string()
   .email(fields.email.valid)
   .required(fields.email.required);
 
+export const phone = Yup.string()
+  .required(fields.phone.required);
+
 export const street = Yup.string()
   .required(fields.street.required);
 

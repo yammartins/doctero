@@ -34,17 +34,29 @@ const Signup: React.FC = () => {
   } = fields;
 
   const schemas = {
-    city: schema.city,
-    name: schema.name,
-    email: schema.email,
-    street: schema.street,
-    number: schema.number,
-    document: schema.document,
-    password: schema.password,
-    neighborhood: schema.neighborhood,
+    one: {
+      name: schema.name,
+      email: schema.email,
+      password: schema.password,
+    },
+
+    two: {
+      city: schema.city,
+      phone: schema.phone,
+      street: schema.street,
+      number: schema.number,
+      document: schema.document,
+      neighborhood: schema.neighborhood,
+    },
   };
 
-  const submit = useCallback(async () => null, []);
+  const submit = useCallback(async (data) => {
+    console.log(data);
+
+    if (step === 1) {
+      onStep((current) => current + 1);
+    }
+  }, [step]);
 
   return (
     <Layout
@@ -54,7 +66,7 @@ const Signup: React.FC = () => {
     >
       <Form
         ref={ref}
-        onSubmit={(data) => request(submit, ref, data, schemas)}
+        onSubmit={(data) => request(submit, ref, data, step === 1 ? schemas.one : schemas.two)}
       >
         {step === 1 && (
           <div className="flex flex-col">
@@ -134,8 +146,7 @@ const Signup: React.FC = () => {
 
         <Button
           label={step === 1 ? button.one : button.two}
-          submit={step === 2}
-          onClick={() => step === 1 && onStep(2)}
+          submit
         />
       </Form>
     </Layout>
