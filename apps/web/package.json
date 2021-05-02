@@ -13,7 +13,7 @@
     "@core/i18n": "*",
     "@core/schemas": "*",
     "@core/styles": "*",
-    "next": "^10.1.3"
+    "next": "^10.2.0"
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^2.0.1"
