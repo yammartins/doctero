@@ -1,12 +1,4 @@
 const fields = {
-  type: {
-    options: [
-      { value: 'GIVER', label: 'Doador' },
-      { value: 'GRANTEE', label: 'Donatário' },
-    ],
-    required: 'Selecione um perfil.',
-  },
-
   city: {
     label: 'Cidade',
     required: 'Digite o nome da sua cidade.',

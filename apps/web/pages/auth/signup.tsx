@@ -51,7 +51,6 @@ const Signup: React.FC = () => {
 
   const schemas = {
     one: {
-      type: schema.type,
       name: schema.name,
       email: schema.email,
       password: schema.password,

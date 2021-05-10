@@ -4,9 +4,6 @@ import * as Yup from 'yup';
 /**
  * Fields.
  */
-export const type = Yup.string()
-  .oneOf(['GIVER', 'GRANTEE'], fields.type.required);
-
 export const city = Yup.string()
   .required(fields.city.required);
 

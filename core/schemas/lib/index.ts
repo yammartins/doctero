@@ -1,5 +1,4 @@
 export {
-  type,
   city,
   name,
   email,
