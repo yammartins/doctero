@@ -34,25 +34,25 @@
   },
   "dependencies": {
     "@unform/web": "^2.1.6",
-    "@uxoctopus/core": "^0.0.17",
+    "@uxoctopus/core": "^0.0.18",
     "@uxoctopus/helpers": "^0.0.3",
-    "@uxoctopus/styles": "^0.0.11",
+    "@uxoctopus/styles": "^0.0.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-components": "^5.2.3",
+    "styled-components": "^5.3.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "@types/react": "^17.0.4",
+    "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
     "@types/styled-components": "^5.1.9",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "commitizen": "^4.2.3",
-    "eslint": "^7.25.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "commitizen": "^4.2.4",
+    "eslint": "^7.26.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.22.1",
@@ -62,7 +62,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
-    "postcss": "^8.2.13",
+    "postcss": "^8.2.14",
     "typescript": "^4.2.4"
   }
 }

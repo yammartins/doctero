@@ -17,6 +17,20 @@ const View = styled.div`
         margin-top: 0 !important;
       }
 
+      .is-tooltip {
+        color: ${gray[400]};
+        transition: all .3s ease-in-out;
+
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+
+        &:hover {
+          color: ${gray[500]};
+        }
+      }
+
       .text-span {
         color: ${gray[400]};
         transition: all .3s ease-in-out;

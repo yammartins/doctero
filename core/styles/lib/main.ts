@@ -32,7 +32,8 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .radio {
+  .radio,
+  .checkbox {
     &-box {
       border-color: ${gray[400]};
     }
@@ -49,6 +50,15 @@ const GlobalStyles = createGlobalStyle`
     &.is-checked .radio-box::after,
     input[type=radio]:checked + span::after {
       background: ${gray[600]}
+    }
+
+    &.is-checked .checkbox-box,
+    input[type=checkbox]:checked + span {
+      background: ${primary[300]};
+
+      svg {
+        color: ${white};
+      }
     }
 
     &:hover & {
@@ -139,6 +149,12 @@ const GlobalStyles = createGlobalStyle`
         color: ${gray[600]};
         border-color: ${gray[400]};
       }
+    }
+  }
+
+  .tooltip {
+    &-bubble {
+      background: ${gray[600]};
     }
   }
 

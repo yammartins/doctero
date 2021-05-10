@@ -1,8 +1,8 @@
 import {
   Col,
-  Grid,
   Text,
   Button,
+  Container,
 } from '@uxoctopus/core';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -16,7 +16,7 @@ const Header: React.FC = () => {
 
   return (
     <View className="header h-screen">
-      <Grid className="h-full">
+      <Container className="h-full">
         <Col sm={7}>
           <div className="header-wrapper">
             <Text
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
             />
           </div>
         </Col>
-      </Grid>
+      </Container>
     </View>
   );
 };

@@ -3,14 +3,15 @@ import { useRef, useState, useCallback } from 'react';
 import { Lottie } from '@core/components';
 import { fields, signup } from '@core/i18n';
 import * as schema from '@core/schemas';
-import { Type } from '@types';
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import {
+  Icon,
   Text,
   Button,
+  Tooltip,
+  Checkbox,
   FormInput,
-  FormRadio,
 } from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
@@ -22,8 +23,8 @@ const Signup: React.FC = () => {
     push,
   } = useRouter();
 
-  const [type, onType] = useState<Type>();
   const [step, onStep] = useState(1);
+  const [donatory, onDonatory] = useState(false);
 
   const ref = useRef<FormHandles>(null);
 
@@ -35,7 +36,6 @@ const Signup: React.FC = () => {
   } = signup;
 
   const {
-    type: typed,
     city,
     name,
     email,
@@ -43,6 +43,7 @@ const Signup: React.FC = () => {
     phone,
     street,
     number,
+    grantee,
     document,
     password,
     neighborhood,
@@ -59,21 +60,19 @@ const Signup: React.FC = () => {
     two: {
       phone: schema.phone,
       address: schema.address,
-      document: type === 'GRANTEE' ? schema.document : undefined,
+      document: donatory ? schema.document : undefined,
     },
   };
 
-  const submit = useCallback(async (data) => {
-    if (step === 1) onType(data.type);
-
+  const submit = useCallback(async () => {
     onStep((current) => current + 1);
-  }, [step]);
+  }, []);
 
   return (
     <Layout
       type="signup"
       title={step !== 3 ? title : success.title}
-      description={step !== 3 ? description : success[type].description}
+      description={step !== 3 ? description : success.description}
     >
       {step !== 3 && (
         <Form
@@ -97,16 +96,28 @@ const Signup: React.FC = () => {
               isPassword
             />
 
-            <FormRadio
-              name="type"
-              options={typed.options}
-              className="mt-24"
-              orientation="horizontal"
-            />
+            <div className="flex mt-24 items-center">
+              <Checkbox
+                label={grantee.label}
+                checked={donatory}
+                onChecked={onDonatory}
+              />
+
+              <Tooltip
+                size="md"
+                label={grantee.tooltip}
+                className="ml-16 is-tooltip"
+              >
+                <Icon
+                  name="question-mark-circle"
+                  className="cursor-pointer"
+                />
+              </Tooltip>
+            </div>
           </div>
 
           <div className={`${step === 2 ? 'flex' : 'hidden'} flex-col`}>
-            {type === 'GRANTEE' && (
+            {donatory && (
               <FormInput
                 name="document"
                 mask="999.999.999-99"
@@ -169,13 +180,13 @@ const Signup: React.FC = () => {
 
           <Text
             type="p"
-            label={success[type].message}
+            label={success.message}
             className="text-center"
           />
 
           <Button
-            label={success[type].button}
-            onClick={() => push(type === 'GIVER' ? '/auth' : '/')}
+            label={success.button}
+            onClick={() => push('/auth')}
           />
         </div>
       )}

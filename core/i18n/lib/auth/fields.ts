@@ -43,6 +43,11 @@ const fields = {
     required: 'Digite o número da sua residência.',
   },
 
+  grantee: {
+    label: 'Precisa de alguma ajuda?',
+    tooltip: 'Se precisa de ajuda financeira, alimentícia.',
+  },
+
   document: {
     label: 'CPF',
     valid: 'Digite um CPF válido.',
