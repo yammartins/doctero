@@ -1,7 +1,8 @@
 import { rgba } from '@uxoctopus/helpers';
 import { createGlobalStyle } from 'styled-components';
 
-import { colors, typograph } from './index';
+import colors from './colors';
+import typograph from './typograph';
 
 const {
   gray,

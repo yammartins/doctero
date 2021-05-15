@@ -3,6 +3,7 @@
 # Logs
 /logs
 *.log
+stats.html
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
