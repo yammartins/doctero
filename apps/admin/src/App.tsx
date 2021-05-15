@@ -1,5 +1,8 @@
+import '@uxoctopus/styles';
 import React from 'react';
 
-const App: React.FC = () => <h1>App.</h1>;
+import Router from './router';
+
+const App: React.FC = () => <Router />;
 
 export default App;
