@@ -5,8 +5,8 @@
   "author": "Yuri Martins",
   "private": false,
   "scripts": {
-    "build": "next build",
-    "develop": "next"
+    "dev": "next",
+    "build": "next build"
   },
   "dependencies": {
     "@core/components": "*",

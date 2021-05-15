@@ -7,13 +7,13 @@
   },
   "private": true,
   "scripts": {
-    "web": "yarn workspace @apps/web run develop",
-    "core": "bash .bin/run.sh core watch $*",
-    "build": "bash .bin/run.sh core build $*",
-    "admin": "yarn workspace @apps/admin run develop",
     "commit": "cz",
-    "build:web": "yarn workspace @apps/web run build",
-    "build:admin": "yarn workspace @apps/admin run build"
+    "web:dev": "yarn workspace @apps/web run dev",
+    "admin:dev": "yarn workspace @apps/admin run dev",
+    "web:build": "yarn workspace @apps/web run build",
+    "core:watch": "bash .bin/run.sh core watch $*",
+    "core:build": "bash .bin/run.sh core build $*",
+    "admin:build": "yarn workspace @apps/admin run build"
   },
   "husky": {
     "hooks": {
