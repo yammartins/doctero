@@ -1,9 +1,10 @@
 import refresh from '@vitejs/plugin-react-refresh';
+import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
-export default {
+export default defineConfig({
   plugins: [
     svgr(),
     refresh(),
   ],
-};
+});

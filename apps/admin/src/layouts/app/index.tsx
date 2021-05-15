@@ -6,8 +6,8 @@ import { ReactComponent as Logo } from '@core/assets/svgs/logo.svg';
 import View from './styles';
 
 const App: React.FC = () => (
-  <View className="app">
-    <div className="app-menu">
+  <View className="app flex h-full relative">
+    <div className="fixed h-screen app-menu">
       <Logo />
     </div>
 
