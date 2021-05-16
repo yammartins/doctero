@@ -155,7 +155,16 @@ const GlobalStyles = createGlobalStyle`
 
   .tooltip {
     &-bubble {
-      background: ${gray[600]};
+      border: 1px solid ${gray[200]};
+      background: ${gray[100]};
+
+      &.is-top:before {
+        border-top-color: ${gray[100]};
+      }
+
+      &.is-right:before {
+        border-right-color: ${gray[100]};
+      }
     }
   }
 
