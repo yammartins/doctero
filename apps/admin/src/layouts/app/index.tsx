@@ -6,41 +6,21 @@ import { ReactComponent as Logo } from '@core/assets/svgs/logo.svg';
 import { Icon, Text, Tooltip } from '@uxoctopus/core';
 import { reduce } from '@uxoctopus/helpers';
 
-import { donor, general } from '../../data';
+import { donor } from '../../data';
+import Dropdown from './dropdown';
 import View from './styles';
-
-const Dropdown: React.FC = () => (
-  <div className="app-menu-profile-dropdown">
-    {general.map(({ icon, name, route }) => (route
-      ? (
-        <NavLink
-          to={route}
-          key={route}
-          className="flex p-8 text-p items-center app-menu-item"
-        >
-          <Icon
-            name={icon}
-            className="mr-12"
-          />
-
-          {name}
-        </NavLink>
-      )
-      : <div />))}
-  </div>
-);
 
 const App: React.FC = () => (
   <View className="app flex h-full relative">
     <div className="flex fixed p-24 flex-col h-screen app-menu">
       <Logo />
 
-      <div className="flex mt-80 flex-col app-menu-items">
+      <div className="flex mt-96 flex-col space-y-16 app-menu-items">
         {donor.map(({ icon, name, route }) => (
           <NavLink
             to={route}
             key={route}
-            className="flex p-8 text-p items-center app-menu-item"
+            className="flex p-8 text-p relative rounded-8 items-center app-menu-item"
           >
             <Icon
               name={icon}
