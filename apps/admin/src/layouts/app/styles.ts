@@ -12,7 +12,11 @@ const {
   weight,
 } = typograph;
 
-const View = styled.div`
+interface Styles {
+  drawer: boolean,
+}
+
+const View = styled.div<Styles>`
   .app {
     &-menu {
       width: 14rem;
@@ -38,6 +42,17 @@ const View = styled.div`
         }
       }
 
+      &-button {
+        background: ${gray[300]};
+        border-color: ${gray[300]};
+
+        &:focus,
+        &:hover {
+          background: ${gray[400]};
+          border-color: ${gray[400]};
+        }
+      }
+
       &-profile {
         border-top: 1px solid ${gray[200]};
 
@@ -49,11 +64,9 @@ const View = styled.div`
           }
         }
 
-        .tooltip {
-          &-wrapper {
-            display: flex;
-            align-items: center;
-          }
+        .tooltip-wrapper {
+          display: flex;
+          align-items: center;
         }
       }
     }

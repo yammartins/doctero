@@ -6,7 +6,7 @@ import { Icon } from '@uxoctopus/core';
 import { general } from '../../data';
 
 const Dropdown: React.FC = () => (
-  <div className="app-menu-profile-dropdown">
+  <div className="flex flex-col app-menu-profile-dropdown">
     {general.map(({
       type,
       icon,
@@ -35,7 +35,7 @@ const Dropdown: React.FC = () => (
             <button
               key={name}
               type="button"
-              className="flex p-8 text-p items-center app-menu-item"
+              className="flex p-8 text-p relative rounded-8 items-center app-menu-item"
             >
               <Icon
                 name={icon}
