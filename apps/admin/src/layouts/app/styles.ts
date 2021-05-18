@@ -24,7 +24,7 @@ const View = styled.div<Styles>`
       border-right: 1px solid ${gray[200]};
 
       &-item {
-        color: ${gray[500]};
+        color: ${gray[400]};
         transition: all .3s cubic-bezier(0.86, 0, 0.07, 1);
         font-weight: ${weight.medium};
 
@@ -38,7 +38,7 @@ const View = styled.div<Styles>`
           color: ${white};
           z-index: 2;
           background: ${primary[300]};
-          box-shadow: 0 .75rem 1.5rem ${rgba(primary[300], '.56')};
+          box-shadow: 0 1rem 1.5rem ${rgba(primary[300], '.48')};
         }
       }
 

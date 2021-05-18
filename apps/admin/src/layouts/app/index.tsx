@@ -26,7 +26,7 @@ const App: React.FC = () => {
       <div className="flex fixed p-24 flex-col h-screen app-menu">
         <Logo />
 
-        <div className="flex mt-96 flex-col space-y-16 app-menu-items">
+        <div className="flex mt-96 flex-col space-y-20 app-menu-items">
           {donor.map(({ icon, name, route }) => (
             <NavLink
               to={route}
