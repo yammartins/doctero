@@ -39,6 +39,7 @@ const Auth: React.FC = () => {
   return (
     <Layout
       title={title}
+      isScroll={false}
       description={description}
     >
       <Form

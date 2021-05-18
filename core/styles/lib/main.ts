@@ -33,6 +33,9 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /**
+   * Radio and Checkbox.
+   */
   .radio,
   .checkbox {
     &-box {
@@ -73,6 +76,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /**
+   * Input.
+   */
   .input {
     position: relative;
 
@@ -124,6 +130,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /**
+   * Button.
+   */
   .button {
     color: ${white};
     border: 1px solid transparent;
@@ -158,6 +167,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /**
+   * Tooltip.
+   */
   .tooltip {
     &-bubble {
       border: 1px solid ${gray[200]};
@@ -173,9 +185,34 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /**
+   * Multi radio.
+   */
   .multi-radio {
     position: relative;
   }
+
+  /**
+   * Scroll.
+   */
+   .is-scroll {
+    ::-webkit-scrollbar {
+      width: .25rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${gray[300]};
+      border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${gray[400]};
+    }
+   }
 `;
 
 export default GlobalStyles;

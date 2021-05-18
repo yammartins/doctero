@@ -1,12 +1,14 @@
 import { colors } from '@core/styles';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { StyledHandles } from './types';
 
 const {
   gray,
   primary,
 } = colors;
 
-const View = styled.div`
+const View = styled.div<StyledHandles>`
   .auth {
     &-form {
       .input:not(:first-of-type) {
@@ -73,6 +75,17 @@ const View = styled.div`
         white-space: break-spaces;
       }
     }
+
+    ${({ isScroll }) => isScroll && css`
+      &-footer {
+        margin-top: 4rem;
+      }
+
+      &-wrapper {
+        overflow-y: auto;
+        padding-top: 4rem;
+      }
+    `}
   }
 `;
 

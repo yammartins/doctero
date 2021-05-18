@@ -10,6 +10,7 @@ const Auth: React.FC<Handles> = ({
   type = 'auth',
   title,
   children,
+  isScroll = true,
   description,
 }) => {
   const {
@@ -30,8 +31,11 @@ const Auth: React.FC<Handles> = ({
   };
 
   return (
-    <View className="flex auth h-screen">
-      <div className="flex pb-24 px-64 w-full flex-col auth-wrapper">
+    <View
+      isScroll={isScroll}
+      className="flex auth h-screen"
+    >
+      <div className="flex pb-24 px-64 w-full flex-col auth-wrapper is-scroll">
         {title && (
           <div className="flex mb-16 auth-title items-center">
             <Icon
