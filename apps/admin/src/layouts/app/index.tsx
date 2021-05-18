@@ -19,7 +19,7 @@ const App: React.FC = () => {
       className="app flex h-full relative"
     >
       <div className="flex fixed p-24 flex-col h-screen app-menu">
-        <Logo />
+        <Logo className="w-full" />
 
         <div className="flex mt-96 flex-col space-y-20 app-menu-items">
           {donor.map(({ name, ...rest }) => (
@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
         <div className="mt-auto pt-24 app-menu-profile">
           <Tooltip
-            content={<Dropdown />}
+            content={<Dropdown name="Raquel Prado" status="Doadora VIP" />}
             className="z-50 cursor-pointer"
             transition="click"
             orientation="right-bottom"
@@ -44,7 +44,7 @@ const App: React.FC = () => {
               className="w-48 h-48 rounded-full"
             />
 
-            <User />
+            <User name="Raquel Prado" status="Doadora VIP" />
           </Tooltip>
         </div>
 

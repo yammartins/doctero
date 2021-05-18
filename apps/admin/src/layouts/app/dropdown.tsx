@@ -4,10 +4,11 @@ import { Icon } from '@uxoctopus/core';
 
 import { general } from '../../data';
 import { Item, User } from './button';
+import { UserHandles } from './types';
 
-const Dropdown: React.FC = () => (
+const Dropdown: React.FC<UserHandles> = (props) => (
   <div className="flex flex-col app-menu-profile-dropdown">
-    <User />
+    <User {...props} />
 
     {general.map(({
       type,

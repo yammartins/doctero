@@ -60,12 +60,21 @@ const View = styled.div<Styles>`
       &-profile {
         border-top: 1px solid ${gray[200]};
 
+        img {
+          min-width: 3rem;
+        }
+
         &-name {
           color: ${gray[600]};
 
           .text-span {
             color: ${gray[400]};
           }
+        }
+
+        &-dropdown .app-menu-profile-name {
+          display: none;
+          margin-bottom:.5rem;
         }
 
         .tooltip-wrapper {
@@ -80,6 +89,10 @@ const View = styled.div<Styles>`
         width: 5rem;
         padding: 1.5rem 1rem;
 
+        &-button {
+          transform: rotate(-180deg);
+        }
+
         &-items .app-menu-item {
           justify-content: center;
 
@@ -88,6 +101,16 @@ const View = styled.div<Styles>`
             opacity: 0;
             position: absolute;
             pointer-events: none;
+          }
+        }
+
+        &-profile {
+          &-name {
+            display: none;
+          }
+
+          &-dropdown .app-menu-profile-name {
+            display: block;
           }
         }
       }

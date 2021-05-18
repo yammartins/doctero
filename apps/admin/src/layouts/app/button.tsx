@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 import { Text, Icon } from '@uxoctopus/core';
 import { reduce } from '@uxoctopus/helpers';
 
-import { ItemHandles } from './types';
+import { UserHandles, ItemHandles } from './types';
 
-export const User: React.FC = () => (
-  <div className="ml-12 app-menu-profile-name">
-    <Text label={reduce('Raquel Prado', 12)} weight="700" />
+export const User: React.FC<UserHandles> = ({ name, status }) => (
+  <div className="ml-12 whitespace-nowrap app-menu-profile-name">
+    <Text label={reduce(name, 12)} weight="700" />
 
-    <Text type="span" label="Doadora VIP" weight="400" />
+    <Text type="span" label={status} weight="400" />
   </div>
 );
 
