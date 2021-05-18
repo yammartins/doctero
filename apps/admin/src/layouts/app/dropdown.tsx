@@ -1,12 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import { Icon } from '@uxoctopus/core';
 
 import { general } from '../../data';
+import { Item, User } from './button';
 
 const Dropdown: React.FC = () => (
   <div className="flex flex-col app-menu-profile-dropdown">
+    <User />
+
     {general.map(({
       type,
       icon,
@@ -16,18 +18,12 @@ const Dropdown: React.FC = () => (
       switch (type) {
         case 'LINK':
           return (
-            <NavLink
-              to={route || ''}
+            <Item
               key={name}
-              className="flex p-8 text-p relative rounded-8 items-center app-menu-item"
-            >
-              <Icon
-                name={icon}
-                className="mr-12"
-              />
-
-              {name}
-            </NavLink>
+              icon={icon}
+              name={name}
+              route={route || ''}
+            />
           );
 
         case 'BUTTON':

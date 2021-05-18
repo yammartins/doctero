@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import User from '@core/assets/images/user.png';
+import Picture from '@core/assets/images/user.png';
 import { ReactComponent as Logo } from '@core/assets/svgs/logo.svg';
-import {
-  Icon,
-  Text,
-  Button,
-  Tooltip,
-} from '@uxoctopus/core';
-import { reduce } from '@uxoctopus/helpers';
+import { Button, Tooltip } from '@uxoctopus/core';
 
 import { donor } from '../../data';
+import { User, Item } from './button';
 import Dropdown from './dropdown';
 import View from './styles';
 
@@ -27,19 +22,12 @@ const App: React.FC = () => {
         <Logo />
 
         <div className="flex mt-96 flex-col space-y-20 app-menu-items">
-          {donor.map(({ icon, name, route }) => (
-            <NavLink
-              to={route}
-              key={route}
-              className="flex p-8 text-p relative rounded-8 items-center app-menu-item"
-            >
-              <Icon
-                name={icon}
-                className="mr-12"
-              />
-
-              {name}
-            </NavLink>
+          {donor.map(({ name, ...rest }) => (
+            <Item
+              {...rest}
+              key={name}
+              name={name}
+            />
           ))}
         </div>
 
@@ -48,19 +36,15 @@ const App: React.FC = () => {
             content={<Dropdown />}
             className="z-50 cursor-pointer"
             transition="click"
-            orientation="right-center"
+            orientation="right-bottom"
           >
             <img
-              src={User}
+              src={Picture}
               alt=""
               className="w-48 h-48 rounded-full"
             />
 
-            <div className="ml-12 app-menu-profile-name">
-              <Text label={reduce('Raquel Prado', 12)} weight="700" />
-
-              <Text type="span" label="Doadora VIP" weight="400" />
-            </div>
+            <User />
           </Tooltip>
         </div>
 

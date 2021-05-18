@@ -1,6 +1,6 @@
-import { colors, typograph } from '@core/styles';
+import { colors, easing } from '@core/styles';
 import { rgba } from '@uxoctopus/helpers';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const {
   gray,
@@ -9,8 +9,8 @@ const {
 } = colors;
 
 const {
-  weight,
-} = typograph;
+  rubber,
+} = easing;
 
 interface Styles {
   drawer: boolean,
@@ -20,13 +20,17 @@ const View = styled.div<Styles>`
   .app {
     &-menu {
       width: 14rem;
+      transition: all .6s ${rubber};
       background: ${gray[100]};
       border-right: 1px solid ${gray[200]};
 
       &-item {
         color: ${gray[400]};
         transition: all .3s cubic-bezier(0.86, 0, 0.07, 1);
-        font-weight: ${weight.medium};
+
+        & > p {
+          transition: all .6s ${rubber};
+        }
 
         &:focus,
         &:hover {
@@ -70,6 +74,24 @@ const View = styled.div<Styles>`
         }
       }
     }
+
+    ${({ drawer }) => drawer && css`
+      &-menu {
+        width: 5rem;
+        padding: 1.5rem 1rem;
+
+        &-items .app-menu-item {
+          justify-content: center;
+
+          > p {
+            left: -1rem;
+            opacity: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+        }
+      }
+    `}
   }
 `;
 

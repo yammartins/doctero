@@ -3,6 +3,10 @@ export {
 } from './colors';
 
 export {
+  default as easing,
+} from './easing';
+
+export {
   default as typograph,
 } from './typograph';
 
