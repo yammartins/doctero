@@ -81,6 +81,11 @@ const GlobalStyles = createGlobalStyle`
       color: ${gray[400]};
     }
 
+    &-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
     &.is-error & {
       &-label {
         color: ${danger};

@@ -57,7 +57,7 @@ const App: React.FC = () => {
         />
       </div>
 
-      <div className="app-wrapper">
+      <div className="p-56 w-full h-full app-wrapper">
         <Outlet />
       </div>
     </View>

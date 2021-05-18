@@ -1,5 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const App: React.FC = () => <h1>Olá</h1>;
+import { Head } from '../layouts';
+
+const App: React.FC = () => {
+  const [search, onSearch] = useState('');
+
+  return (
+    <div>
+      <Head
+        title="Dashboard"
+        search={search}
+        onSearch={onSearch}
+      />
+    </div>
+  );
+};
 
 export default App;

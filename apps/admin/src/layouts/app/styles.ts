@@ -84,6 +84,11 @@ const View = styled.div<Styles>`
       }
     }
 
+    &-wrapper {
+      transition: all .6s ${rubber};
+      padding-left: 18rem;
+    }
+
     ${({ drawer }) => drawer && css`
       &-menu {
         width: 5rem;
@@ -113,6 +118,10 @@ const View = styled.div<Styles>`
             display: block;
           }
         }
+      }
+
+      &-wrapper {
+        padding-left: 9rem;
       }
     `}
   }
