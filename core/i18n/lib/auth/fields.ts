@@ -51,6 +51,11 @@ const fields = {
     required: 'Digite sua senha.',
   },
 
+  observation: {
+    label: 'Descreva sua necessidade',
+    required: 'Digite quais são as suas necessidades',
+  },
+
   neighborhood: {
     label: 'Bairro',
     required: 'Digite o bairro da sua residência.',

@@ -9,6 +9,7 @@ export {
   address,
   document,
   password,
+  observation,
   neighborhood,
   confirm_password,
 } from './auth';

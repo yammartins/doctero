@@ -46,6 +46,7 @@ const Signup: React.FC = () => {
     grantee,
     document,
     password,
+    observation,
     neighborhood,
   } = fields;
 
@@ -60,6 +61,7 @@ const Signup: React.FC = () => {
       phone: schema.phone,
       address: schema.address,
       document: donatory ? schema.document : undefined,
+      observation: donatory ? schema.observation : undefined,
     },
   };
 
@@ -160,6 +162,14 @@ const Signup: React.FC = () => {
                 />
               </div>
             </Scope>
+
+            {donatory && (
+              <FormInput
+                name="observation"
+                typed="textarea"
+                label={observation.label}
+              />
+            )}
           </div>
 
           <Button
