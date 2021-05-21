@@ -2001,10 +2001,10 @@
     react-input-mask "3.0.0-alpha.2"
     react-select "^4.3.0"
 
-"@uxoctopus/helpers@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/helpers/-/helpers-0.0.2.tgz#09cd14be9ba64e53797f1438ef66ab774010b02e"
-  integrity sha512-yrG8FDHfVdeRU+RKVyIaY8aSwDz7jnNNmGZ69EB7TjIr8CNBdkZY3uSVQoNPyeCvJCn/GVQ6Zr3MAoH5eItN1Q==
+"@uxoctopus/helpers@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/helpers/-/helpers-0.0.4.tgz#3ca2b49b5ab8902411987fbb07d0edb2a520fd25"
+  integrity sha512-B9vNMlf44CHKhz/90Nl+sBlrnsJ6bQbZwXD8HfTpu2CPrrUsmU1FDA5NZ6JrgIuRIJqZVZP26AGuGGPVct2Btg==
   dependencies:
     "@unform/core" "^2.1.6"
     yup "^0.32.9"
