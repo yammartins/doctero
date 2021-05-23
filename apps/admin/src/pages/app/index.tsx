@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 
-import { Head } from '../layouts';
+import { Head } from '../../layouts';
+import View from './styles';
 
 const App: React.FC = () => {
   const [display, onDisplay] = useState<'list' | 'grid'>('list');
 
-  console.log(display);
-
   return (
-    <div>
+    <View>
       <Head
         title="Dashboard"
         display={display}
         onDisplay={onDisplay}
       />
-    </div>
+    </View>
   );
 };
 
