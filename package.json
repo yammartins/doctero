@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@unform/web": "^2.1.6",
-    "@uxoctopus/core": "^0.0.20",
+    "@uxoctopus/core": "^0.0.23",
     "@uxoctopus/helpers": "^0.0.4",
     "@uxoctopus/styles": "^0.0.15",
     "react": "^17.0.2",

@@ -1980,10 +1980,10 @@
   dependencies:
     "@unform/core" "2.1.6"
 
-"@uxoctopus/core@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.0.20.tgz#7441bceda0d78b2acd2f5247edfb3e591575d542"
-  integrity sha512-opt40C6CRLYF3OYEu3jjUDGXGqOeqDZPQU+OOpBQB2OemLfXM7prP0HdbN9f5DvHIXVWsqhJA704cCZYMEHxkQ==
+"@uxoctopus/core@^0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.0.23.tgz#de7cb3a2768c9b35bd4ca0a029b70d649c9b6e1a"
+  integrity sha512-r1bvzUc89lnRmcJtxJ9KpYTQ8jPAGDmFZLHqIzPSTOp3YVrqpykD0hQJ4Xb55rAx6KiMXhbpn7J4MU4vsWpGkw==
   dependencies:
     "@emotion/is-prop-valid" "^1.1.0"
     "@unform/core" "^2.1.6"
