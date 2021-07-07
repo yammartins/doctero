@@ -5,13 +5,14 @@
   "author": "Yuri Martins",
   "private": false,
   "scripts": {
-    "dev": "next",
+    "dev": "dotenv -e ../../.env -- next",
     "build": "next build"
   },
   "dependencies": {
     "@core/components": "*",
     "@core/i18n": "*",
     "@core/schemas": "*",
+    "@core/services": "*",
     "@core/styles": "*",
     "next": "^11.0.1"
   },

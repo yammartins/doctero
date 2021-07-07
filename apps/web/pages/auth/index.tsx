@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 
 import { auth, fields } from '@core/i18n';
 import * as schema from '@core/schemas';
+import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
@@ -30,11 +31,16 @@ const Auth: React.FC = () => {
   } = fields;
 
   const schemas = {
-    email: schema.email,
+    username: schema.email,
     password: schema.password,
   };
 
-  const submit = useCallback(async () => null, []);
+  const submit = useCallback(async (form) => {
+    await api.post('/login', form)
+      .then(({ data }) => {
+        console.log(data);
+      });
+  }, []);
 
   return (
     <Layout
@@ -48,7 +54,7 @@ const Auth: React.FC = () => {
         className="flex flex-col"
       >
         <FormInput
-          name="email"
+          name="username"
           label={email.label}
         />
 

@@ -1,5 +1,5 @@
 {
-  "name": "@core/auth",
+  "name": "@core/services",
   "main": "dist/index.js",
   "source": "lib/index.ts",
   "author": "Yuri Martins",
@@ -8,17 +8,12 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "babel lib --out-dir ./dist -D --extensions '.ts,.tsx'"
+    "build": "babel lib --out-dir ./dist -D --extensions '.ts,.tsx'",
+    "watch": "babel lib --watch --out-dir ./dist -D --extensions '.ts,.tsx'"
   },
   "babel": {
     "presets": [
       "module:@core/babel"
     ]
-  },
-  "dependencies": {
-    "js-cookie": "^2.2.1"
-  },
-  "devDependencies": {
-    "@types/js-cookie": "^2.2.7"
   }
 }
