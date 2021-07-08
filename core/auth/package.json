@@ -1,7 +1,6 @@
 {
   "name": "@core/auth",
-  "main": "dist/index.js",
-  "source": "lib/index.ts",
+  "main": "lib/index.ts",
   "author": "Yuri Martins",
   "version": "0.0.1",
   "private": false,

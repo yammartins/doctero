@@ -5,6 +5,7 @@ import { StyledHandles } from './types';
 
 const {
   gray,
+  danger,
   primary,
 } = colors;
 
@@ -76,7 +77,11 @@ const View = styled.div<StyledHandles>`
       }
     }
 
-    ${({ isScroll }) => isScroll && css`
+    &-error {
+      color: ${danger} !important;
+    }
+
+    ${({ scroll }) => scroll && css`
       &-footer {
         margin-top: 4rem;
       }

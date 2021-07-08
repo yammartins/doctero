@@ -188,7 +188,6 @@ const Signup: React.FC = () => {
           />
 
           <Text
-            type="p"
             label={success.message}
             className="text-center"
           />

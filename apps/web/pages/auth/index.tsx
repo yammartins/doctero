@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react';
 
 import { auth, fields } from '@core/i18n';
 import * as schema from '@core/schemas';
@@ -12,6 +12,8 @@ import { useRouter } from 'next/router';
 import { Auth as Layout } from '../../layouts';
 
 const Auth: React.FC = () => {
+  const [status, onStatus] = useState({ error: false, loading: false });
+
   const {
     push,
   } = useRouter();
@@ -27,6 +29,7 @@ const Auth: React.FC = () => {
 
   const {
     email,
+    feedback,
     password,
   } = fields;
 
@@ -36,16 +39,17 @@ const Auth: React.FC = () => {
   };
 
   const submit = useCallback(async (form) => {
+    onStatus({ loading: true, error: false });
+
     await api.post('/login', form)
-      .then(({ data }) => {
-        console.log(data);
-      });
+      .then(() => window.location.replace(process.env.ADMIN_URL || ''))
+      .catch(() => onStatus({ loading: false, error: true }));
   }, []);
 
   return (
     <Layout
       title={title}
-      isScroll={false}
+      scroll={false}
       description={description}
     >
       <Form
@@ -72,10 +76,18 @@ const Auth: React.FC = () => {
         />
 
         <Button
-          label={button}
+          label={status.loading ? feedback.loading : button}
           submit
         />
       </Form>
+
+      {status.error && (
+        <Text
+          type="span"
+          label={feedback.error}
+          className="flex mt-16 justify-center auth-error"
+        />
+      )}
     </Layout>
   );
 };

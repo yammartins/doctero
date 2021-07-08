@@ -1,10 +1,10 @@
 export interface Handles {
   type?: 'auth' | 'signup',
   title?: string,
-  isScroll?: boolean,
+  scroll?: boolean,
   description?: string,
 }
 
 export interface StyledHandles {
-  isScroll: boolean,
+  scroll: boolean,
 }

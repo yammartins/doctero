@@ -51,7 +51,6 @@ const Password: React.FC = () => {
           />
 
           <Text
-            type="p"
             label={recover.feedback}
             className="text-center"
           />

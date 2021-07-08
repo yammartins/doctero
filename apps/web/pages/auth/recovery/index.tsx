@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../../layouts';
 
-const Auth: React.FC = () => {
+const Recovery: React.FC = () => {
   const {
     push,
   } = useRouter();
@@ -88,4 +88,4 @@ const Auth: React.FC = () => {
   );
 };
 
-export default Auth;
+export default Recovery;

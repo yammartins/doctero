@@ -1,8 +1,7 @@
 {
   "name": "@core/styles",
-  "main": "dist/index.js",
+  "main": "lib/index.ts",
   "author": "Yuri Martins",
-  "source": "lib/index.ts",
   "version": "0.0.1",
   "private": false,
   "license": "MIT",

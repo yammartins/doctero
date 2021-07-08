@@ -1,7 +1,6 @@
 {
   "name": "@core/i18n",
-  "main": "dist/index.js",
-  "source": "lib/index.ts",
+  "main": "lib/index.ts",
   "author": "Yuri Martins",
   "version": "0.0.1",
   "private": false,
@@ -15,11 +14,5 @@
     "presets": [
       "module:@core/babel"
     ]
-  },
-  "dependencies": {
-    "react-lottie": "^1.2.3"
-  },
-  "devDependencies": {
-    "@types/react-lottie": "^1.2.5"
   }
 }

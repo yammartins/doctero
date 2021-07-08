@@ -53,25 +53,16 @@ const Auth: React.FC<Handles> = ({
           </div>
         )}
 
-        {description && (
-          <Text
-            type="p"
-            label={description}
-          />
-        )}
+        {description && <Text label={description} />}
 
         <div className="mt-48 auth-form">
           {children}
         </div>
 
         <div className="flex mt-auto flex-col items-center auth-footer">
-          <Text
-            type="p"
-            label={footer[type].labels[0]}
-          />
+          <Text label={footer[type].labels[0]} />
 
           <Text
-            type="p"
             label={footer[type].labels[1]}
             weight="800"
             onClick={() => push(footer[type].route)}

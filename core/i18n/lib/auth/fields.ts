@@ -40,6 +40,11 @@ const fields = {
     tooltip: 'Se precisa de ajuda financeira, alimentícia.',
   },
 
+  feedback: {
+    error: 'Dados incorretos, tente novamente.',
+    loading: 'Carregando...',
+  },
+
   document: {
     label: 'CPF',
     valid: 'Digite um CPF válido.',
