@@ -42,6 +42,7 @@
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lottie": "^1.2.3",
     "styled-components": "^5.3.0",
     "yup": "^0.32.9"
   },
@@ -51,6 +52,7 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/react-lottie": "^1.2.6",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",

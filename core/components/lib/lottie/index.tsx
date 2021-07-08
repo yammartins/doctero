@@ -1,8 +1,6 @@
 import Lottie from 'react-lottie';
 
-import EmailSend from '@core/assets/animations/email-send.json';
-import Email from '@core/assets/animations/email.json';
-import Success from '@core/assets/animations/success.json';
+import { Email, Success, EmailSend } from '@core/assets';
 
 import { Handles } from './types';
 

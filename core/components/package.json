@@ -14,11 +14,5 @@
     "presets": [
       "module:@core/babel"
     ]
-  },
-  "dependencies": {
-    "react-lottie": "^1.2.3"
-  },
-  "devDependencies": {
-    "@types/react-lottie": "^1.2.6"
   }
 }
