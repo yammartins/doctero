@@ -9,8 +9,8 @@ import { Handles } from './types';
 const Auth: React.FC<Handles> = ({
   type = 'auth',
   title,
+  scroll = true,
   children,
-  isScroll = true,
   description,
 }) => {
   const {
@@ -32,7 +32,7 @@ const Auth: React.FC<Handles> = ({
 
   return (
     <View
-      isScroll={isScroll}
+      scroll={scroll}
       className="flex auth h-screen"
     >
       <div className="flex pb-24 px-64 w-full flex-col auth-wrapper is-scroll">

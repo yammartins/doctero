@@ -33,7 +33,7 @@ export const document = Yup.string()
 export const password = Yup.string()
   .required(fields.password.required);
 
-export const observation = Yup.string()
+export const description = Yup.string()
   .required(fields.observation.required);
 
 export const neighborhood = Yup.string()
@@ -55,3 +55,7 @@ export const address = Yup.array().of(
     neighborhood,
   }),
 );
+
+export const observation = Yup.object().shape({
+  description,
+});

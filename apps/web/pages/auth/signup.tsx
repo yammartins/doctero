@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { Lottie } from '@core/components';
 import { fields, signup } from '@core/i18n';
 import * as schema from '@core/schemas';
+import { api } from '@core/services';
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import {
@@ -16,6 +16,7 @@ import {
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
+import { Lottie } from '../../components';
 import { Auth as Layout } from '../../layouts';
 
 const Signup: React.FC = () => {
@@ -24,6 +25,7 @@ const Signup: React.FC = () => {
   } = useRouter();
 
   const [step, onStep] = useState(1);
+  const [status, onStatus] = useState({ error: false, loading: false });
   const [donatory, onDonatory] = useState(false);
 
   const ref = useRef<FormHandles>(null);
@@ -46,6 +48,7 @@ const Signup: React.FC = () => {
     grantee,
     document,
     password,
+    feedback,
     observation,
     neighborhood,
   } = fields;
@@ -60,14 +63,53 @@ const Signup: React.FC = () => {
     two: {
       phone: schema.phone,
       address: schema.address,
+      request: donatory ? schema.observation : undefined,
       document: donatory ? schema.document : undefined,
-      observation: donatory ? schema.observation : undefined,
     },
   };
 
-  const submit = useCallback(async () => {
-    onStep((current) => current + 1);
-  }, []);
+  /**
+   * Submit for create user.
+   */
+  const submit = useCallback(async (data) => {
+    if (step === 1) {
+      onStep((current) => current + 1);
+
+      return;
+    }
+
+    if (step === 2) {
+      const {
+        request: message,
+        ...user
+      } = data;
+
+      onStatus({ loading: true, error: false });
+
+      await api.post('/user', {
+        user,
+        request: message,
+      })
+        .then(() => {
+          onStep((current) => current + 1);
+          onStatus({ loading: false, error: false });
+        })
+        .catch(() => onStatus({ loading: false, error: true }));
+    }
+  }, [step]);
+
+  /**
+   * Label of button.
+   */
+  const label = (): string => {
+    if (status.loading) return feedback.loading;
+
+    if (step === 1) return button.one;
+
+    if (step !== 1) return button.two;
+
+    return '';
+  };
 
   return (
     <Layout
@@ -164,18 +206,28 @@ const Signup: React.FC = () => {
             </Scope>
 
             {donatory && (
-              <FormInput
-                name="observation"
-                typed="textarea"
-                label={observation.label}
-              />
+              <Scope path="request">
+                <FormInput
+                  name="description"
+                  typed="textarea"
+                  label={observation.label}
+                />
+              </Scope>
             )}
           </div>
 
           <Button
-            label={step === 1 ? button.one : button.two}
+            label={label()}
             submit
           />
+
+          {status.error && (
+            <Text
+              type="span"
+              label={feedback.error}
+              className="flex mt-16 justify-center auth-error"
+            />
+          )}
         </Form>
       )}
 

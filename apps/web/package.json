@@ -8,6 +8,11 @@
     "dev": "dotenv -e ../../.env -- next",
     "build": "next build"
   },
+  "babel": {
+    "presets": [
+      "module:@core/babel"
+    ]
+  },
   "dependencies": {
     "next": "^11.0.1"
   },
