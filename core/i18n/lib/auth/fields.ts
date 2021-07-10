@@ -4,6 +4,11 @@ const fields = {
     required: 'Digite o nome da sua cidade.',
   },
 
+  code: {
+    label: 'Código',
+    required: 'Digite o código recebido no e-mail.',
+  },
+
   name: {
     label: 'Nome completo',
     required: 'Digite seu nome completo.',

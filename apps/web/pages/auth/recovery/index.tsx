@@ -1,14 +1,15 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { Lottie } from '@core/components';
 import { fields, recovery } from '@core/i18n';
 import { email as schema } from '@core/schemas';
+import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
+import { Lottie } from '../../../components';
 import { Auth as Layout } from '../../../layouts';
 
 const Recovery: React.FC = () => {
@@ -17,11 +18,13 @@ const Recovery: React.FC = () => {
   } = useRouter();
 
   const [send, onSend] = useState(false);
+  const [loading, onLoading] = useState(false);
 
   const ref = useRef<FormHandles>(null);
 
   const {
     email,
+    feedback,
   } = fields;
 
   const {
@@ -31,11 +34,18 @@ const Recovery: React.FC = () => {
     description,
   } = recovery;
 
-  const submit = useCallback(async () => onSend(true), []);
+  /**
+   * Submit for reset password.
+   */
+  const submit = useCallback(async (data) => {
+    onLoading(true);
 
-  const schemas = {
-    email: schema,
-  };
+    await api.post('/user/password', data)
+      .then(() => {
+        onSend(true);
+        onLoading(false);
+      });
+  }, []);
 
   return (
     <Layout
@@ -61,7 +71,7 @@ const Recovery: React.FC = () => {
 
           <Button
             label={button.two}
-            onClick={() => push('/auth')}
+            onClick={() => push('/auth/recovery/password')}
             className="mt-24"
           />
         </div>
@@ -70,7 +80,7 @@ const Recovery: React.FC = () => {
       {! send && (
         <Form
           ref={ref}
-          onSubmit={(data) => request(submit, ref, data, schemas)}
+          onSubmit={(data) => request(submit, ref, data, { email: schema })}
           className="mt-48"
         >
           <FormInput
@@ -79,7 +89,7 @@ const Recovery: React.FC = () => {
           />
 
           <Button
-            label={button.one}
+            label={loading ? feedback.loading : button.one}
             submit
           />
         </Form>

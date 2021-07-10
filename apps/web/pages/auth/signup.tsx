@@ -114,6 +114,7 @@ const Signup: React.FC = () => {
   return (
     <Layout
       type="signup"
+      error={status.error}
       title={step !== 3 ? title : success.title}
       description={step !== 3 ? description : success.description}
     >
@@ -220,14 +221,6 @@ const Signup: React.FC = () => {
             label={label()}
             submit
           />
-
-          {status.error && (
-            <Text
-              type="span"
-              label={feedback.error}
-              className="flex mt-16 justify-center auth-error"
-            />
-          )}
         </Form>
       )}
 

@@ -49,6 +49,7 @@ const Auth: React.FC = () => {
   return (
     <Layout
       title={title}
+      error={status.error}
       scroll={false}
       description={description}
     >
@@ -80,14 +81,6 @@ const Auth: React.FC = () => {
           submit
         />
       </Form>
-
-      {status.error && (
-        <Text
-          type="span"
-          label={feedback.error}
-          className="flex mt-16 justify-center auth-error"
-        />
-      )}
     </Layout>
   );
 };

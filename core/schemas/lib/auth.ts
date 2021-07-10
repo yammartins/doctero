@@ -7,6 +7,9 @@ import * as Yup from 'yup';
 export const city = Yup.string()
   .required(fields.city.required);
 
+export const code = Yup.string()
+  .required(fields.code.required);
+
 export const name = Yup.string()
   .required(fields.name.required);
 
