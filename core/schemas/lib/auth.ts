@@ -1,50 +1,49 @@
-import { fields } from '@core/i18n';
 import * as Yup from 'yup';
 
 /**
  * Fields.
  */
 export const city = Yup.string()
-  .required(fields.city.required);
+  .required('Digite o nome da sua cidade.');
 
 export const code = Yup.string()
-  .required(fields.code.required);
+  .required('Digite o código recebido no e-mail.');
 
 export const name = Yup.string()
-  .required(fields.name.required);
+  .required('Digite seu nome completo.');
 
 export const email = Yup.string()
-  .email(fields.email.valid)
-  .required(fields.email.required);
+  .email('Digite um e-mail válido.')
+  .required('Digite um e-mail.');
 
 export const state = Yup.string()
-  .required(fields.state.required);
+  .required('Digite seu estado.');
 
 export const phone = Yup.string()
-  .required(fields.phone.required);
+  .required('Digite seu telefone para contato.');
 
 export const street = Yup.string()
-  .required(fields.street.required);
+  .required('Digite seu endereço.');
 
 export const number = Yup.string()
-  .required(fields.number.required);
+  .required('Digite o número da sua residência.');
 
 export const document = Yup.string()
-  .min(14, fields.document.valid)
-  .required(fields.document.required);
+  .min(14, 'Digite um CPF válido.')
+  .required('Digite um CPF.');
 
 export const password = Yup.string()
-  .required(fields.password.required);
+  .required('Digite sua senha.');
 
 export const description = Yup.string()
-  .required(fields.observation.required);
+  .required('Digite quais são as suas necessidades.');
 
 export const neighborhood = Yup.string()
-  .required(fields.neighborhood.required);
+  .required('Digite o bairro da sua residência.');
 
 export const confirm_password = Yup.string()
-  .oneOf([Yup.ref('password'), null], fields.confirm_password.valid)
-  .required(fields.confirm_password.required);
+  .oneOf([Yup.ref('password'), null], 'As senhas precisam ser iguais.')
+  .required('Digite a confirmação da senha.');
 
 /**
  * Groups.

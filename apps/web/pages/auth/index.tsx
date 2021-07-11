@@ -1,6 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { auth, fields } from '@core/i18n';
 import * as schema from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
@@ -21,22 +20,9 @@ const Auth: React.FC = () => {
   const ref = useRef<FormHandles>(null);
 
   const {
-    title,
-    button,
-    recovery,
-    description,
-  } = auth;
-
-  const {
     email,
-    feedback,
     password,
-  } = fields;
-
-  const schemas = {
-    username: schema.email,
-    password: schema.password,
-  };
+  } = schema;
 
   const submit = useCallback(async (form) => {
     onStatus({ loading: true, error: false });
@@ -48,36 +34,36 @@ const Auth: React.FC = () => {
 
   return (
     <Layout
-      title={title}
+      title="Entrar"
       error={status.error}
       scroll={false}
-      description={description}
+      description="Acesse sua conta para ter acesso à todas as suas informações."
     >
       <Form
         ref={ref}
-        onSubmit={(data) => request(submit, ref, data, schemas)}
+        onSubmit={(data) => request(submit, ref, data, { email, password })}
         className="flex flex-col"
       >
         <FormInput
           name="username"
-          label={email.label}
+          label="E-mail"
         />
 
         <FormInput
           name="password"
-          label={password.label}
+          label="Senha"
           isPassword
         />
 
         <Text
           type="span"
-          label={recovery}
+          label="Esqueceu a senha?"
           onClick={() => push('/auth/recovery')}
           className="ml-auto mt-16 cursor-pointer"
         />
 
         <Button
-          label={status.loading ? feedback.loading : button}
+          label={status.loading ? 'Carregando' : 'Entrar'}
           submit
         />
       </Form>

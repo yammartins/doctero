@@ -1,19 +1,17 @@
-import { routes } from '@core/i18n';
-
 export const donor = [
   {
     icon: 'template',
-    name: routes.dashboard,
+    name: 'Dashboard',
     route: '/',
   },
   {
     icon: 'collection', // cube
-    name: routes.products,
+    name: 'Meus produtos',
     route: '/products',
   },
   {
     icon: 'chart-bar',
-    name: routes.requests,
+    name: 'Solicitações',
     route: '/requests',
   },
 ];
@@ -24,19 +22,19 @@ export const general = [
   {
     type: 'LINK',
     icon: 'support',
-    name: routes.support,
+    name: 'Suporte',
     route: '/support',
   },
   {
     type: 'LINK',
     icon: 'cog',
-    name: routes.settings,
+    name: 'Configurações',
     route: '/settings',
   },
   {
     type: 'BUTTON',
     icon: 'logout',
-    name: routes.logout,
+    name: 'Sair',
   },
 ];
 

@@ -1,7 +1,6 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { fields, recovery } from '@core/i18n';
-import * as schema from '@core/schemas';
+import { code, password, confirm_password } from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -21,23 +20,6 @@ const Password: React.FC = () => {
   const [status, onStatus] = useState({ error: false, loading: false });
 
   const ref = useRef<FormHandles>(null);
-
-  const {
-    button,
-    recover,
-  } = recovery;
-
-  const {
-    code,
-    password,
-    confirm_password,
-  } = fields;
-
-  const schemas = {
-    code: schema.code,
-    password: schema.password,
-    confirm_password: schema.confirm_password,
-  };
 
   /**
    * Submit for reset password.
@@ -59,8 +41,8 @@ const Password: React.FC = () => {
   return (
     <Layout
       error={status.error}
-      title={recover.title}
-      description={recover.description}
+      title="Redefinir senha"
+      description="Digite uma nova senha e sua confirmação."
     >
       {send && (
         <div className="flex flex-col recovery-send">
@@ -71,12 +53,12 @@ const Password: React.FC = () => {
           />
 
           <Text
-            label={recover.feedback}
+            label="Senha alterada com sucesso."
             className="text-center"
           />
 
           <Button
-            label={button.three}
+            label="Ir para a tela de login"
             onClick={() => push('/auth')}
             className="mt-24"
           />
@@ -86,28 +68,28 @@ const Password: React.FC = () => {
       {! send && (
         <Form
           ref={ref}
-          onSubmit={(data) => request(submit, ref, data, schemas)}
+          onSubmit={(data) => request(submit, ref, data, { code, password, confirm_password })}
           className="flex flex-col"
         >
           <FormInput
             name="code"
-            label={code.label}
+            label="Código"
           />
 
           <FormInput
             name="password"
-            label={password.label}
+            label="Senha"
             isPassword
           />
 
           <FormInput
             name="confirm_password"
-            label={confirm_password.label}
+            label="Confirmação de senha"
             isPassword
           />
 
           <Button
-            label={recover.button}
+            label="Alterar senha"
             submit
           />
         </Form>

@@ -1,7 +1,6 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { fields, recovery } from '@core/i18n';
-import { email as schema } from '@core/schemas';
+import { email } from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -22,18 +21,6 @@ const Recovery: React.FC = () => {
 
   const ref = useRef<FormHandles>(null);
 
-  const {
-    email,
-    feedback,
-  } = fields;
-
-  const {
-    sent,
-    title,
-    button,
-    description,
-  } = recovery;
-
   /**
    * Submit for reset password.
    */
@@ -49,8 +36,10 @@ const Recovery: React.FC = () => {
 
   return (
     <Layout
-      title={title}
-      description={! send ? description : ''}
+      title="Recuperar senh"
+      description={! send
+        ? 'Não lembra a senha? \nÉ fácil, basta digitar seu e-mail.'
+        : ''}
     >
       <div className="auth-lottie">
         <Lottie
@@ -65,12 +54,12 @@ const Recovery: React.FC = () => {
         <div className="flex mt-48 flex-col auth-send">
           <Text
             type="p"
-            label={sent}
+            label="Enviamos um e-mail com um \ncódigo para você alterar a senha."
             className="text-center"
           />
 
           <Button
-            label={button.two}
+            label="Cadastrar nova senha"
             onClick={() => push('/auth/recovery/password')}
             className="mt-24"
           />
@@ -80,16 +69,16 @@ const Recovery: React.FC = () => {
       {! send && (
         <Form
           ref={ref}
-          onSubmit={(data) => request(submit, ref, data, { email: schema })}
+          onSubmit={(data) => request(submit, ref, data, { email })}
           className="mt-48"
         >
           <FormInput
             name="email"
-            label={email.label}
+            label="E-mail"
           />
 
           <Button
-            label={loading ? feedback.loading : button.one}
+            label={loading ? 'Carregando...' : 'Recuperar'}
             submit
           />
         </Form>

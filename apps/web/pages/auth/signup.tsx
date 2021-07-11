@@ -1,6 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { fields, signup } from '@core/i18n';
 import * as schema from '@core/schemas';
 import { api } from '@core/services';
 import { Scope, FormHandles } from '@unform/core';
@@ -31,40 +30,27 @@ const Signup: React.FC = () => {
   const ref = useRef<FormHandles>(null);
 
   const {
-    title,
-    button,
-    success,
-    description,
-  } = signup;
-
-  const {
-    city,
     name,
     email,
-    state,
     phone,
-    street,
-    number,
-    grantee,
-    document,
+    address,
     password,
-    feedback,
+    document,
     observation,
-    neighborhood,
-  } = fields;
+  } = schema;
 
   const schemas = {
     one: {
-      name: schema.name,
-      email: schema.email,
-      password: schema.password,
+      name,
+      email,
+      password,
     },
 
     two: {
-      phone: schema.phone,
-      address: schema.address,
-      request: donatory ? schema.observation : undefined,
-      document: donatory ? schema.document : undefined,
+      phone,
+      address,
+      request: donatory ? observation : undefined,
+      document: donatory ? document : undefined,
     },
   };
 
@@ -102,11 +88,11 @@ const Signup: React.FC = () => {
    * Label of button.
    */
   const label = (): string => {
-    if (status.loading) return feedback.loading;
+    if (status.loading) return 'Carregando...';
 
-    if (step === 1) return button.one;
+    if (step === 1) return 'Avançar';
 
-    if (step !== 1) return button.two;
+    if (step !== 1) return 'Cadastrar';
 
     return '';
   };
@@ -115,8 +101,10 @@ const Signup: React.FC = () => {
     <Layout
       type="signup"
       error={status.error}
-      title={step !== 3 ? title : success.title}
-      description={step !== 3 ? description : success.description}
+      title={step !== 3 ? 'Cadastrar' : 'Parabéns'}
+      description={step !== 3
+        ? 'Crie sua conta gratuitamente e em poucos segundos.'
+        : 'Conta criada com sucesso.'}
     >
       {step !== 3 && (
         <Form
@@ -126,30 +114,30 @@ const Signup: React.FC = () => {
           <div className={`${step === 1 ? 'flex' : 'hidden'} flex-col`}>
             <FormInput
               name="name"
-              label={name.label}
+              label="Nome completo"
             />
 
             <FormInput
               name="email"
-              label={email.label}
+              label="E-mail"
             />
 
             <FormInput
               name="password"
-              label={password.label}
+              label="Senha"
               isPassword
             />
 
             <div className="flex mt-24 items-center">
               <Checkbox
-                label={grantee.label}
+                label="Precisa de alguma ajuda?"
                 checked={donatory}
                 onChecked={onDonatory}
               />
 
               <Tooltip
                 size="md"
-                label={grantee.tooltip}
+                label="Se precisa de ajuda financeira, alimentícia."
                 className="ml-16 is-tooltip"
               >
                 <Icon
@@ -165,43 +153,43 @@ const Signup: React.FC = () => {
               <FormInput
                 name="document"
                 mask="999.999.999-99"
-                label={document.label}
+                label="CPF"
               />
             )}
 
             <FormInput
               name="phone"
               mask="(99) 99999-9999"
-              label={phone.label}
+              label="Telefone"
             />
 
             <Scope path="address[0]">
               <div className="flex is-row mt-24 space-x-24 items-center">
                 <FormInput
                   name="state"
-                  label={state.label}
+                  label="Estado"
                 />
 
                 <FormInput
                   name="city"
-                  label={city.label}
+                  label="Cidade"
                 />
               </div>
 
               <FormInput
                 name="street"
-                label={street.label}
+                label="Endereço"
               />
 
               <div className="flex is-row mt-24 space-x-24 items-center">
                 <FormInput
                   name="number"
-                  label={number.label}
+                  label="Número"
                 />
 
                 <FormInput
                   name="neighborhood"
-                  label={neighborhood.label}
+                  label="Bairro"
                 />
               </div>
             </Scope>
@@ -211,7 +199,7 @@ const Signup: React.FC = () => {
                 <FormInput
                   name="description"
                   typed="textarea"
-                  label={observation.label}
+                  label="Descreva sua necessidade"
                 />
               </Scope>
             )}
@@ -233,12 +221,12 @@ const Signup: React.FC = () => {
           />
 
           <Text
-            label={success.message}
+            label="É isso ai, deseja acessar a tela de login?"
             className="text-center"
           />
 
           <Button
-            label={success.button}
+            label="Acessar a tela de login"
             onClick={() => push('/auth')}
           />
         </div>

@@ -1,4 +1,3 @@
-import { auth, signup, fields } from '@core/i18n';
 import { Icon, Text } from '@uxoctopus/core';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -22,18 +21,20 @@ const Auth: React.FC<Handles> = ({
   const footer = {
     auth: {
       route: '/auth/signup',
-      labels: auth.signup,
+      labels: [
+        'Não possui conta?',
+        'Cadastrar',
+      ],
     },
 
     signup: {
       route: '/auth',
-      labels: signup.auth,
+      labels: [
+        'Já é cadastrado?',
+        'Entrar',
+      ],
     },
   };
-
-  const {
-    feedback,
-  } = fields;
 
   return (
     <View
@@ -66,7 +67,7 @@ const Auth: React.FC<Handles> = ({
           {error && (
             <Text
               type="span"
-              label={feedback.error}
+              label="Dados incorretos, tente novamente."
               className="flex mt-16 justify-center auth-error"
             />
           )}
