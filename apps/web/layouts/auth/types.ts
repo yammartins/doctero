@@ -1,6 +1,6 @@
 export interface Handles {
   type?: 'auth' | 'signup',
-  error?: boolean,
+  error?: null | number,
   title?: string,
   scroll?: boolean,
   description?: string,

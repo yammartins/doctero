@@ -1,6 +1,11 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { code, password, confirm_password } from '@core/schemas';
+import {
+  code,
+  email,
+  password,
+  confirm_password,
+} from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -17,30 +22,38 @@ const Password: React.FC = () => {
   } = useRouter();
 
   const [send, onSend] = useState(false);
-  const [status, onStatus] = useState({ error: false, loading: false });
+  const [error, onError] = useState<number | null>(null);
+  const [loading, onLoading] = useState(false);
 
   const ref = useRef<FormHandles>(null);
+
+  const schema = {
+    code,
+    email,
+    password,
+    confirm_password,
+  };
 
   /**
    * Submit for reset password.
    */
   const submit = useCallback(async (data) => {
-    onStatus({ loading: true, error: false });
+    onLoading(true);
 
     await api.put('/user/password', {
       code: data.code,
+      email: data.email,
       password: data.password,
     })
-      .then(() => {
-        onSend(true);
-        onStatus({ loading: false, error: false });
-      })
-      .catch(() => onStatus({ loading: false, error: true }));
+      .then(() => onSend(true))
+      .catch(({ response }) => onError(response.status));
+
+    onLoading(false);
   }, []);
 
   return (
     <Layout
-      error={status.error}
+      error={error}
       title="Redefinir senha"
       description="Digite uma nova senha e sua confirmação."
     >
@@ -68,12 +81,17 @@ const Password: React.FC = () => {
       {! send && (
         <Form
           ref={ref}
-          onSubmit={(data) => request(submit, ref, data, { code, password, confirm_password })}
+          onSubmit={(data) => request(submit, ref, data, schema)}
           className="flex flex-col"
         >
           <FormInput
             name="code"
             label="Código"
+          />
+
+          <FormInput
+            name="email"
+            label="E-mail"
           />
 
           <FormInput
@@ -89,7 +107,7 @@ const Password: React.FC = () => {
           />
 
           <Button
-            label="Alterar senha"
+            label={loading ? 'Carregando...' : 'Alterar senha'}
             submit
           />
         </Form>

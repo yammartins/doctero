@@ -36,7 +36,7 @@ const Recovery: React.FC = () => {
 
   return (
     <Layout
-      title="Recuperar senh"
+      title="Recuperar senha"
       description={! send
         ? 'Não lembra a senha? \nÉ fácil, basta digitar seu e-mail.'
         : ''}
@@ -54,7 +54,7 @@ const Recovery: React.FC = () => {
         <div className="flex mt-48 flex-col auth-send">
           <Text
             type="p"
-            label="Enviamos um e-mail com um \ncódigo para você alterar a senha."
+            label={'Enviamos um e-mail com um \ncódigo para você alterar a senha.'}
             className="text-center"
           />
 

@@ -7,7 +7,7 @@ import { Handles } from './types';
 
 const Auth: React.FC<Handles> = ({
   type = 'auth',
-  error = false,
+  error,
   title,
   scroll = true,
   children,
@@ -34,6 +34,11 @@ const Auth: React.FC<Handles> = ({
         'Entrar',
       ],
     },
+  };
+
+  const status = {
+    403: 'Desculpe, dados incorretos, tente novamente.',
+    409: 'Desculpe, esse e-mail já está cadastrado.',
   };
 
   return (
@@ -67,7 +72,7 @@ const Auth: React.FC<Handles> = ({
           {error && (
             <Text
               type="span"
-              label="Dados incorretos, tente novamente."
+              label={status[error]}
               className="flex mt-16 justify-center auth-error"
             />
           )}

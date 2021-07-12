@@ -24,7 +24,8 @@ const Signup: React.FC = () => {
   } = useRouter();
 
   const [step, onStep] = useState(1);
-  const [status, onStatus] = useState({ error: false, loading: false });
+  const [error, onError] = useState<number | null>(null);
+  const [loading, onLoading] = useState(false);
   const [donatory, onDonatory] = useState(false);
 
   const ref = useRef<FormHandles>(null);
@@ -70,17 +71,16 @@ const Signup: React.FC = () => {
         ...user
       } = data;
 
-      onStatus({ loading: true, error: false });
+      onLoading(true);
 
       await api.post('/user', {
         user,
         request: message,
       })
-        .then(() => {
-          onStep((current) => current + 1);
-          onStatus({ loading: false, error: false });
-        })
-        .catch(() => onStatus({ loading: false, error: true }));
+        .then(() => onStep((current) => current + 1))
+        .catch(({ response }) => onError(response.status));
+
+      onLoading(false);
     }
   }, [step]);
 
@@ -88,7 +88,7 @@ const Signup: React.FC = () => {
    * Label of button.
    */
   const label = (): string => {
-    if (status.loading) return 'Carregando...';
+    if (loading) return 'Carregando...';
 
     if (step === 1) return 'Avançar';
 
@@ -100,7 +100,7 @@ const Signup: React.FC = () => {
   return (
     <Layout
       type="signup"
-      error={status.error}
+      error={error}
       title={step !== 3 ? 'Cadastrar' : 'Parabéns'}
       description={step !== 3
         ? 'Crie sua conta gratuitamente e em poucos segundos.'
@@ -221,7 +221,7 @@ const Signup: React.FC = () => {
           />
 
           <Text
-            label="É isso ai, deseja acessar a tela de login?"
+            label="É isso ai, enviamos um e-mail de confirmação, para poder ter todos os acessos à nossa plataforma."
             className="text-center"
           />
 

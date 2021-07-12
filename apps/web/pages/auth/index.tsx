@@ -11,7 +11,8 @@ import { useRouter } from 'next/router';
 import { Auth as Layout } from '../../layouts';
 
 const Auth: React.FC = () => {
-  const [status, onStatus] = useState({ error: false, loading: false });
+  const [error, onError] = useState<number | null>(null);
+  const [loading, onLoading] = useState(false);
 
   const {
     push,
@@ -25,23 +26,25 @@ const Auth: React.FC = () => {
   } = schema;
 
   const submit = useCallback(async (form) => {
-    onStatus({ loading: true, error: false });
+    onLoading(true);
 
     await api.post('/login', form)
       .then(() => window.location.replace(process.env.ADMIN_URL || ''))
-      .catch(() => onStatus({ loading: false, error: true }));
+      .catch(({ response }) => onError(response.status));
+
+    onLoading(false);
   }, []);
 
   return (
     <Layout
       title="Entrar"
-      error={status.error}
+      error={error}
       scroll={false}
       description="Acesse sua conta para ter acesso à todas as suas informações."
     >
       <Form
         ref={ref}
-        onSubmit={(data) => request(submit, ref, data, { email, password })}
+        onSubmit={(data) => request(submit, ref, data, { username: email, password })}
         className="flex flex-col"
       >
         <FormInput
@@ -63,7 +66,7 @@ const Auth: React.FC = () => {
         />
 
         <Button
-          label={status.loading ? 'Carregando' : 'Entrar'}
+          label={loading ? 'Carregando' : 'Entrar'}
           submit
         />
       </Form>
