@@ -7,6 +7,7 @@ const {
   gray,
   danger,
   primary,
+  success,
 } = colors;
 
 const View = styled.div<StyledHandles>`
@@ -47,6 +48,24 @@ const View = styled.div<StyledHandles>`
         width: 100%;
         margin-top: 3rem;
         justify-content: center;
+      }
+
+      &-resend {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          color: ${gray[600]} !important;
+        }
+
+        &-status {
+          &.is-error {
+            color: ${danger} !important;
+          }
+
+          &.is-success {
+            color: ${success} !important;
+          }
+        }
       }
     }
 
