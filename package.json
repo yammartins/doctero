@@ -11,6 +11,7 @@
     "web:dev": "yarn workspace @apps/web run dev",
     "admin:dev": "yarn workspace @apps/admin run dev",
     "web:build": "yarn workspace @apps/web run build",
+    "web:start": "yarn workspace @apps/web run start",
     "core:watch": "bash .bin/run.sh core watch $*",
     "core:build": "bash .bin/run.sh core build $*",
     "admin:build": "yarn workspace @apps/admin run build"

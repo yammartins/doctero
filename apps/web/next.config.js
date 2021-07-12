@@ -4,6 +4,10 @@ module.exports = {
     ADMIN_URL: process.env.ADMIN_URL,
   },
 
+  eslint: {
+    dirs: ['pages'],
+  },
+
   distDir: 'dist',
 
   trailingSlash: true,
