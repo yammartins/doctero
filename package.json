@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "@types/react-lottie": "^1.2.6",
