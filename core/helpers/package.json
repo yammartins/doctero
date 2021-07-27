@@ -1,5 +1,5 @@
 {
-  "name": "@core/auth",
+  "name": "@core/helpers",
   "main": "lib/index.ts",
   "author": "Yuri Martins",
   "version": "0.0.1",
@@ -13,5 +13,11 @@
     "presets": [
       "module:@core/babel"
     ]
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^2.2.7"
   }
 }

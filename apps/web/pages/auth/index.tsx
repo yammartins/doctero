@@ -1,5 +1,6 @@
 import { useRef, useState, useCallback } from 'react';
 
+import { AuthProvider } from '@core/auth';
 import * as schema from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
@@ -36,41 +37,43 @@ const Auth: React.FC = () => {
   }, []);
 
   return (
-    <Layout
-      title="Entrar"
-      error={error}
-      scroll={false}
-      description="Acesse sua conta para ter acesso à todas as suas informações."
-    >
-      <Form
-        ref={ref}
-        onSubmit={(data) => request(submit, ref, data, { username: email, password })}
-        className="flex flex-col"
+    <AuthProvider>
+      <Layout
+        title="Entrar"
+        error={error}
+        scroll={false}
+        description="Acesse sua conta para ter acesso à todas as suas informações."
       >
-        <FormInput
-          name="username"
-          label="E-mail"
-        />
+        <Form
+          ref={ref}
+          onSubmit={(data) => request(submit, ref, data, { username: email, password })}
+          className="flex flex-col"
+        >
+          <FormInput
+            name="username"
+            label="E-mail"
+          />
 
-        <FormInput
-          name="password"
-          label="Senha"
-          isPassword
-        />
+          <FormInput
+            name="password"
+            label="Senha"
+            isPassword
+          />
 
-        <Text
-          type="span"
-          label="Esqueceu a senha?"
-          onClick={() => push('/auth/recovery')}
-          className="ml-auto mt-16 cursor-pointer"
-        />
+          <Text
+            type="span"
+            label="Esqueceu a senha?"
+            onClick={() => push('/auth/recovery')}
+            className="ml-auto mt-16 cursor-pointer"
+          />
 
-        <Button
-          label={loading ? 'Carregando' : 'Entrar'}
-          submit
-        />
-      </Form>
-    </Layout>
+          <Button
+            label={loading ? 'Carregando' : 'Entrar'}
+            submit
+          />
+        </Form>
+      </Layout>
+    </AuthProvider>
   );
 };
 

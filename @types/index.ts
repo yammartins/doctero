@@ -1,5 +1,8 @@
 export type {
-  User,
-  Type,
-  Address,
+  AuthHandles,
+} from './auth';
+
+export type {
+  UserHandles,
+  AddressHandles,
 } from './user';

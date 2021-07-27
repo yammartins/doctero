@@ -1,20 +1,17 @@
-export type Type = 'GIVER' | 'GRANTEE';
-
-export type Address = {
+export type AddressHandles = {
   city: string,
-  neighborhood: string,
+  state: string,
   street: string,
   number: string,
-  state: string,
   country: string
+  neighborhood: string,
 };
 
-export interface User {
-  type: Type,
+export interface UserHandles {
   name: string,
   email: string,
   phone: string,
-  address: Address[],
+  address: AddressHandles[],
   password: string,
   document?: string,
 }

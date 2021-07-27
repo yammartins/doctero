@@ -1,4 +1,5 @@
 import '@uxoctopus/styles';
+
 import { MainStyles } from '@core/styles';
 import { AppProps } from 'next/app';
 
