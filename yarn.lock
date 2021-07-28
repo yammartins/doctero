@@ -1924,9 +1924,9 @@
     "@unform/core" "2.1.6"
 
 "@uxoctopus/core@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.1.2.tgz#3b4e63190d2a160bd48f6dd41ac33f9ed690d63a"
-  integrity sha512-Mk2VGQlryfWgVyXPoUgl0RfNVX7nNPiMt+F8s7z0s3WgGMWbvax5te4V/9Q9E09lPujGcCZL6GSzSjNba8+Rhg==
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.1.3.tgz#3dffa6bffab55f028aa287af60d51dc8c836c6d6"
+  integrity sha512-mXbtUvELl5OtVVepW5n/kbHbpMCvnD0NS6OySXqVdCAYnPxA257Er9Z1kHwmrTdUM8sOIKMPOB+SrXJZGm/sTA==
   dependencies:
     "@emotion/is-prop-valid" "^1.1.0"
     classnames "^2.3.1"
