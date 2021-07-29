@@ -38,6 +38,7 @@ const Auth: React.FC<Handles> = ({
 
   const status = {
     403: 'Desculpe, dados incorretos, tente novamente.',
+    404: 'Link expirado, solicite novamente.',
     409: 'Desculpe, esse e-mail já está cadastrado.',
   };
 

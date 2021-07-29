@@ -1,11 +1,6 @@
 import { useRef, useState, useCallback } from 'react';
 
-import {
-  code,
-  email,
-  password,
-  confirm_password,
-} from '@core/schemas';
+import { email, password, confirm_password } from '@core/schemas';
 import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -19,6 +14,7 @@ import { Auth as Layout } from '../../../layouts';
 const Password: React.FC = () => {
   const {
     push,
+    query,
   } = useRouter();
 
   const [send, onSend] = useState(false);
@@ -28,7 +24,6 @@ const Password: React.FC = () => {
   const ref = useRef<FormHandles>(null);
 
   const schema = {
-    code,
     email,
     password,
     confirm_password,
@@ -40,16 +35,22 @@ const Password: React.FC = () => {
   const submit = useCallback(async (data) => {
     onLoading(true);
 
-    await api.put('/user/password', {
-      code: data.code,
-      email: data.email,
-      password: data.password,
-    })
-      .then(() => onSend(true))
-      .catch(({ response }) => onError(response.status));
+    if (query.code) {
+      await api.put('/user/password', {
+        code: query.code,
+        email: data.email,
+        password: data.password,
+      })
+        .then(() => onSend(true))
+        .catch(({ response }) => onError(response.status));
+
+      return;
+    }
+
+    onError(404);
 
     onLoading(false);
-  }, []);
+  }, [query]);
 
   return (
     <Layout
@@ -84,11 +85,6 @@ const Password: React.FC = () => {
           onSubmit={(data) => request(submit, ref, data, schema)}
           className="flex flex-col"
         >
-          <FormInput
-            name="code"
-            label="Código"
-          />
-
           <FormInput
             name="email"
             label="E-mail"
