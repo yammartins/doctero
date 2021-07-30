@@ -2,10 +2,12 @@ import { useRef, useState, useCallback } from 'react';
 
 import * as schema from '@core/schemas';
 import { api } from '@core/services';
+import { AuthHandles } from '@types';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
+import cookie from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import { Auth as Layout } from '../../layouts';
@@ -25,11 +27,21 @@ const Auth: React.FC = () => {
     password,
   } = schema;
 
-  const submit = useCallback(async (form) => {
+  const submit = useCallback(async (form: AuthHandles) => {
     onLoading(true);
 
     await api.post('/login', form)
-      .then(() => window.location.replace(process.env.ADMIN_URL || ''))
+      .then(({ data }) => {
+        const {
+          access_token,
+        } = data;
+
+        const auth = process.env.COOKIE_AUTH || '';
+
+        cookie.set(auth, access_token, { expires: 1, sameSite: 'Strict' });
+
+        window.location.replace(process.env.ADMIN_URL || '');
+      })
       .catch(({ response }) => onError(response.status));
 
     onLoading(false);

@@ -6,9 +6,6 @@ import * as Yup from 'yup';
 export const city = Yup.string()
   .required('Digite o nome da sua cidade.');
 
-export const code = Yup.string()
-  .required('Digite o código recebido no e-mail.');
-
 export const name = Yup.string()
   .required('Digite seu nome completo.');
 

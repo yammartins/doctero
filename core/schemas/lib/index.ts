@@ -1,6 +1,5 @@
 export {
   city,
-  code,
   name,
   email,
   phone,
