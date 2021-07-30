@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 
 import { api } from '@core/services';
 import { AuthHandles, UserHandles } from '@types';
+import cookie from 'js-cookie';
+import jwt, { JwtPayload } from 'jwt-decode';
 
 import AuthContext from './context';
 
@@ -13,23 +15,43 @@ const AuthProvider: React.FC = ({ children }) => {
   const [loading, onLoading] = useState(true);
 
   /**
-   * Auth.
+   * Cookies.
    */
-  const auth = useCallback(async (data: AuthHandles) => {
-    await api.post('/login', data)
-      .then(({ data: res }) => {
-        console.log(res);
+  const web = import.meta.env.WEB_URL as string;
+  const auth = import.meta.env.COOKIE_AUTH as string;
+  const data = import.meta.env.COOKIE_USER as string;
 
-        window.location.replace(process.env.ADMIN_URL || '');
-      });
-  }, []);
+  const fetch = async () => {
+    const token = cookie.get(auth);
+
+    if (! token) return null;
+
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+    const decode = jwt<JwtPayload>(token);
+
+    console.log(decode);
+
+    return null;
+  };
+
+  /**
+   * Logout user.
+   */
+  const logout = () => {
+    cookie.remove(auth);
+    localStorage.removeItem(data);
+
+    window.location.replace(web);
+  };
 
   /**
    * Value provider.
    */
   const value = {
     user,
-    auth,
+    fetch,
+    logout,
     onUser,
     loading,
     onLoading,

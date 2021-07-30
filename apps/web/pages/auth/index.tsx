@@ -36,11 +36,11 @@ const Auth: React.FC = () => {
           access_token,
         } = data;
 
-        const auth = process.env.COOKIE_AUTH || '';
+        const auth = process.env.VITE_COOKIE_AUTH || '';
 
         cookie.set(auth, access_token, { expires: 1, sameSite: 'Strict' });
 
-        window.location.replace(process.env.ADMIN_URL || '');
+        window.location.replace(process.env.VITE_ADMIN_URL || '');
       })
       .catch(({ response }) => onError(response.status));
 
