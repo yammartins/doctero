@@ -5,3 +5,7 @@ export {
 export {
   default as AuthContext,
 } from './context';
+
+export type {
+  ProviderHandles,
+} from './types';

@@ -1,15 +1,16 @@
 import { useRef, useState, useCallback } from 'react';
 
-import { email, password, confirm_password } from '@core/schemas';
-import { api } from '@core/services';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { Text, Button, FormInput } from '@uxoctopus/core';
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
+import { email, password, confirm_password } from '@core/schemas';
+
 import { Lottie } from '../../../components';
 import { Auth as Layout } from '../../../layouts';
+import { api } from '../../../services';
 
 const Password: React.FC = () => {
   const {

@@ -1,11 +1,10 @@
 import refresh from '@vitejs/plugin-react-refresh';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  define: {
-    'process.env': process.env,
-  },
+  base: '/',
 
   server: {
     port: 5000,
@@ -15,4 +14,10 @@ export default defineConfig({
     svgr(),
     refresh(),
   ],
+
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, './src'),
+    },
+  },
 });

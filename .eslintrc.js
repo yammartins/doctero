@@ -36,7 +36,12 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
-      typescript: {},
+      typescript: {
+        project: [
+          'apps/web/tsconfig.json',
+          'apps/admin/tsconfig.json'
+        ],
+      },
     },
   },
   rules: {
@@ -47,6 +52,7 @@ module.exports = {
       checkAttributes: true,
       indentLogicalExpressions: true,
     }],
+    'no-bitwise': ['error', { allow: ['~'] }],
     'guard-for-in': 'off',
     'import/no-duplicates': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -90,11 +96,14 @@ module.exports = {
         '/^react/',
         'module',
         '/^@shared/',
+        '/^@core/',
+        '/^@modules/',
+        '/^@configs/',
+        '/^~/',
         ['parent', 'sibling', 'index'],
       ],
       alphabetize: { order: 'asc', ignoreCase: true },
-    },
-    ],
+    }],
     'import/extensions': [
       'error',
       'ignorePackages',

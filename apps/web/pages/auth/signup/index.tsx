@@ -1,7 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
 
-import * as schema from '@core/schemas';
-import { api } from '@core/services';
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import {
@@ -14,7 +12,10 @@ import {
 import { request } from '@uxoctopus/helpers';
 import { useRouter } from 'next/router';
 
+import * as schema from '@core/schemas';
+
 import { Auth as Layout } from '../../../layouts';
+import { api } from '../../../services';
 
 const Signup: React.FC = () => {
   const {

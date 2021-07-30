@@ -8,6 +8,7 @@ export type AddressHandles = {
 };
 
 export interface UserHandles {
+  id: string,
   name: string,
   email: string,
   phone: string,
