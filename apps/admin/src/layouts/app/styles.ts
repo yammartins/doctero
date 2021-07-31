@@ -1,6 +1,7 @@
-import { colors, easing } from '@core/styles';
 import { rgba } from '@uxoctopus/helpers';
 import styled, { css } from 'styled-components';
+
+import { colors, easing } from '@core/styles';
 
 const {
   gray,
@@ -42,7 +43,7 @@ const View = styled.div<Styles>`
           color: ${white};
           z-index: 2;
           background: ${primary[300]};
-          box-shadow: 0 1rem 1.5rem ${rgba(primary[300], '.48')};
+          box-shadow: 0 1rem 1.5rem ${rgba(primary[300], '.24')};
         }
       }
 
@@ -60,8 +61,10 @@ const View = styled.div<Styles>`
       &-profile {
         border-top: 1px solid ${gray[200]};
 
-        img {
+        &-picture {
+          color: ${gray[400]};
           min-width: 3rem;
+          background: ${gray[200]};
         }
 
         &-name {

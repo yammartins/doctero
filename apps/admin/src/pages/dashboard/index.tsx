@@ -9,7 +9,7 @@ import { Head } from '~/layouts';
 
 import View from './styles';
 
-const App: React.FC = () => {
+const Dashboard: React.FC = () => {
   const { data } = useFetch<UsersHandles>('/user');
 
   const {
@@ -69,4 +69,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Dashboard;

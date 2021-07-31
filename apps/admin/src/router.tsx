@@ -1,30 +1,19 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { useAuth } from '~/hooks';
-
 import { Layout } from './layouts';
-import { App, Users, Requests } from './pages';
+import { Users, Requests, Dashboard } from './pages';
 
-const Router: React.FC = () => {
-  const {
-    user,
-    loading,
-  } = useAuth();
+const Router: React.FC = () => (
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Dashboard />} />
 
-  console.log(user, loading);
+      <Route path="/users" element={<Users />} />
 
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="/" element={<App />} />
-
-        <Route path="/users" element={<Users />} />
-
-        <Route path="/requests" element={<Requests />} />
-      </Route>
-    </Routes>
-  );
-};
+      <Route path="/requests" element={<Requests />} />
+    </Route>
+  </Routes>
+);
 
 export default Router;

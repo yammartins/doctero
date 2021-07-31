@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Button, Tooltip } from '@uxoctopus/core';
+import { Icon, Button, Tooltip } from '@uxoctopus/core';
 
-import { User as Picture } from '@core/assets';
 import { ReactComponent as Logo } from '@core/assets/svgs/logo.svg';
 
-import { donor } from '../../data';
+import { donor } from '~/data';
+import { useAuth } from '~/hooks';
+
 import { User, Item } from './button';
 import Dropdown from './dropdown';
 import View from './styles';
 
 const App: React.FC = () => {
   const [drawer, onDrawer] = useState(false);
+
+  const {
+    user,
+  } = useAuth();
+
+  const roles = {
+    STANDARD: 'Standard',
+    SUPERVISOR: 'Supervisor',
+  };
 
   return (
     <View
@@ -32,22 +42,25 @@ const App: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-auto pt-24 app-menu-profile">
-          <Tooltip
-            content={<Dropdown name="Raquel Prado" status="Doadora VIP" />}
-            className="z-50 cursor-pointer"
-            transition="click"
-            orientation="right-bottom"
-          >
-            <img
-              src={Picture}
-              alt=""
-              className="w-48 h-48 rounded-full"
-            />
+        {user && (
+          <div className="mt-auto pt-24 app-menu-profile">
+            <Tooltip
+              content={<Dropdown name={user.name} status={roles[user.type || 'STANDARD']} />}
+              className="z-50 cursor-pointer"
+              transition="click"
+              orientation="right-bottom"
+            >
+              <div className="flex w-48 h-48 items-center rounded-full justify-center app-menu-profile-picture">
+                <Icon name="user" />
+              </div>
 
-            <User name="Raquel Prado" status="Doadora VIP" />
-          </Tooltip>
-        </div>
+              <User
+                name={user.name}
+                status={roles[user.type || 'STANDARD']}
+              />
+            </Tooltip>
+          </div>
+        )}
 
         <Button
           size="xs"
