@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import { Button, Tooltip } from '@uxoctopus/core';
+
 import { User as Picture } from '@core/assets';
 import { ReactComponent as Logo } from '@core/assets/svgs/logo.svg';
-import { Button, Tooltip } from '@uxoctopus/core';
 
 import { donor } from '../../data';
 import { User, Item } from './button';

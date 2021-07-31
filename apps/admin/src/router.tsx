@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '~/hooks';
 
 import { Layout } from './layouts';
-import { App } from './pages';
+import { App, Requests } from './pages';
 
 const Router: React.FC = () => {
   const {
@@ -18,6 +18,8 @@ const Router: React.FC = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<App />} />
+
+        <Route path="/requests" element={<Requests />} />
       </Route>
     </Routes>
   );

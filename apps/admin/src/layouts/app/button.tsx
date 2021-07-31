@@ -22,6 +22,7 @@ export const Item: React.FC<ItemHandles> = ({
   <NavLink
     to={route}
     key={route}
+    end={route === '/'}
     className="flex p-8 relative rounded-8 items-center app-menu-item"
   >
     <Icon
