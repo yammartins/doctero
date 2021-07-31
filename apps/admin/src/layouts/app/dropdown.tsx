@@ -14,7 +14,7 @@ const Dropdown: React.FC<UserHandles> = (props) => {
   } = useAuth();
 
   return (
-    <div className="flex flex-col app-menu-profile-dropdown">
+    <div className="flex flex-col space-y-12 app-menu-profile-dropdown">
       <User {...props} />
 
       {general.map(({

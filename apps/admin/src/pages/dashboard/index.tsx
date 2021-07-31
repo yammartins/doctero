@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
         <Card className="flex flex-col items-center">
           <Text
             type="h3"
-            label={users}
+            label={users.toString()}
             weight="800"
           />
 
@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
         <Card className="flex flex-col items-center">
           <Text
             type="h3"
-            label={pending}
+            label={pending.toString()}
             weight="800"
           />
 
