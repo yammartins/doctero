@@ -72,8 +72,18 @@ const Signup: React.FC = () => {
 
       onLoading(true);
 
+      const location = {
+        ...user.addresses[0],
+        country: 'Brasil',
+      };
+
+      const formatted = {
+        ...user,
+        addresses: [location],
+      };
+
       await api.post('/user', {
-        user,
+        user: formatted,
         request: message,
       })
         .then(() => {
