@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { UserHandles } from '@types';
 import cookie from 'js-cookie';
@@ -15,12 +16,27 @@ const AuthProvider: React.FC = ({ children }) => {
   const [user, onUser] = useState<UserHandles | null>(null);
   const [loading, onLoading] = useState(true);
 
+  const {
+    search,
+  } = useLocation();
+
+  const params = new URLSearchParams(search);
+
+  const code = params.get('auth');
+
   /**
    * Cookies.
    */
   const web = import.meta.env.VITE_WEB_URL as string;
   const auth = import.meta.env.VITE_COOKIE_AUTH as string;
   const data = import.meta.env.VITE_COOKIE_USER as string;
+
+  /**
+   * If there is no token in the cookie, set.
+   */
+  useEffect(() => {
+    if (code) cookie.set(auth, code, { expires: 1 });
+  }, [auth, code]);
 
   /**
    * Logout user.

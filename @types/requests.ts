@@ -1,5 +1,5 @@
 import { PaginateHandles } from './paginate';
-import { UserHandles } from './user';
+import { UserHandles } from './users';
 
 export interface RequestHandles {
   user: UserHandles,

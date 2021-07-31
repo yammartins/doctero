@@ -39,9 +39,9 @@ const Auth: React.FC = () => {
 
         const auth = process.env.VITE_COOKIE_AUTH || '';
 
-        cookie.set(auth, access_token, { expires: 1, sameSite: 'Lax' });
+        cookie.set(auth, access_token, { expires: 1 });
 
-        window.location.replace(process.env.VITE_ADMIN_URL || '');
+        window.location.replace(`${process.env.VITE_ADMIN_URL}?auth=${access_token}` || '');
       })
       .catch(({ response }) => onError(response.status));
 
