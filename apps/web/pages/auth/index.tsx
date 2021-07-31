@@ -39,7 +39,7 @@ const Auth: React.FC = () => {
 
         const auth = process.env.VITE_COOKIE_AUTH || '';
 
-        cookie.set(auth, access_token, { expires: 1, sameSite: 'Strict' });
+        cookie.set(auth, access_token, { expires: 1, sameSite: 'Lax' });
 
         window.location.replace(process.env.VITE_ADMIN_URL || '');
       })
