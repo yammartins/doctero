@@ -7,5 +7,13 @@ export {
 } from './requests';
 
 export {
+  default as Support,
+} from './support';
+
+export {
+  default as Settings,
+} from './settings';
+
+export {
   default as Dashboard,
 } from './dashboard';
