@@ -5,9 +5,9 @@ export const donor = [
     route: '/',
   },
   {
-    icon: 'collection', // cube
-    name: 'Meus produtos',
-    route: '/products',
+    icon: 'users', // cube / collection
+    name: 'Usuários',
+    route: '/users',
   },
   {
     icon: 'chart-bar',

@@ -4,8 +4,9 @@ export type {
 
 export type {
   UserHandles,
+  UsersHandles,
   AddressHandles,
-} from './user';
+} from './users';
 
 export type {
   RequestHandles,

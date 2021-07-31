@@ -1,3 +1,5 @@
+import { PaginateHandles } from './paginate';
+
 export type AddressHandles = {
   city: string,
   state: string,
@@ -16,4 +18,8 @@ export interface UserHandles {
   address: AddressHandles[],
   document?: string,
   userStatus: 'PENDING' | 'ACTIVE',
+}
+
+export interface UsersHandles extends PaginateHandles {
+  content: UserHandles[],
 }
