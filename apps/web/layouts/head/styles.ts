@@ -1,5 +1,6 @@
-import { colors, typograph } from '@core/styles';
 import styled from 'styled-components';
+
+import { colors, typograph } from '@core/styles';
 
 const {
   gray,

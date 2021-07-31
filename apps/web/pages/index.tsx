@@ -1,4 +1,4 @@
-import { Head, Header } from '../layouts';
+import { Head, Header } from '~/layouts';
 
 const Home: React.FC = () => (
   <>

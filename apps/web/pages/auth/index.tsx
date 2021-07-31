@@ -10,8 +10,8 @@ import { useRouter } from 'next/router';
 
 import * as schema from '@core/schemas';
 
-import { Auth as Layout } from '../../layouts';
-import { api } from '../../services';
+import { Auth as Layout } from '~/layouts';
+import { api } from '~/services';
 
 const Auth: React.FC = () => {
   const [error, onError] = useState<number | null>(null);

@@ -8,9 +8,9 @@ import { useRouter } from 'next/router';
 
 import { email } from '@core/schemas';
 
-import { Lottie } from '../../../components';
-import { Auth as Layout } from '../../../layouts';
-import { api } from '../../../services';
+import { Lottie } from '~/components';
+import { Auth as Layout } from '~/layouts';
+import { api } from '~/services';
 
 const Recovery: React.FC = () => {
   const {

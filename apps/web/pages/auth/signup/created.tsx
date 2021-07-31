@@ -3,9 +3,9 @@ import { useCallback, useState } from 'react';
 import { Text, Button } from '@uxoctopus/core';
 import { useRouter } from 'next/router';
 
-import { Lottie } from '../../../components';
-import { Auth as Layout } from '../../../layouts';
-import { api } from '../../../services';
+import { Lottie } from '~/components';
+import { Auth as Layout } from '~/layouts';
+import { api } from '~/services';
 
 const Signup: React.FC = () => {
   const {

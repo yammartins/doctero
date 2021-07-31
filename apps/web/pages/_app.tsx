@@ -1,7 +1,8 @@
 import '@uxoctopus/styles';
 
-import { MainStyles } from '@core/styles';
 import { AppProps } from 'next/app';
+
+import { MainStyles } from '@core/styles';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <div className="app">

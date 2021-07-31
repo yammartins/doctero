@@ -1,5 +1,6 @@
-import { colors } from '@core/styles';
 import styled, { css } from 'styled-components';
+
+import { colors } from '@core/styles';
 
 import { StyledHandles } from './types';
 

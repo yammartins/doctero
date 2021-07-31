@@ -1,6 +1,3 @@
-/**
- * @type {import('next').NextConfig}
- * */
 const next = {
   env: {
     VITE_API_URL: process.env.VITE_API_URL,
@@ -10,6 +7,8 @@ const next = {
 
   eslint: {
     dirs: ['pages'],
+
+    ignoreDuringBuilds: true,
   },
 
   distDir: 'dist',
