@@ -9,10 +9,11 @@ export type AddressHandles = {
 
 export interface UserHandles {
   id: string,
+  type: 'SUPERVISOR' | 'STANDARD',
   name: string,
   email: string,
   phone: string,
   address: AddressHandles[],
-  password: string,
   document?: string,
+  userStatus: 'PENDING' | 'ACTIVE',
 }
