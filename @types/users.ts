@@ -15,8 +15,8 @@ export interface UserHandles {
   name: string,
   email: string,
   phone: string,
-  address: AddressHandles[],
   document?: string,
+  addresses: AddressHandles[],
   userStatus: 'PENDING' | 'ACTIVE',
 }
 

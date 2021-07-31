@@ -18,7 +18,9 @@ const Success: React.FC = () => {
   useEffect(() => {
     if (query.code) {
       const fetch = async () => {
-        await api.get(`/user/confirm?confirmationCode=${query.code}`)
+        await api.post('/user/confirm', {
+          confirmationCode: query.code,
+        })
           .catch(() => onError(true));
       };
 

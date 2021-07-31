@@ -33,9 +33,9 @@ const Signup: React.FC = () => {
     name,
     email,
     phone,
-    address,
     password,
     document,
+    addresses,
     observation,
   } = schema;
 
@@ -48,9 +48,9 @@ const Signup: React.FC = () => {
 
     two: {
       phone,
-      address,
       request: donatory ? observation : undefined,
       document: donatory ? document : undefined,
+      addresses,
     },
   };
 
@@ -77,7 +77,7 @@ const Signup: React.FC = () => {
         request: message,
       })
         .then(() => {
-          sessionStorage.setItem('doctero-email', user.email);
+          sessionStorage.setItem(process.env.VITE_COOKIE_EMAIL || '', user.email);
 
           replace('/auth/signup/created');
         })
@@ -163,7 +163,7 @@ const Signup: React.FC = () => {
             label="Telefone"
           />
 
-          <Scope path="address[0]">
+          <Scope path="addresses[0]">
             <div className="flex is-row mt-24 space-x-24 items-center">
               <FormInput
                 name="state"

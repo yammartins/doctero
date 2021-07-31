@@ -21,7 +21,7 @@ const Signup: React.FC = () => {
   const submit = useCallback(async () => {
     onLoading(true);
 
-    const email = sessionStorage.getItem('doctero-email');
+    const email = sessionStorage.getItem(process.env.VITE_COOKIE_EMAIL || '');
 
     await api.post('/user/resendConfirmation', { email })
       .then(() => onSend('success'))
@@ -29,7 +29,7 @@ const Signup: React.FC = () => {
 
     onLoading(false);
 
-    // setTimeout(() => onSend(null), 3000);
+    setTimeout(() => onSend(null), 3000);
   }, []);
 
   return (

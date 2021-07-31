@@ -45,7 +45,7 @@ export const confirm_password = Yup.string()
 /**
  * Groups.
  */
-export const address = Yup.array().of(
+export const addresses = Yup.array().of(
   Yup.object().shape({
     city,
     state,
