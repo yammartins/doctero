@@ -12,7 +12,7 @@ import View from './styles';
 const Requests: React.FC = () => {
   const [display, onDisplay] = useState<DisplayHandles>('list');
 
-  const { data } = useFetch<RequestsHandles>('/request');
+  const { data, loading } = useFetch<RequestsHandles>('/request');
 
   const pending = useMemo(() => {
     const filtered = data?.content?.filter(({ user }) => user.userStatus === 'PENDING') || [];
@@ -20,7 +20,7 @@ const Requests: React.FC = () => {
     return filtered;
   }, [data]);
 
-  if (! data) return <h1>Loading ...</h1>;
+  if (loading) return <h1>Loading ...</h1>;
 
   return (
     <View>

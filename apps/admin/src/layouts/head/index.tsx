@@ -24,11 +24,13 @@ const Head: React.FC<HeadHandles> = ({
         weight="800"
       />
 
-      <Icon
-        name="view-grid"
-        onClick={change}
-        className={`p-12 head-display rounded-full cursor-pointer is-${display}`}
-      />
+      {display && (
+        <Icon
+          name="view-grid"
+          onClick={change}
+          className={`p-12 head-display rounded-full cursor-pointer is-${display}`}
+        />
+      )}
     </View>
   );
 };

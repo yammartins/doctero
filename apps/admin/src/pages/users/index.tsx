@@ -12,7 +12,7 @@ import View from './styles';
 const Users: React.FC = () => {
   const [display, onDisplay] = useState<DisplayHandles>('list');
 
-  const { data } = useFetch<UsersHandles>('/user');
+  const { data, loading } = useFetch<UsersHandles>('/user');
 
   const {
     user,
@@ -26,7 +26,7 @@ const Users: React.FC = () => {
     return remove;
   }, [user, data]);
 
-  if (! data) return <h1>Loading ...</h1>;
+  if (loading) return <h1>Loading ...</h1>;
 
   return (
     <View>
