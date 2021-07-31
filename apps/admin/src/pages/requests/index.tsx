@@ -3,14 +3,14 @@ import React, { useMemo, useState } from 'react';
 import { RequestsHandles } from '@types';
 import { Text } from '@uxoctopus/core';
 
-import { Empty } from '~/components';
+import { Card, Empty } from '~/components';
 import { useFetch } from '~/hooks';
-import { Head } from '~/layouts';
+import { Head, Display, DisplayHandles } from '~/layouts';
 
 import View from './styles';
 
 const Requests: React.FC = () => {
-  const [display, onDisplay] = useState<'list' | 'grid'>('list');
+  const [display, onDisplay] = useState<DisplayHandles>('list');
 
   const { data } = useFetch<RequestsHandles>('/request');
 
@@ -31,9 +31,12 @@ const Requests: React.FC = () => {
       />
 
       {pending?.length > 0 && (
-        <div className="requests flex flex-col mt-48">
+        <Display
+          display={display}
+          className="requests"
+        >
           {pending.map(({ user }) => (
-            <div key={user.id} className="requests-card rounded-8 p-32">
+            <Card key={user.id}>
               <div className="flex flex-col">
                 <Text
                   type="h6"
@@ -47,9 +50,9 @@ const Requests: React.FC = () => {
                   className="mt-4"
                 />
               </div>
-            </div>
+            </Card>
           ))}
-        </div>
+        </Display>
       )}
 
       {pending?.length <= 0 && <Empty label="Você não possui nenhum solicitação nesse momento." />}

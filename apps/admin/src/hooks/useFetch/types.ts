@@ -1,9 +1,7 @@
 interface ApiError {
   response: {
-    data: {
-      status: number,
-      message: string,
-    };
+    data: string,
+    status: number,
   };
 }
 

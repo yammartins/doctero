@@ -8,9 +8,7 @@ const {
 
 const View = styled.div`
   .requests {
-    &-card {
-      border: 1px solid ${gray[200]};
-
+    .card {
       .text-p {
         color: ${gray[400]};
       }
