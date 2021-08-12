@@ -1924,13 +1924,13 @@
     "@unform/core" "2.1.6"
 
 "@uxoctopus/core@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.1.3.tgz#3dffa6bffab55f028aa287af60d51dc8c836c6d6"
-  integrity sha512-mXbtUvELl5OtVVepW5n/kbHbpMCvnD0NS6OySXqVdCAYnPxA257Er9Z1kHwmrTdUM8sOIKMPOB+SrXJZGm/sTA==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.1.4.tgz#af50d30b7c87528aeaa843344caf5944c40ff1e0"
+  integrity sha512-NlU7VmzsIL6GgANN8wbwMOzMTKNgEUPA+/mD7ZjCm6sE1nKr2Ql9ZVsTzipB52G5e1VVelbbFzLfsdtnqGLBdw==
   dependencies:
     "@emotion/is-prop-valid" "^1.1.0"
     classnames "^2.3.1"
-    react-datepicker "^4.1.1"
+    react-datepicker "^4.2.0"
     react-hero-icon "^0.0.7"
     react-input-mask "3.0.0-alpha.2"
     react-select "^4.3.1"
@@ -7362,10 +7362,10 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-datepicker@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.1.1.tgz#5ecef49c672b2250fca26327c988464e6ba52b62"
-  integrity sha512-vtZIA7MbUrffRw1CHiyOGtmTO/tTdZGr5BYaiRucHMTb6rCqA8TkaQhzX6tTwMwP8vV38Khv4UWohrJbiX1rMw==
+react-datepicker@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.2.0.tgz#3b23dac8f8e09fc6186787601388bed5690c9fc7"
+  integrity sha512-TR6vqqnGP2DDqrAtSrLseoN4fjkcQEOChwmMITpU45TiPey8eUhvI1TiGf4PFPQ1hvZshljH48De6nJMmiTf9g==
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"
