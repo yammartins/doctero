@@ -7,14 +7,26 @@ const {
 } = colors;
 
 const View = styled.div`
+  height: 100vh;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   .header {
     &-image,
     &-wrapper {
+      width: 100%;
+      height: 100%;
       display: flex;
     }
 
     &-image {
-      width: 100%;
+      position: relative;
+      max-width: 36rem;
+      max-height: 24.5rem;
       align-items: center;
 
       & > div {
@@ -27,22 +39,17 @@ const View = styled.div`
       flex-direction: column;
       justify-content: center;
 
-      .text-p {
-        color: ${gray[400]};
-        max-width: 24rem;
+      .text {
+        &.is-md {
+          color: ${gray[400]};
+          max-width: 24rem;
+          margin: 1.25rem 0 4rem 0;
+        }
+
+        &.is-5xl {
+          max-width: 36rem;
+        }
       }
-
-      .text-h1 {
-        max-width: 36rem;
-      }
-    }
-  }
-
-  .container .row {
-    height: 100%;
-
-    .col {
-      display: flex;
     }
   }
 `;
