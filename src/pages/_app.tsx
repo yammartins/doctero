@@ -1,3 +1,4 @@
+import '@uxoctopus/icons';
 import '@uxoctopus/styles';
 
 import { NotifyProvider } from '@uxoctopus/core';

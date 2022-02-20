@@ -86,7 +86,7 @@ const Signup: React.FC = () => {
         request: message,
       })
         .then(() => {
-          sessionStorage.setItem(process.env.VITE_COOKIE_EMAIL || '', user.email);
+          sessionStorage.setItem(process.env.COOKIE_EMAIL || '', user.email);
 
           replace('/auth/signup/created');
         })

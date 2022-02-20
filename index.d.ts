@@ -1,3 +1,6 @@
+declare module '*.ttf';
+declare module '*.woff';
+
 declare module '*.svg' {
   import React = require('react');
 

@@ -23,7 +23,7 @@ const App: React.FC = ({ children }) => {
       className="app flex h-full relative"
     >
       <div className="flex fixed p-24 flex-col h-screen app-menu">
-        <Logo className="w-full" />
+        <Logo />
 
         <div className="flex mt-96 flex-col space-y-20 app-menu-items">
           {donor.map(({ name, ...rest }) => (

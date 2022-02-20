@@ -1,24 +1,27 @@
+const { resolve } = require('path');
 const SVG = require('next-react-svg');
-const { resolve } = require('path')
+const FONTS = require('next-fonts');
 
 /**
  * @type {import('next').NextConfig}
  * */
-module.exports = SVG({
-  env: {
-    VITE_API_URL: process.env.VITE_API_URL,
-    VITE_ADMIN_URL: process.env.VITE_ADMIN_URL,
-    VITE_COOKIE_AUTH: process.env.VITE_COOKIE_AUTH,
-    VITE_COOKIE_EMAIL: process.env.VITE_COOKIE_EMAIL,
-  },
+module.exports = FONTS(
+  SVG({
+    env: {
+      API_URL: process.env.API_URL,
+      ADMIN_URL: process.env.ADMIN_URL,
+      COOKIE_AUTH: process.env.COOKIE_AUTH,
+      COOKIE_EMAIL: process.env.COOKIE_EMAIL,
+    },
 
-  include: resolve(__dirname, 'src/assets'),
+    include: resolve(__dirname, 'src/assets'),
 
-  compiler: {
-    styledComponents: true,
-  },
+    compiler: {
+      styledComponents: true,
+    },
 
-  swcMinify: true,
+    swcMinify: true,
 
-  trailingSlash: true,
-});
+    trailingSlash: true,
+  }),
+);

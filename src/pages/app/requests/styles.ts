@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from '@core/styles';
+import { colors } from '~/styles';
 
 const {
   gray,

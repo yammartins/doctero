@@ -27,9 +27,9 @@ const AuthProvider: React.FC = ({ children }) => {
   /**
    * Cookies.
    */
-  const web = import.meta.env.VITE_WEB_URL as string;
-  const auth = import.meta.env.VITE_COOKIE_AUTH as string;
-  const data = import.meta.env.VITE_COOKIE_USER as string;
+  const web = import.meta.env.WEB_URL as string;
+  const auth = import.meta.env.COOKIE_AUTH as string;
+  const data = import.meta.env.COOKIE_USER as string;
 
   /**
    * If there is no token in the cookie, set.

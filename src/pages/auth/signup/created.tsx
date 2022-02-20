@@ -21,7 +21,7 @@ const Signup: React.FC = () => {
   const submit = useCallback(async () => {
     onLoading(true);
 
-    const email = sessionStorage.getItem(process.env.VITE_COOKIE_EMAIL || '');
+    const email = sessionStorage.getItem(process.env.COOKIE_EMAIL || '');
 
     await api.post('/user/resendConfirmation', { email })
       .then(() => onSend('success'))

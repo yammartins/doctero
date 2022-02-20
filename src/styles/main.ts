@@ -1,4 +1,6 @@
 import { rgba } from '@uxoctopus/helpers';
+import TTF from '@uxoctopus/icons/fonts/uxoctopus.ttf';
+import WOFF from '@uxoctopus/icons/fonts/uxoctopus.woff';
 import { createGlobalStyle } from 'styled-components';
 
 import colors from './colors';
@@ -17,6 +19,23 @@ const {
 } = typograph;
 
 const GlobalStyles = createGlobalStyle`
+  /**
+   * Import icons
+   */
+   @font-face {
+    src:
+      url(${TTF}) format('truetype'),
+      url(${WOFF}) format('woff');
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'uxoctopus';
+    font-display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
   h1,
   h2,
   h3,
