@@ -45,53 +45,53 @@ const Auth: React.FC<Handles> = ({
   return (
     <View
       scroll={scroll}
-      className="flex auth h-screen"
+      className="auth"
     >
-      <div className="flex pb-24 px-64 w-full flex-col auth-wrapper is-scroll">
+      <div className="auth-wrapper is-scroll">
         {title && (
-          <div className="flex mb-16 auth-title items-center">
+          <div className="auth-title">
             <Icon
+              size="2xl"
               name="arrow-narrow-left"
               onClick={back}
-              className="cursor-pointer"
             />
 
             <Text
               type="h1"
+              size="5xl"
               label={title}
               weight="800"
-              className="ml-24"
             />
           </div>
         )}
 
         {description && <Text label={description} />}
 
-        <div className="mt-48 auth-form">
+        <div className="auth-form">
           {children}
 
           {error && (
             <Text
-              type="span"
+              size="sm"
               label={status[error]}
-              className="flex mt-16 justify-center auth-error"
+              className="auth-error"
             />
           )}
         </div>
 
-        <div className="flex mt-auto flex-col items-center auth-footer">
+        <div className="auth-footer">
           <Text label={footer[type].labels[0]} />
 
           <Text
             label={footer[type].labels[1]}
             weight="800"
             onClick={() => push(footer[type].route)}
-            className="mt-4 is-action cursor-pointer"
+            className="is-action"
           />
         </div>
       </div>
 
-      <div className="flex w-full h-full relative auth-image">
+      <div className="auth-image">
         <Image
           src="/assets/images/auth.png"
           layout="fill"

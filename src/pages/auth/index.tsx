@@ -57,7 +57,7 @@ const Auth: React.FC = () => {
       <Form
         ref={ref}
         onSubmit={(data) => request(submit, ref, data, { username: email, password })}
-        className="flex flex-col"
+        className="auth-form-fields"
       >
         <FormInput
           name="username"
@@ -71,10 +71,10 @@ const Auth: React.FC = () => {
         />
 
         <Text
-          type="span"
+          size="sm"
           label="Esqueceu a senha?"
           onClick={() => push('/auth/recovery')}
-          className="ml-auto mt-16 cursor-pointer"
+          className="auth-form-forgot"
         />
 
         <Button

@@ -59,7 +59,7 @@ const Password: React.FC = () => {
       description="Digite uma nova senha e sua confirmação."
     >
       {send && (
-        <div className="flex flex-col recovery-send">
+        <div className="auth-recovery">
           <Lottie
             width="280px"
             height="200px"
@@ -68,13 +68,13 @@ const Password: React.FC = () => {
 
           <Text
             label="Senha alterada com sucesso."
-            className="text-center"
+            align="center"
           />
 
           <Button
             label="Ir para a tela de login"
             onClick={() => push('/auth')}
-            className="mt-24"
+            className="auth-recovery-submit"
           />
         </div>
       )}
@@ -83,7 +83,7 @@ const Password: React.FC = () => {
         <Form
           ref={ref}
           onSubmit={(data) => request(submit, ref, data, schema)}
-          className="flex flex-col"
+          className="auth-recovery"
         >
           <FormInput
             name="email"

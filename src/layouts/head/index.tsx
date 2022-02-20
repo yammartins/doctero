@@ -2,7 +2,7 @@ import { Button } from '@uxoctopus/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Logo from '~/assets/logo.svg';
+import { Logo } from '~/assets';
 
 import View from './styles';
 

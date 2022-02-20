@@ -32,21 +32,6 @@ const GlobalStyles = createGlobalStyle`
     font-display: block;
   }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  span {
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
   h1,
   h2,
   h3,
@@ -88,11 +73,8 @@ const GlobalStyles = createGlobalStyle`
 
     &.is-checked .checkbox-box,
     input[type=checkbox]:checked + span {
+      color: ${white} !important;
       background: ${primary[300]};
-
-      svg {
-        color: ${white};
-      }
     }
 
     &:hover & {
@@ -117,9 +99,8 @@ const GlobalStyles = createGlobalStyle`
       color: ${gray[400]};
     }
 
-    &-icon svg {
-      width: 1.25rem;
-      height: 1.25rem;
+    &-icon {
+      font-size: 1.25rem !important;
     }
 
     &.is-error & {
@@ -202,15 +183,21 @@ const GlobalStyles = createGlobalStyle`
    */
   .tooltip {
     &-bubble {
-      border: 1px solid ${gray[200]};
-      background: ${gray[100]};
+      border: 1px solid ${primary[100]};
+      background: ${primary[100]};
+
+      & > p {
+        color: ${primary[300]};
+        font-weight: ${weight.medium};
+      }
 
       &.is-top:before {
-        border-top-color: ${gray[100]};
+        bottom: -0.5rem;
+        border-top-color: ${primary[100]};
       }
 
       &.is-right:before {
-        border-right-color: ${gray[100]};
+        border-right-color: ${primary[100]};
       }
     }
   }

@@ -14,7 +14,7 @@ module.exports = FONTS(
       COOKIE_EMAIL: process.env.COOKIE_EMAIL,
     },
 
-    include: resolve(__dirname, 'src/assets'),
+    include: resolve(__dirname, 'src/assets/svgs'),
 
     compiler: {
       styledComponents: true,

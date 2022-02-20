@@ -1,5 +1,7 @@
 import Lottie from 'react-lottie';
 
+import { Email, Success, EmailSend } from '~/assets';
+
 import { Handles } from './types';
 
 const Animation: React.FC<Handles> = ({
@@ -8,9 +10,9 @@ const Animation: React.FC<Handles> = ({
   ...rest
 }) => {
   const animations = {
-    email: '/assets/animations/email.json',
-    success: '/assets/animations/success.json',
-    'email-send': '/assets/animations/email-send.json',
+    email: Email,
+    success: Success,
+    'email-send': EmailSend,
   };
 
   const configs = {

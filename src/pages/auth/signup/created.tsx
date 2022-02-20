@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import { Text, Button } from '@uxoctopus/core';
 import { useRouter } from 'next/router';
@@ -54,7 +54,7 @@ const Signup: React.FC = () => {
         align="center"
         weight="600"
         onClick={submit}
-        className="mt-16 cursor-pointer auth-form-resend"
+        className="auth-form-resend"
       />
 
       <Button
@@ -66,7 +66,7 @@ const Signup: React.FC = () => {
         <Text
           label={send === 'success' ? 'E-mail enviado com sucesso.' : 'Desculpe, não conseguimos enviar.'}
           align="center"
-          className={`auth-form-resend-status mt-16 is-${send}`}
+          className={`auth-form-resend-status is-${send}`}
         />
       )}
     </Layout>

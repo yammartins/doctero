@@ -28,10 +28,8 @@ const Recovery: React.FC = () => {
     onLoading(true);
 
     await api.post('/user/password', data)
-      .then(() => {
-        onSend(true);
-        onLoading(false);
-      });
+      .then(() => onSend(true))
+      .finally(() => onLoading(false));
   }, []);
 
   return (
@@ -51,17 +49,16 @@ const Recovery: React.FC = () => {
       </div>
 
       {send && (
-        <div className="flex mt-48 flex-col auth-send">
+        <div className="auth-send">
           <Text
-            type="p"
             label={'Enviamos um e-mail com um \ncódigo para você alterar a senha.'}
-            className="text-center"
+            align="center"
           />
 
           <Button
             label="Cadastrar nova senha"
             onClick={() => push('/auth/recovery/password')}
-            className="mt-24"
+            className="auth-send-button"
           />
         </div>
       )}
@@ -70,7 +67,7 @@ const Recovery: React.FC = () => {
         <Form
           ref={ref}
           onSubmit={(data) => request(submit, ref, data, { email })}
-          className="mt-48"
+          className="auth-send-form"
         >
           <FormInput
             name="email"

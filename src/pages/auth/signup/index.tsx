@@ -1,4 +1,9 @@
-import { useRef, useState, useCallback } from 'react';
+import {
+  useRef,
+  useMemo,
+  useState,
+  useCallback,
+} from 'react';
 
 import { Scope, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -99,7 +104,7 @@ const Signup: React.FC = () => {
   /**
    * Label of button.
    */
-  const label = (): string => {
+  const label = useMemo(() => {
     if (loading) return 'Carregando...';
 
     if (step === 1) return 'Avançar';
@@ -107,7 +112,7 @@ const Signup: React.FC = () => {
     if (step === 2) return 'Cadastrar';
 
     return '';
-  };
+  }, [step, loading]);
 
   return (
     <Layout
@@ -119,8 +124,9 @@ const Signup: React.FC = () => {
       <Form
         ref={ref}
         onSubmit={(data) => request(submit, ref, data, step === 1 ? schemas.one : schemas.two)}
+        className="auth-form-fields"
       >
-        <div className={`${step === 1 ? 'flex' : 'hidden'} flex-col`}>
+        <div className={`auth-form-signup ${step === 1 ? 'is-flex' : 'is-hidden'}`}>
           <FormInput
             name="name"
             label="Nome completo"
@@ -137,7 +143,7 @@ const Signup: React.FC = () => {
             isPassword
           />
 
-          <div className="flex mt-24 items-center">
+          <div className="auth-form-signup-checked">
             <Checkbox
               label="Precisa de alguma ajuda?"
               checked={donatory}
@@ -147,17 +153,14 @@ const Signup: React.FC = () => {
             <Tooltip
               size="md"
               label="Se precisa de ajuda financeira, alimentícia."
-              className="ml-16 is-tooltip"
+              className="is-tooltip"
             >
-              <Icon
-                name="question-mark-circle"
-                className="cursor-pointer"
-              />
+              <Icon name="question-mark-circle" />
             </Tooltip>
           </div>
         </div>
 
-        <div className={`${step === 2 ? 'flex' : 'hidden'} flex-col`}>
+        <div className={`auth-form-signup ${step === 2 ? 'is-flex' : 'is-hidden'}`}>
           {donatory && (
             <FormInput
               name="document"
@@ -173,7 +176,7 @@ const Signup: React.FC = () => {
           />
 
           <Scope path="addresses[0]">
-            <div className="flex is-row mt-24 space-x-24 items-center">
+            <div className="auth-form-signup-row">
               <FormInput
                 name="state"
                 label="Estado"
@@ -190,7 +193,7 @@ const Signup: React.FC = () => {
               label="Endereço"
             />
 
-            <div className="flex is-row mt-24 space-x-24 items-center">
+            <div className="auth-form-signup-row">
               <FormInput
                 name="number"
                 label="Número"
@@ -215,7 +218,7 @@ const Signup: React.FC = () => {
         </div>
 
         <Button
-          label={label()}
+          label={label}
           submit
         />
       </Form>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Icon, Button, Tooltip } from '@uxoctopus/core';
 
-import Logo from '~/assets/logo.svg';
+import { Logo } from '~/assets';
 import { donor } from '~/data';
 
 import { User, Item } from './button';
