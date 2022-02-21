@@ -4,11 +4,11 @@ import { ViewHandles } from './types';
 const Display: React.FC<ViewHandles> = ({
   display,
   children,
-  className = '',
+  ...rest
 }) => (
   <View
+    {...rest}
     display={display}
-    className={`flex flex-col mt-48 gap-24 ${className}`}
   >
     {children}
   </View>

@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { UserHandles, ItemHandles } from './types';
 
 export const User: React.FC<UserHandles> = ({ name, status }) => (
-  <div className="ml-12 whitespace-nowrap app-menu-profile-name">
+  <div className="app-menu-profile-name">
     <Text label={reduce(name, 12)} weight="700" />
 
-    <Text type="span" label={status} weight="400" />
+    <Text size="sm" label={status} weight="400" />
   </div>
 );
 
@@ -21,16 +21,15 @@ export const Item: React.FC<ItemHandles> = ({
     key={route}
     href={route}
   >
-    <a className="flex p-8 relative rounded-8 items-center app-menu-item">
+    <a className="app-menu-item">
       <Icon
         name={icon}
-        className="text-p"
+        size="lg"
       />
 
       <Text
         label={name}
         weight="500"
-        className="ml-12 left-0 relative opacity-100 whitespace-nowrap"
       />
     </a>
   </Link>

@@ -8,3 +8,7 @@ export interface ItemHandles {
   name: string,
   route: string,
 }
+
+export interface StyledHandles {
+  drawer: boolean,
+}

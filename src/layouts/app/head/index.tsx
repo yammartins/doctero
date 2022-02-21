@@ -15,18 +15,20 @@ const Head: React.FC<HeadHandles> = ({
   };
 
   return (
-    <View className="head flex items-center justify-between">
+    <View className="head">
       <Text
         type="h2"
+        size="4xl"
         label={title}
         weight="800"
       />
 
       {display && (
         <Icon
+          size="lg"
           name="view-grid"
           onClick={change}
-          className={`p-12 head-display rounded-full cursor-pointer is-${display}`}
+          className={`head-display is-${display}`}
         />
       )}
     </View>

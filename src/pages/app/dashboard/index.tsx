@@ -4,7 +4,7 @@ import { Text } from '@uxoctopus/core';
 
 import { Card } from '~/components';
 import { useFetch } from '~/hooks';
-import { AppHead } from '~/layouts';
+import { AppHead, AppLayout } from '~/layouts';
 import { UsersHandles } from '~/types';
 
 import View from './styles';
@@ -31,37 +31,39 @@ const Dashboard: React.FC = () => {
   } = fields;
 
   return (
-    <View>
-      <AppHead title="Dashboard" />
+    <AppLayout>
+      <View>
+        <AppHead title="Dashboard" />
 
-      <div className="grid grid-cols-2 dashboard mt-48 space-x-24">
-        <Card className="flex flex-col items-center">
-          <Text
-            type="h3"
-            label={users.toString()}
-            weight="800"
-          />
+        <div className="grid grid-cols-2 dashboard mt-48 space-x-24">
+          <Card className="flex flex-col items-center">
+            <Text
+              type="h3"
+              label={users.toString()}
+              weight="800"
+            />
 
-          <Text
-            label={users <= 1 ? 'Usuário' : 'Usuários'}
-            className="mt-8"
-          />
-        </Card>
+            <Text
+              label={users <= 1 ? 'Usuário' : 'Usuários'}
+              className="mt-8"
+            />
+          </Card>
 
-        <Card className="flex flex-col items-center">
-          <Text
-            type="h3"
-            label={pending.toString()}
-            weight="800"
-          />
+          <Card className="flex flex-col items-center">
+            <Text
+              type="h3"
+              label={pending.toString()}
+              weight="800"
+            />
 
-          <Text
-            label={pending <= 1 ? 'Solicitação' : 'Solicitações'}
-            className="mt-8"
-          />
-        </Card>
-      </div>
-    </View>
+            <Text
+              label={pending <= 1 ? 'Solicitação' : 'Solicitações'}
+              className="mt-8"
+            />
+          </Card>
+        </div>
+      </View>
+    </AppLayout>
   );
 };
 

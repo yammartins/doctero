@@ -20,12 +20,12 @@ const App: React.FC = ({ children }) => {
   return (
     <View
       drawer={drawer}
-      className="app flex h-full relative"
+      className="app"
     >
-      <div className="flex fixed p-24 flex-col h-screen app-menu">
-        <Logo />
+      <div className="app-menu">
+        <Logo className="app-menu-logo" />
 
-        <div className="flex mt-96 flex-col space-y-20 app-menu-items">
+        <div className="app-menu-items">
           {donor.map(({ name, ...rest }) => (
             <Item
               {...rest}
@@ -35,15 +35,17 @@ const App: React.FC = ({ children }) => {
           ))}
         </div>
 
-        <div className="mt-auto pt-24 app-menu-profile">
+        <div className="app-menu-profile">
           <Tooltip
             content={<Dropdown name="Yuri Martins" status={roles.STANDARD} />}
-            className="z-50 cursor-pointer"
             transition="click"
             orientation="right-bottom"
           >
-            <div className="flex w-48 h-48 items-center rounded-full justify-center app-menu-profile-picture">
-              <Icon name="user" />
+            <div className="app-menu-profile-picture">
+              <Icon
+                size="lg"
+                name="user"
+              />
             </div>
 
             <User
@@ -58,11 +60,11 @@ const App: React.FC = ({ children }) => {
           icon="chevron-right"
           rounded="xl"
           onClick={() => onDrawer(! drawer)}
-          className="w-min z-10 absolute bottom-96 -right-20 app-menu-button"
+          className="app-menu-button"
         />
       </div>
 
-      <div className="p-56 w-full h-full app-wrapper">
+      <div className="app-wrapper">
         {children}
       </div>
     </View>

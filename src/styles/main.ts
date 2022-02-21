@@ -183,11 +183,11 @@ const GlobalStyles = createGlobalStyle`
    */
   .tooltip {
     &-bubble {
-      border: 1px solid ${primary[100]};
-      background: ${primary[100]};
+      border: 1px solid ${gray[100]};
+      background: ${gray[100]};
 
       & > p {
-        color: ${primary[300]};
+        color: ${gray[400]};
         font-weight: ${weight.medium};
       }
 

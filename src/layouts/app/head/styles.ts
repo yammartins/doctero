@@ -12,11 +12,18 @@ const {
 } = easing;
 
 const View = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   .head {
     &-display {
       color: ${gray[600]};
+      cursor: pointer;
       border: 1px solid ${gray[200]};
+      padding: .75rem;
       transition: all .3s ${basic};
+      border-radius: 3rem;
 
       &:hover {
         border-color: ${gray[300]};

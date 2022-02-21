@@ -1,8 +1,9 @@
+import { HTMLAttributes } from 'react';
+
 export type DisplayHandles = 'list' | 'grid';
 
-export interface ViewHandles {
+export interface ViewHandles extends HTMLAttributes<HTMLDivElement> {
   display: DisplayHandles,
-  className?: string,
 }
 
 export interface LayoutHandles {

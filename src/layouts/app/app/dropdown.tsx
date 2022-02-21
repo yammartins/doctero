@@ -6,7 +6,7 @@ import { Item, User } from './button';
 import { UserHandles } from './types';
 
 const Dropdown: React.FC<UserHandles> = (props) => (
-  <div className="flex flex-col space-y-12 app-menu-profile-dropdown">
+  <div className="app-menu-profile-dropdown">
     <User {...props} />
 
     {general.map(({
@@ -32,11 +32,11 @@ const Dropdown: React.FC<UserHandles> = (props) => (
               key={name}
               type="button"
               onClick={() => {}}
-              className="flex p-8 text-p relative rounded-8 items-center app-menu-item"
+              className="text is-md is-medium app-menu-item"
             >
               <Icon
+                size="lg"
                 name={icon}
-                className="mr-12"
               />
 
               {name}
