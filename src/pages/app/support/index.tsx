@@ -1,11 +1,13 @@
-import { AppHead } from '~/layouts';
+import { AppHead, AppLayout } from '~/layouts';
 
 import View from './styles';
 
 const Support: React.FC = () => (
-  <View>
-    <AppHead title="Suporte" />
-  </View>
+  <AppLayout>
+    <View>
+      <AppHead title="Suporte" />
+    </View>
+  </AppLayout>
 );
 
 export default Support;

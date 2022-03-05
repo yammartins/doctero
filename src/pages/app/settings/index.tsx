@@ -1,11 +1,13 @@
-import { AppHead } from '~/layouts';
+import { AppHead, AppLayout } from '~/layouts';
 
 import View from './styles';
 
 const Settings: React.FC = () => (
-  <View>
-    <AppHead title="Configurações" />
-  </View>
+  <AppLayout>
+    <View>
+      <AppHead title="Configurações" />
+    </View>
+  </AppLayout>
 );
 
 export default Settings;

@@ -4,7 +4,9 @@ import { Text } from '@uxoctopus/core';
 
 import { Card, Empty } from '~/components';
 import { useFetch } from '~/hooks';
-import { AppHead, AppDisplay, DisplayHandles } from '~/layouts';
+import {
+  AppHead, AppDisplay, DisplayHandles, AppLayout,
+} from '~/layouts';
 import { UsersHandles } from '~/types';
 
 import View from './styles';
@@ -25,40 +27,42 @@ const Users: React.FC = () => {
   if (loading) return <h1>Loading ...</h1>;
 
   return (
-    <View>
-      <AppHead
-        title="Usuários"
-        display={display}
-        onDisplay={onDisplay}
-      />
-
-      {users?.length > 0 && (
-        <AppDisplay
+    <AppLayout>
+      <View>
+        <AppHead
+          title="Usuários"
           display={display}
-          className="users"
-        >
-          {users.map(({ id, name, email }) => (
-            <Card key={id}>
-              <div className="flex flex-col">
-                <Text
-                  type="h6"
-                  label={name}
-                  weight="600"
-                />
+          onDisplay={onDisplay}
+        />
 
-                <Text
-                  type="p"
-                  label={email}
-                  className="mt-4"
-                />
-              </div>
-            </Card>
-          ))}
-        </AppDisplay>
-      )}
+        {users?.length > 0 && (
+          <AppDisplay
+            display={display}
+            className="users"
+          >
+            {users.map(({ id, name, email }) => (
+              <Card key={id}>
+                <div className="flex flex-col">
+                  <Text
+                    type="h6"
+                    label={name}
+                    weight="600"
+                  />
 
-      {users?.length <= 0 && <Empty label="Você não possui nenhum usuário registrado." />}
-    </View>
+                  <Text
+                    type="p"
+                    label={email}
+                    className="mt-4"
+                  />
+                </div>
+              </Card>
+            ))}
+          </AppDisplay>
+        )}
+
+        {users?.length <= 0 && <Empty label="Você não possui nenhum usuário registrado." />}
+      </View>
+    </AppLayout>
   );
 };
 

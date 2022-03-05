@@ -4,7 +4,9 @@ import { Text } from '@uxoctopus/core';
 
 import { Card, Empty } from '~/components';
 import { useFetch } from '~/hooks';
-import { AppHead, AppDisplay, DisplayHandles } from '~/layouts';
+import {
+  AppHead, AppDisplay, DisplayHandles, AppLayout,
+} from '~/layouts';
 import { RequestsHandles } from '~/types';
 
 import View from './styles';
@@ -23,40 +25,42 @@ const Requests: React.FC = () => {
   if (loading) return <h1>Loading ...</h1>;
 
   return (
-    <View>
-      <AppHead
-        title="Solicitações"
-        display={display}
-        onDisplay={onDisplay}
-      />
-
-      {pending?.length > 0 && (
-        <AppDisplay
+    <AppLayout>
+      <View>
+        <AppHead
+          title="Solicitações"
           display={display}
-          className="requests"
-        >
-          {pending.map(({ user }) => (
-            <Card key={user.id}>
-              <div className="flex flex-col">
-                <Text
-                  type="h6"
-                  label={user.name}
-                  weight="600"
-                />
+          onDisplay={onDisplay}
+        />
 
-                <Text
-                  type="p"
-                  label={user.email}
-                  className="mt-4"
-                />
-              </div>
-            </Card>
-          ))}
-        </AppDisplay>
-      )}
+        {pending?.length > 0 && (
+          <AppDisplay
+            display={display}
+            className="requests"
+          >
+            {pending.map(({ user }) => (
+              <Card key={user.id}>
+                <div className="flex flex-col">
+                  <Text
+                    type="h6"
+                    label={user.name}
+                    weight="600"
+                  />
 
-      {pending?.length <= 0 && <Empty label="Você não possui nenhum solicitação nesse momento." />}
-    </View>
+                  <Text
+                    type="p"
+                    label={user.email}
+                    className="mt-4"
+                  />
+                </div>
+              </Card>
+            ))}
+          </AppDisplay>
+        )}
+
+        {pending?.length <= 0 && <Empty label="Você não possui nenhum solicitação nesse momento." />}
+      </View>
+    </AppLayout>
   );
 };
 
