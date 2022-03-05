@@ -5,11 +5,10 @@ import { Text } from '@uxoctopus/core';
 import { Card } from '~/components';
 import { useFetch } from '~/hooks';
 import { AppHead, AppLayout } from '~/layouts';
+import { Dashboard } from '~/styles';
 import { UsersHandles } from '~/types';
 
-import View from './styles';
-
-const Dashboard: React.FC = () => {
+const View: React.FC = () => {
   const { data } = useFetch<UsersHandles>('/user');
 
   const fields = useMemo(() => {
@@ -32,10 +31,10 @@ const Dashboard: React.FC = () => {
 
   return (
     <AppLayout>
-      <View>
+      <Dashboard>
         <AppHead title="Dashboard" />
 
-        <div className="grid grid-cols-2 dashboard mt-48 space-x-24">
+        <div className="dashboard-wrapper">
           <Card className="flex flex-col items-center">
             <Text
               type="h3"
@@ -62,9 +61,9 @@ const Dashboard: React.FC = () => {
             />
           </Card>
         </div>
-      </View>
+      </Dashboard>
     </AppLayout>
   );
 };
 
-export default Dashboard;
+export default View;
