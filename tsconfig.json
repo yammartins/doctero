@@ -1,15 +1,15 @@
 {
   "include": [
-    "@types",
-    "apps/**/*",
-    "core/**/*"
+    "**/*.ts",
+    "**/*.tsx",
+    "index.d.ts"
   ],
   "exclude": [
     "dist",
     "node_modules"
   ],
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "preserve",
     "lib": [
       "es6",
       "dom",
@@ -18,26 +18,26 @@
       "esnext",
       "dom.iterable"
     ],
-    "types": [
-      "vite/client"
-    ],
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    },
     "noEmit": true,
     "module": "esnext",
-    "target": "es5",
+    "target": "esnext",
+    "strict": false,
     "baseUrl": ".",
     "allowJs": false,
-    "typeRoots": [
-      "@types",
-      "node_modules/@types",
-    ],
     "sourceMap": true,
     "declaration": true,
+    "incremental": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "esModuleInterop": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
     "noImplicitReturns": true,

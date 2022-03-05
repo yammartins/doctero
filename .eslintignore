@@ -1,6 +1,6 @@
 dist
+*.md
 *.html
-node_modules
+*.config.js
 .eslintrc.js
-babel.config.js
-commitlint.config.js
+node_modules
