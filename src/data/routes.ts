@@ -2,17 +2,17 @@ export const donor = [
   {
     icon: 'template',
     name: 'Dashboard',
-    route: '/',
+    route: '/app/dashboard',
   },
   {
     icon: 'users', // cube / collection
     name: 'Usuários',
-    route: '/users',
+    route: '/app/users',
   },
   {
     icon: 'chart-bar',
     name: 'Solicitações',
-    route: '/requests',
+    route: '/app/requests',
   },
 ];
 
@@ -23,13 +23,13 @@ export const general = [
     type: 'LINK',
     icon: 'support',
     name: 'Suporte',
-    route: '/support',
+    route: '/app/support',
   },
   {
     type: 'LINK',
     icon: 'cog',
     name: 'Configurações',
-    route: '/settings',
+    route: '/app/settings',
   },
   {
     type: 'BUTTON',

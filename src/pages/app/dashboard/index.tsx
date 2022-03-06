@@ -35,7 +35,7 @@ const View: React.FC = () => {
         <AppHead title="Dashboard" />
 
         <div className="dashboard-wrapper">
-          <Card className="flex flex-col items-center">
+          <Card className="dashboard-wrapper-card">
             <Text
               type="h3"
               label={users.toString()}
@@ -48,7 +48,7 @@ const View: React.FC = () => {
             />
           </Card>
 
-          <Card className="flex flex-col items-center">
+          <Card className="dashboard-wrapper-card">
             <Text
               type="h3"
               label={pending.toString()}
