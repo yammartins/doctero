@@ -771,10 +771,10 @@
   resolved "https://registry.yarnpkg.com/@uxoctopus/hooks/-/hooks-0.1.2.tgz#cf05c5da88f95655259d0aa8dd15d77bbee62f9c"
   integrity sha512-HT7UWtLM65C/3xtMX86ZrNBjNj/Kzq3Q1TzOLoZ6ynagLt7qEILrNLn5DubSAYZuAG9owp3leO8aHFWUE2u6CQ==
 
-"@uxoctopus/icons@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/icons/-/icons-0.0.2.tgz#79baffae0de6ab62b50bf7d3b6716053f196746e"
-  integrity sha512-bixodx4ncZgPsmEk7JrApCz+3HcbO4wvF18yDuNeMVTlLDF4PpxCiRspGRKq5Bcv8T7uC3P8CMSRcTRByaBuNg==
+"@uxoctopus/icons@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/icons/-/icons-0.0.3.tgz#7b9164e2981c64f7cd9def0c23c75180658cdf86"
+  integrity sha512-o6D6rauzIPvgkE90yKrIUm4zbyBI34SL+rqT6AR5yL9Nb8MUfo+rMT6sHUFZnILcVeFGDNUsk5MjVoBRlgIqdQ==
 
 "@uxoctopus/styles@^0.2.11":
   version "0.2.11"

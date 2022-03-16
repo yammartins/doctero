@@ -30,7 +30,7 @@
     "@uxoctopus/core": "^0.2.11",
     "@uxoctopus/helpers": "^0.1.2",
     "@uxoctopus/hooks": "^0.1.2",
-    "@uxoctopus/icons": "^0.0.2",
+    "@uxoctopus/icons": "^0.0.3",
     "@uxoctopus/styles": "^0.2.11",
     "axios": "^0.26.0",
     "dotenv-cli": "^5.0.0",
