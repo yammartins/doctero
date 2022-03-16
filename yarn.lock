@@ -761,10 +761,10 @@
     react-input-mask "3.0.0-alpha.2"
     react-select "^5.2.2"
 
-"@uxoctopus/helpers@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/helpers/-/helpers-0.1.2.tgz#ebb8456083c9cafc274add7d9ebe740421c5fdf2"
-  integrity sha512-xefWQ6Rou8+hMGCzhnlozXXm8OEyqttlZg2bIflGVToCeg2SUlBk7jBDpuppzVP09Vun/V9PlcaEsWz+UNDJjA==
+"@uxoctopus/helpers@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/helpers/-/helpers-0.1.3.tgz#e579b0e89bfc83d9b18bdded6a0ee1c2b1ff174f"
+  integrity sha512-C2CWuhaykZ2dvbbuWFo7dE0tG4G/h8o4ymcHW6vmUqm302WN3QOt5u+rFl/uvLUxbJtmfYDTAJWIbMG7cjytkA==
 
 "@uxoctopus/hooks@^0.1.2":
   version "0.1.2"

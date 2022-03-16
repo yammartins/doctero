@@ -28,7 +28,7 @@
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
     "@uxoctopus/core": "^0.2.11",
-    "@uxoctopus/helpers": "^0.1.2",
+    "@uxoctopus/helpers": "^0.1.3",
     "@uxoctopus/hooks": "^0.1.2",
     "@uxoctopus/icons": "^0.0.2",
     "@uxoctopus/styles": "^0.2.11",
