@@ -1,67 +1,66 @@
-import { useState } from 'react';
+import Link from 'next/link';
 
-import { Icon, Button, Tooltip } from '@uxoctopus/core';
+import {
+  Logo, Man, Dashboard, Solicity, History, Users, Corporate,
+} from '~/assets';
 
-import { Logo } from '~/assets';
-import { donor } from '~/data';
-
-import { User, Item } from './button';
-import Dropdown from './dropdown';
 import View from './styles';
 
 const App: React.FC = ({ children }) => {
-  const [drawer, onDrawer] = useState(false);
-
-  const roles = {
-    STANDARD: 'Standard',
-    SUPERVISOR: 'Supervisor',
-  };
+  const menu = [
+    {
+      icon: <Dashboard />,
+      name: 'Dashboard',
+      path: 'dashboard',
+    },
+    {
+      icon: <Solicity />,
+      name: 'Solicitações',
+      path: 'solicity',
+    },
+    {
+      icon: <History />,
+      name: 'Histórico',
+      path: 'history',
+    },
+    {
+      icon: <Users />,
+      name: 'Usuários',
+      path: 'users',
+    },
+    {
+      icon: <Corporate />,
+      name: 'Empresas',
+      path: 'corporate',
+    },
+  ];
 
   return (
     <View
-      drawer={drawer}
       className="app"
     >
       <div className="app-menu">
-        <Logo className="app-menu-logo" />
-
+        <div className="app-menu-header">
+          <Logo />
+          <Link href="/">
+            <a className="profile">
+              <Man />
+            </a>
+          </Link>
+        </div>
         <div className="app-menu-items">
-          {donor.map(({ name, ...rest }) => (
-            <Item
-              {...rest}
-              key={name}
-              name={name}
-            />
+          {menu.map(({ icon, name, path }) => (
+            <Link
+              key={path}
+              href={`/app/${path}`}
+            >
+              <a>
+                {icon}
+                {name}
+              </a>
+            </Link>
           ))}
         </div>
-
-        <div className="app-menu-profile">
-          <Tooltip
-            content={<Dropdown name="Yuri Martins" status={roles.STANDARD} />}
-            transition="click"
-            orientation="right-bottom"
-          >
-            <div className="app-menu-profile-picture">
-              <Icon
-                size="lg"
-                name="user"
-              />
-            </div>
-
-            <User
-              name="Yuri Martins"
-              status={roles.STANDARD}
-            />
-          </Tooltip>
-        </div>
-
-        <Button
-          size="xs"
-          icon="chevron-right"
-          rounded="xl"
-          onClick={() => onDrawer(! drawer)}
-          className="app-menu-button"
-        />
       </div>
 
       <div className="app-wrapper">
