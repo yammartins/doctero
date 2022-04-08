@@ -19,7 +19,7 @@ export {
 } from './svgs/dashboard.svg';
 
 export {
-  default as Solicity,
+  default as Requests,
 } from './svgs/solicity.svg';
 
 export {

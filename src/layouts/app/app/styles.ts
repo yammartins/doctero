@@ -1,16 +1,12 @@
 import styled from 'styled-components';
 
-import { colors, easing } from '~/styles';
+import { colors } from '~/styles';
 
 const {
   info,
   gray,
   white,
 } = colors;
-
-// const {
-//   rubber,
-// } = easing;
 
 const View = styled.div`
   height: 100vh;
@@ -26,6 +22,8 @@ const View = styled.div`
       display: flex;
       flex-direction: column;
       gap: 1px;
+      width: 100%;
+      position: fixed;
 
       &-header {
         width: 100%;
@@ -41,14 +39,13 @@ const View = styled.div`
          border-radius: 9999px;
          display: flex;
          background: ${gray[350]};
-         margin-bottom: 0.25rem;
 
         }
       }
 
       &-items {
         width: 100%;
-        padding: 1.25rem 6.5rem;
+        padding: 0.75rem 5rem;
         display: flex;
         justify-content: space-between;
         background: ${white};
@@ -61,15 +58,45 @@ const View = styled.div`
           stroke: ${gray[450]};
           transition: all;
           transition-duration: 250;
+          position: relative;
+          padding: 0.5rem 1.5rem;
 
           &:hover {
             color: ${info[200]};
             stroke: ${info[200]};
+            transition-duration: 250;
+            transition: all;
+
+            svg {
+              height: 1.5rem;
+              width: 1.5rem;
+            }
+          }
+
+          &.active {
+            color: ${info[200]};
+            stroke: ${info[200]};
+            border-radius: 0.375rem;
             transition: all;
             transition-duration: 250;
+
+              ::after {
+              content: '';
+              width: 120%;
+              height: 4px;
+              border-radius: 0.25rem;
+              background: ${info[200]};
+              position: absolute;
+              bottom: -0.75rem;
+              left: -0.5rem;
+            }
           }
         }
       }
+    }
+
+    &-wrapper {
+      padding: 11rem 6.5rem;
     }
   }
 `;

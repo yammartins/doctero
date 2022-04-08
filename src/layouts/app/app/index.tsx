@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import {
-  Logo, Man, Dashboard, Solicity, History, Users, Corporate,
+  Logo, Man, Dashboard, Requests, History, Users, Corporate,
 } from '~/assets';
 
 import View from './styles';
 
 const App: React.FC = ({ children }) => {
+  const router = useRouter();
+
   const menu = [
     {
       icon: <Dashboard />,
@@ -14,9 +17,9 @@ const App: React.FC = ({ children }) => {
       path: 'dashboard',
     },
     {
-      icon: <Solicity />,
+      icon: <Requests />,
       name: 'Solicitações',
-      path: 'solicity',
+      path: 'requests',
     },
     {
       icon: <History />,
@@ -54,7 +57,9 @@ const App: React.FC = ({ children }) => {
               key={path}
               href={`/app/${path}`}
             >
-              <a>
+              <a
+                className={router.pathname === `/app/${path}` ? 'active' : ''}
+              >
                 {icon}
                 {name}
               </a>
