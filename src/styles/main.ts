@@ -46,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: ${weight.regular};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: ${gray[500]}
   }
 
   /**

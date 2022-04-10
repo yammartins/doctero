@@ -2,18 +2,17 @@ import { useMemo, useState } from 'react';
 
 import { Text } from '@uxoctopus/core';
 
-import { Card, Empty } from '~/components';
+import { Avatar } from '~/assets';
+import { Table, Empty } from '~/components';
 import { useFetch } from '~/hooks';
 import {
-  AppHead, AppDisplay, DisplayHandles, AppLayout,
+  AppLayout,
 } from '~/layouts';
 import { RequestsHandles } from '~/types';
 
 import View from './styles';
 
 const Requests: React.FC = () => {
-  const [display, onDisplay] = useState<DisplayHandles>('list');
-
   const { data, loading } = useFetch<RequestsHandles>('/request');
 
   const pending = useMemo(() => {
@@ -27,36 +26,37 @@ const Requests: React.FC = () => {
   return (
     <AppLayout>
       <View>
-        <AppHead
-          title="Solicitações"
-          display={display}
-          onDisplay={onDisplay}
+
+        <Table
+          header={[
+            {
+              col: 4,
+              className: 'title-request',
+              text:
+  <Text>
+    <Avatar />
+    Nome completo
+  </Text>,
+            },
+            { col: 3, text: 'E-mail cadastrado' },
+            { col: 2, text: 'Posição' },
+            { col: 2, text: 'CPF' },
+            { col: 1, text: '' },
+          ]}
+          rows={[
+            {
+              id: 1,
+              lines: [
+                { text: 'Friedrich Schiller' },
+                { text: 'frschiller@outlook.com' },
+                { text: 'Donatário' },
+                { text: '000.000.000-00' },
+              ],
+            },
+          ]}
+          type="auto"
+          className="testando"
         />
-
-        {pending?.length > 0 && (
-          <AppDisplay
-            display={display}
-            className="requests"
-          >
-            {pending.map(({ user }) => (
-              <Card key={user.id}>
-                <div className="flex flex-col">
-                  <Text
-                    type="h6"
-                    label={user.name}
-                    weight="600"
-                  />
-
-                  <Text
-                    type="p"
-                    label={user.email}
-                    className="mt-4"
-                  />
-                </div>
-              </Card>
-            ))}
-          </AppDisplay>
-        )}
 
         {pending?.length <= 0 && <Empty label="Você não possui nenhum solicitação nesse momento." />}
       </View>

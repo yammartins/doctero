@@ -2,9 +2,8 @@ import { useMemo } from 'react';
 
 import { Text } from '@uxoctopus/core';
 
-import { Card } from '~/components';
 import { useFetch } from '~/hooks';
-import { AppHead, AppLayout } from '~/layouts';
+import { AppLayout } from '~/layouts';
 import { Dashboard } from '~/styles';
 import { UsersHandles } from '~/types';
 
@@ -32,35 +31,7 @@ const View: React.FC = () => {
   return (
     <AppLayout>
       <Dashboard>
-        <AppHead title="Dashboard" />
-
-        <div className="dashboard-wrapper">
-          <Card className="dashboard-wrapper-card">
-            <Text
-              type="h3"
-              label={users.toString()}
-              weight="800"
-            />
-
-            <Text
-              label={users <= 1 ? 'Usuário' : 'Usuários'}
-              className="mt-8"
-            />
-          </Card>
-
-          <Card className="dashboard-wrapper-card">
-            <Text
-              type="h3"
-              label={pending.toString()}
-              weight="800"
-            />
-
-            <Text
-              label={pending <= 1 ? 'Solicitação' : 'Solicitações'}
-              className="mt-8"
-            />
-          </Card>
-        </div>
+        Vasco!
       </Dashboard>
     </AppLayout>
   );

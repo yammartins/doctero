@@ -1,8 +1,4 @@
 export {
-  default as AppHead,
-} from './head';
-
-export {
   default as AppLayout,
 } from './app';
 

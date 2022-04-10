@@ -14,7 +14,6 @@ const View = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background: ${gray[250]};
 
   .app {
 
@@ -38,7 +37,7 @@ const View = styled.div`
          width: 2.25rem;
          border-radius: 9999px;
          display: flex;
-         background: ${gray[350]};
+         background: ${gray[100]};
 
         }
       }
@@ -47,15 +46,15 @@ const View = styled.div`
         width: 100%;
         padding: 0.75rem 5rem;
         display: flex;
-        justify-content: space-between;
         background: ${white};
 
         a {
+          width: 100%;
           display: flex;
           gap: 1.25rem;
           font-weight: 500;
-          color: ${gray[450]};
-          stroke: ${gray[450]};
+          color: ${gray[400]};
+          stroke: ${gray[400]};
           transition: all;
           transition-duration: 250;
           position: relative;
@@ -82,13 +81,13 @@ const View = styled.div`
 
               ::after {
               content: '';
-              width: 120%;
+              width: 100%;
               height: 4px;
               border-radius: 0.25rem;
               background: ${info[200]};
               position: absolute;
               bottom: -0.75rem;
-              left: -0.5rem;
+              left: 0rem;
             }
           }
         }

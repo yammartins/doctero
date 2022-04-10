@@ -1,6 +1,7 @@
 import { Text } from '@uxoctopus/core';
 import classNames from 'classnames';
 
+import View from './styles';
 import { TableHandles } from './types';
 
 const Table: React.FC<TableHandles> = ({
@@ -51,64 +52,66 @@ const Table: React.FC<TableHandles> = ({
   };
 
   return (
-    <div
-      {...rest}
-      className={styled.base}
-    >
-      {has && (
-        <table className={`w-full border-separate table-wrapper ${type === 'auto' ? 'table-auto' : 'table-fixed'}`}>
-          <thead className="table-head">
-            <tr>
-              {header.map((item, index) => (
-                <th
-                  key={Math.random()}
-                  className={`px-6 py-3 last:rounded-r-md first:rounded-l-md ${sizes[index].col} ${sizes[index].className}`}
-                >
-                  <Text
-                    size="xs"
-                    align={sizes[index].align}
-                    weight="500"
-                  >
-                    {item.text}
-                  </Text>
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody className="table-body">
-            {rows?.map(({ id, lines, ...props }) => (
-              <tr
-                {...props}
-                key={id}
-                className={props.onClick ? 'cursor-pointer' : ''}
-              >
-                {lines.map((item, index) => (
-                  <td
+    <View>
+      <div
+        {...rest}
+        className={styled.base}
+      >
+        {has && (
+          <table className={`w-full border-separate table-wrapper ${type === 'auto' ? 'table-auto' : 'table-fixed'}`}>
+            <thead className="table-head">
+              <tr>
+                {header.map((item, index) => (
+                  <th
                     key={Math.random()}
-                    role="presentation"
-                    title={item?.title || undefined}
-                    className={styled.row(index)}
+                    className={`px-6 py-3 last:rounded-r-md first:rounded-l-md ${sizes[index].col} ${sizes[index].className}`}
                   >
-                    {typeof item.text === 'string'
-                      ? (
-                        <Text
-                          size={size}
-                          title={item?.title || ''}
-                          align={sizes[index].align}
-                          label={item.text}
-                        />
-                      ) : item.text}
-                  </td>
+                    <Text
+                      size="xs"
+                      align={sizes[index].align}
+                      weight="500"
+                    >
+                      {item.text}
+                    </Text>
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
 
-      {has === false && <Text label={empty || 'Empty'} className="table-empty" />}
-    </div>
+            <tbody className="table-body">
+              {rows?.map(({ id, lines, ...props }) => (
+                <tr
+                  {...props}
+                  key={id}
+                  className={props.onClick ? 'cursor-pointer' : ''}
+                >
+                  {lines.map((item, index) => (
+                    <td
+                      key={Math.random()}
+                      role="presentation"
+                      title={item?.title || undefined}
+                      className={styled.row(index)}
+                    >
+                      {typeof item.text === 'string'
+                        ? (
+                          <Text
+                            size={size}
+                            title={item?.title || ''}
+                            align={sizes[index].align}
+                            label={item.text}
+                          />
+                        ) : item.text}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {has === false && <Text label={empty || 'Empty'} className="table-empty" />}
+      </div>
+    </View>
   );
 };
 

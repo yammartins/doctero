@@ -15,6 +15,10 @@ export {
 } from './svgs/men-avatar.svg';
 
 export {
+  default as Avatar,
+} from './svgs/table-avatar.svg';
+
+export {
   default as Dashboard,
 } from './svgs/dashboard.svg';
 

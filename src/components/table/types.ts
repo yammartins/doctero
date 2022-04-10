@@ -23,7 +23,7 @@ export type TableHeaderHandles = {
 
 export interface TableHandles extends HTMLAttributes<HTMLTableElement> {
   rows: TableRowsHandles[] | null,
-  size?: 'xs' | 'sm' | 'lg' | 'xl' | 'xxs' | 'base' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl',
   type?: 'auto' | 'fixed',
   empty?: string,
   theme?: 'gray' | 'dark' | 'light' | 'white',

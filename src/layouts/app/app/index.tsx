@@ -52,12 +52,13 @@ const App: React.FC = ({ children }) => {
           </Link>
         </div>
         <div className="app-menu-items">
-          {menu.map(({ icon, name, path }) => (
+          {menu.map(({ icon, name, path }, index) => (
             <Link
               key={path}
               href={`/app/${path}`}
             >
               <a
+                style={{ borderLeft: index > 0 ? '1px solid #F1F5F9' : '' }}
                 className={router.pathname === `/app/${path}` ? 'active' : ''}
               >
                 {icon}
