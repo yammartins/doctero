@@ -1,4 +1,6 @@
-import { ReactNode, HTMLAttributes } from 'react';
+import {
+  ReactNode, HTMLAttributes, SetStateAction, Dispatch,
+} from 'react';
 
 type Aligns = 'left' | 'right' | 'center';
 
@@ -28,4 +30,7 @@ export interface TableHandles extends HTMLAttributes<HTMLTableElement> {
   empty?: string,
   theme?: 'gray' | 'dark' | 'light' | 'white',
   header: TableHeaderHandles[],
+  show: boolean;
+  onShow?: Dispatch<SetStateAction<boolean>>;
+  onClick?: () => void;
 }

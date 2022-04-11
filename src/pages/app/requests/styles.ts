@@ -7,13 +7,9 @@ const {
 } = colors;
 
 const View = styled.div`
-  .requests {
-    .card {
-      .text-p {
-        color: ${gray[400]};
-      }
-    }
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 `;
 
 export default View;

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 import { Text } from '@uxoctopus/core';
 
-import { Avatar } from '~/assets';
+import { Avatar, Man } from '~/assets';
 import { Table, Empty } from '~/components';
 import { useFetch } from '~/hooks';
 import {
@@ -31,9 +31,11 @@ const Requests: React.FC = () => {
           header={[
             {
               col: 4,
-              className: 'title-request',
               text:
-  <Text>
+  <Text
+    size="sm"
+    weight="500"
+  >
     <Avatar />
     Nome completo
   </Text>,
@@ -47,7 +49,17 @@ const Requests: React.FC = () => {
             {
               id: 1,
               lines: [
-                { text: 'Friedrich Schiller' },
+                {
+                  text:
+  <Text
+    size="sm"
+  >
+    <div className="body-request">
+      <Man />
+    </div>
+    Friedrich Schiller
+  </Text>,
+                },
                 { text: 'frschiller@outlook.com' },
                 { text: 'Donatário' },
                 { text: '000.000.000-00' },
@@ -55,7 +67,7 @@ const Requests: React.FC = () => {
             },
           ]}
           type="auto"
-          className="testando"
+          className="request-table"
         />
 
         {pending?.length <= 0 && <Empty label="Você não possui nenhum solicitação nesse momento." />}
