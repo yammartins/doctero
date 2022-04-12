@@ -6,7 +6,7 @@ import { StyledHandles } from './types';
 
 const {
   gray,
-  danger,
+  red,
   primary,
   success,
 } = colors;
@@ -101,7 +101,7 @@ const View = styled.div<StyledHandles>`
           margin-top: 1rem;
 
           &.is-error {
-            color: ${danger} !important;
+            color: ${red[200]} !important;
           }
 
           &.is-success {
@@ -176,7 +176,7 @@ const View = styled.div<StyledHandles>`
     }
 
     &-error {
-      color: ${danger} !important;
+      color: ${red[200]} !important;
       display: flex;
       margin-top: 1rem;
       justify-content: center;

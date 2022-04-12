@@ -43,9 +43,9 @@ const View = styled.div`
      }
 
      .table-body {
+       position: relative;
        display: flex;
        background: ${white};
-       border-radius: 0px 0px 0.5rem 0.5rem;
 
        &-general {
          display: flex;
@@ -80,6 +80,68 @@ const View = styled.div`
            position: absolute;
            right: 2.5rem;
            cursor: pointer;
+         }
+       }
+
+       &-details {
+         position: absolute;
+         opacity: 0;
+         pointer-events: none;
+         bottom: -5.75rem;
+         left: 0;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         padding: 1rem 2.5rem;
+         background: ${white};
+         transition: all;
+         transition-duration: 300;
+
+         .user-data-wrapper {
+           width: 100%;
+           display: grid;
+           grid-template-columns: repeat(3, minmax(0, 1fr));
+           grid-row-gap: 1.5rem;
+           grid-column-gap: 2.5rem;
+
+           &-itens {
+             color: ${gray[900]};
+             display: flex;
+             flex-direction: column;
+
+             span {
+               font-size: 0.875rem;
+               font-weight: 500;
+               color: ${black};
+             }
+           }
+         }
+
+         .buttons {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+         justify-content: center;
+
+          .confirm {
+           width: 2.5rem;
+           height: 2.5rem;
+           padding: 0.5rem;
+         }
+
+         .delete {
+           width: 2.5rem;
+           height: 2.5rem;
+           padding: 0.5rem;
+         }
+        }
+
+         &.is-show {
+           pointer-events: auto;
+           opacity: 100;
+           bottom: -9.75rem;
+           transition: all;
+           transition-duration: 300;
          }
        }
 

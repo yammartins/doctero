@@ -9,7 +9,7 @@ import typograph from './typograph';
 const {
   gray,
   white,
-  danger,
+  red,
   primary,
 } = colors;
 
@@ -106,17 +106,17 @@ const GlobalStyles = createGlobalStyle`
 
     &.is-error & {
       &-label {
-        color: ${danger};
+        color: ${red[200]};
       }
 
       &-target {
-        background: ${rgba(danger, '.04')};
-        border-color: ${danger};
+        background: ${rgba(red[200], '.04')};
+        border-color: ${red[200]};
       }
     }
 
     &-error {
-      color: ${danger};
+      color: ${red[200]};
       bottom: -1.5rem;
       position: absolute;
     }

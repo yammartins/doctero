@@ -1,4 +1,6 @@
-import { Text } from '@uxoctopus/core';
+import { useState } from 'react';
+
+import { Button, Text } from '@uxoctopus/core';
 import classNames from 'classnames';
 
 import { Extend } from '~/assets';
@@ -15,11 +17,10 @@ const Table: React.FC<TableHandles> = ({
   theme = 'dark',
   header = [],
   className = '',
-  show = false,
-  onShow,
-  onClick,
   ...rest
 }) => {
+  const [open, onOpen] = useState(false);
+
   const cols = {
     1: 'w-1-12',
     2: 'w-2-12',
@@ -112,14 +113,63 @@ const Table: React.FC<TableHandles> = ({
                       ))}
                       <td className="extend">
                         <Extend
-                          onClick={() => onShow(true)}
+                          onClick={() => onOpen(! open)}
                         />
                       </td>
                     </Cols>
                   </tr>
 
-                  <tr className={`table-body-details ${show ? 'is-show' : ''}`}>
-                    <td>Vasco</td>
+                  <tr className={`table-body-details ${open ? 'is-show' : ''}`}>
+                    <td className="user-data">
+                      <div className="user-data-wrapper">
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          Nome completo:
+                          <span>Johann Christoph Friedrich von Schiller</span>
+                        </Text>
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          CPF:
+                          <span>000000000-00</span>
+                        </Text>
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          Telefone:
+                          <span>(00) 00000-0000</span>
+                        </Text>
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          E-mail:
+                          <span>frschiller@outlook.com</span>
+                        </Text>
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          Endereço:
+                          <span>Av. Coronel Belchior de Godói, 2125</span>
+                        </Text>
+                        <Text
+                          size="xs"
+                          className="user-data-wrapper-itens"
+                        >
+                          Posição:
+                          <span>Doador</span>
+                        </Text>
+                      </div>
+                    </td>
+                    <td className="buttons">
+                      <Button className="confirm" />
+                      <Button className="delete" />
+                    </td>
                   </tr>
                 </>
               ))}
