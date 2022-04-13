@@ -4,7 +4,11 @@ export {
 
 export {
   default as Extend,
-} from './svgs/chevron-down.svg';
+} from './svgs/expand.svg';
+
+export {
+  default as Reduce,
+} from './svgs/contract.svg';
 
 export {
   default as Women,

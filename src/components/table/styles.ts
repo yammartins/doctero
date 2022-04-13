@@ -6,6 +6,9 @@ const {
   white,
   black,
   gray,
+  green,
+  info,
+  red,
 } = colors;
 
 const View = styled.div`
@@ -120,19 +123,36 @@ const View = styled.div`
          .buttons {
          display: flex;
          flex-direction: column;
-         gap: 1rem;
+         gap: 0.5rem;
          justify-content: center;
 
           .confirm {
            width: 2.5rem;
            height: 2.5rem;
            padding: 0.5rem;
+           background: ${green[50]};
+           border: none;
+           border-radius: 2px;
+
+           .icon-check {
+             font-size: 1.5rem;
+             color: ${info[200]};
+           }
          }
 
          .delete {
            width: 2.5rem;
            height: 2.5rem;
            padding: 0.5rem;
+           background: ${red[100]};
+           border: none;
+           border-radius: 2px;
+
+           .icon-x {
+             font-size: 1.375rem;
+             color: ${red[300]};
+
+           }
          }
         }
 

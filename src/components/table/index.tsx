@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Text } from '@uxoctopus/core';
 import classNames from 'classnames';
 
-import { Extend } from '~/assets';
+import { Extend, Reduce } from '~/assets';
 
 import Cols from './cols';
 import View from './styles';
@@ -112,9 +112,15 @@ const Table: React.FC<TableHandles> = ({
                         </td>
                       ))}
                       <td className="extend">
-                        <Extend
-                          onClick={() => onOpen(! open)}
-                        />
+                        {open ? (
+                          <Reduce
+                            onClick={() => onOpen(! open)}
+                          />
+                        ) : (
+                          <Extend
+                            onClick={() => onOpen(! open)}
+                          />
+                        )}
                       </td>
                     </Cols>
                   </tr>
@@ -167,8 +173,8 @@ const Table: React.FC<TableHandles> = ({
                       </div>
                     </td>
                     <td className="buttons">
-                      <Button className="confirm" />
-                      <Button className="delete" />
+                      <Button className="confirm" icon="check" />
+                      <Button className="delete" icon="x" />
                     </td>
                   </tr>
                 </>

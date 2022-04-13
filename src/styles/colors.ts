@@ -30,6 +30,7 @@ const colors = {
   red: {
     100: '#FA0F0F14',
     200: '#F03D3D',
+    300: '#FA0F0F',
   },
 
   success: '#0BB07B',
