@@ -23,11 +23,27 @@ export type TableHeaderHandles = {
   className?: string,
 };
 
+type DetailHandles = {
+  id: number,
+  name: string,
+  email: string,
+  types: string,
+  position: string,
+  CPF: string,
+  address: string,
+  phone: string,
+};
+
+export type CustomRows = TableRowsHandles & {
+  details: DetailHandles[] | null,
+};
+
 export interface TableHandles extends HTMLAttributes<HTMLTableElement> {
-  rows: TableRowsHandles[] | null,
+  rows: CustomRows[],
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl',
   type?: 'auto' | 'fixed',
   empty?: string,
   theme?: 'gray' | 'dark' | 'light' | 'white',
   header: TableHeaderHandles[],
+  open?: boolean,
 }

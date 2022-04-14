@@ -43,6 +43,13 @@ const colors = {
     300: '#0C66FF',
     400: '#0D55CF',
   },
+
+  giver: {
+    100: '#7742E81A',
+    200: '#7742E8',
+    300: '#FF1AA71A',
+    400: '#FF1AA7',
+  },
 };
 
 export default colors;

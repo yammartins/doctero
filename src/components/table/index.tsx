@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Text } from '@uxoctopus/core';
 import classNames from 'classnames';
 
-import { Extend, Reduce } from '~/assets';
+import { Extend } from '~/assets';
 
 import Cols from './cols';
 import View from './styles';
@@ -17,9 +17,10 @@ const Table: React.FC<TableHandles> = ({
   theme = 'dark',
   header = [],
   className = '',
+  open,
   ...rest
 }) => {
-  const [open, onOpen] = useState(false);
+  const [show, onShow] = useState(-1);
 
   const cols = {
     1: 'w-1-12',
@@ -86,98 +87,100 @@ const Table: React.FC<TableHandles> = ({
             </thead>
 
             <tbody className="table-body">
-              {rows?.map(({ id, lines, ...props }) => (
-                <>
-                  <tr
-                    {...props}
-                    key={id}
-                    className="table-body-general"
-                  >
-                    <Cols>
-                      {lines.map((item, index) => (
-                        <td
-                          key={Math.random()}
-                          title={item?.title || undefined}
-                          className={styled.row(index)}
-                        >
-                          {typeof item.text === 'string'
-                            ? (
-                              <Text
-                                size={size}
-                                title={item?.title || ''}
-                                align={sizes[index].align}
-                                label={item.text}
-                              />
-                            ) : item.text}
-                        </td>
-                      ))}
-                      <td className="extend">
-                        {open ? (
-                          <Reduce
-                            onClick={() => onOpen(! open)}
-                          />
-                        ) : (
-                          <Extend
-                            onClick={() => onOpen(! open)}
-                          />
-                        )}
+              {rows?.map(({
+                id, lines, details, ...props
+              }) => (
+                <tr
+                  {...props}
+                  key={id}
+                  className={`table-body-general ${show === id ? 'is-extend' : ''}`}
+                >
+                  <Cols>
+                    {lines.map((item, index) => (
+                      <td
+                        key={Math.random()}
+                        title={item?.title || undefined}
+                        className={styled.row(index)}
+                      >
+                        {typeof item.text === 'string'
+                          ? (
+                            <Text
+                              size={size}
+                              title={item?.title || ''}
+                              align={sizes[index].align}
+                              label={item.text}
+                            />
+                          ) : item.text}
                       </td>
-                    </Cols>
-                  </tr>
-
-                  <tr className={`table-body-details ${open ? 'is-show' : ''}`}>
-                    <td className="user-data">
+                    ))}
+                    <td className="extend">
+                      {show === id ? (
+                        <Extend
+                          onClick={() => onShow(-1)}
+                          className="active"
+                        />
+                      ) : (
+                        <Extend
+                          onClick={() => onShow(id as number)}
+                        />
+                      )}
+                    </td>
+                  </Cols>
+                  {details?.map(({
+                    id: id_details, name, email, position, CPF, address, phone,
+                  }) => (
+                    <td className={`details ${show === id ? 'is-show' : ''}`} key={id_details}>
                       <div className="user-data-wrapper">
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           Nome completo:
-                          <span>Johann Christoph Friedrich von Schiller</span>
+                          <span>{name}</span>
                         </Text>
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           CPF:
-                          <span>000000000-00</span>
+                          <span>{CPF}</span>
                         </Text>
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           Telefone:
-                          <span>(00) 00000-0000</span>
+                          <span>{phone}</span>
                         </Text>
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           E-mail:
-                          <span>frschiller@outlook.com</span>
+                          <span>{email}</span>
                         </Text>
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           Endereço:
-                          <span>Av. Coronel Belchior de Godói, 2125</span>
+                          <span>{address}</span>
                         </Text>
                         <Text
                           size="xs"
                           className="user-data-wrapper-itens"
                         >
                           Posição:
-                          <span>Doador</span>
+                          <span>{position}</span>
                         </Text>
                       </div>
+                      <div className="buttons">
+                        <Button className="confirm" icon="check" />
+                        <Button className="delete" icon="x" />
+                      </div>
                     </td>
-                    <td className="buttons">
-                      <Button className="confirm" icon="check" />
-                      <Button className="delete" icon="x" />
-                    </td>
-                  </tr>
-                </>
+                  ))}
+                </tr>
               ))}
             </tbody>
           </table>

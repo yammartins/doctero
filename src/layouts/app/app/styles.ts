@@ -56,6 +56,7 @@ const View = styled.div`
           color: ${gray[400]};
           stroke: ${gray[400]};
           transition: all;
+          justify-content: center;
           transition-duration: 250;
           position: relative;
           padding: 0.5rem 1.5rem;

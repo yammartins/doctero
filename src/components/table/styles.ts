@@ -9,6 +9,7 @@ const {
   green,
   info,
   red,
+  giver,
 } = colors;
 
 const View = styled.div`
@@ -46,14 +47,16 @@ const View = styled.div`
      }
 
      .table-body {
-       position: relative;
        display: flex;
-       background: ${white};
+       flex-direction: column;
+       gap: 1px;
 
        &-general {
          display: flex;
          width: 100%;
          align-items: center;
+         position: relative;
+         background: ${white};
 
          .table-body-row {
            padding: 1rem 0 1rem 2.5rem;
@@ -77,20 +80,44 @@ const View = styled.div`
                }
              }
            }
+
+           .donator {
+             padding: 0.5rem 1.5rem;
+             border-radius: 0.25rem;
+             background: ${giver[100]};
+             color: ${giver[200]};
+             max-width: 6.625rem;
+             justify-content: center;
+             align-self: center;
+
+           }
+
+           .receiver {
+             padding: 0.5rem 1.5rem;
+             border-radius: 0.25rem;
+             background: ${giver[300]};
+             color: ${giver[400]};
+             max-width: 6.625rem;
+
+           }
+
          }
 
          .extend {
            position: absolute;
            right: 2.5rem;
            cursor: pointer;
-         }
-       }
 
-       &-details {
+           .active {
+             transform: rotate(180deg);
+           }
+         }
+
+         .details {
          position: absolute;
          opacity: 0;
          pointer-events: none;
-         bottom: -5.75rem;
+         bottom: -5.5rem;
          left: 0;
          width: 100%;
          display: flex;
@@ -100,71 +127,84 @@ const View = styled.div`
          transition: all;
          transition-duration: 300;
 
-         .user-data-wrapper {
-           width: 100%;
-           display: grid;
-           grid-template-columns: repeat(3, minmax(0, 1fr));
-           grid-row-gap: 1.5rem;
-           grid-column-gap: 2.5rem;
+          .user-data-wrapper {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-row-gap: 1.5rem;
+            grid-column-gap: 2.5rem;
 
-           &-itens {
-             color: ${gray[900]};
-             display: flex;
-             flex-direction: column;
+            &-itens {
+              color: ${gray[900]};
+              display: flex;
+              flex-direction: column;
 
-             span {
-               font-size: 0.875rem;
-               font-weight: 500;
-               color: ${black};
-             }
+              span {
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: ${black};
+              }
+            }
+          }
+
+          .buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          justify-content: center;
+
+            .confirm {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+            background: ${green[50]};
+            border: none;
+            border-radius: 2px;
+
+            .icon-check {
+              font-size: 1.5rem;
+              color: ${info[200]};
+            }
+          }
+
+          .delete {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+            background: ${red[100]};
+            border: none;
+            border-radius: 2px;
+
+            .icon-x {
+              font-size: 1.375rem;
+              color: ${red[300]};
+
+            }
            }
-         }
+          }
 
-         .buttons {
-         display: flex;
-         flex-direction: column;
-         gap: 0.5rem;
-         justify-content: center;
-
-          .confirm {
-           width: 2.5rem;
-           height: 2.5rem;
-           padding: 0.5rem;
-           background: ${green[50]};
-           border: none;
-           border-radius: 2px;
-
-           .icon-check {
-             font-size: 1.5rem;
-             color: ${info[200]};
-           }
-         }
-
-         .delete {
-           width: 2.5rem;
-           height: 2.5rem;
-           padding: 0.5rem;
-           background: ${red[100]};
-           border: none;
-           border-radius: 2px;
-
-           .icon-x {
-             font-size: 1.375rem;
-             color: ${red[300]};
-
-           }
-         }
+          &.is-show {
+            pointer-events: auto;
+            opacity: 100;
+            bottom: -9.55rem;
+            transition: all;
+            transition-duration: 300;
+          }
         }
 
-         &.is-show {
-           pointer-events: auto;
-           opacity: 100;
-           bottom: -9.75rem;
-           transition: all;
-           transition-duration: 300;
-         }
-       }
+        &.is-extend {
+          margin-bottom: 9.575rem;
+        }
 
+        &:first-child {
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 0.75rem 0.75rem;
+        }
+
+       }
      }
 
      &.auto {
