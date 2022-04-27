@@ -1,29 +1,15 @@
-import '@uxoctopus/icons';
-import '@uxoctopus/styles';
-
-import { NotifyProvider } from '@uxoctopus/core';
-import { useDarkMode } from '@uxoctopus/hooks';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
 
-import { dark, light, MainStyles } from '~/styles';
+import { GlobalStyles } from '~/styles';
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const {
-    theme,
-  } = useDarkMode();
+const App: React.FC<AppProps> = ({ Component, pageProps }) => (
+  <>
 
-  const mode = theme === 'light' ? light : dark;
+    <GlobalStyles />
 
-  return (
-    <ThemeProvider theme={mode}>
-      <MainStyles />
+    <Component {...pageProps} />
 
-      <NotifyProvider>
-        <Component {...pageProps} />
-      </NotifyProvider>
-    </ThemeProvider>
-  );
-};
+  </>
+);
 
 export default App;

@@ -1,11 +1,7 @@
-import { Head, Header } from '~/layouts';
+import { Auth } from '~/layouts';
 
 const Home: React.FC = () => (
-  <>
-    <Head />
-
-    <Header />
-  </>
+  <Auth />
 );
 
 export default Home;
