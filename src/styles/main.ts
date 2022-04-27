@@ -4,8 +4,6 @@ import colors from './colors';
 import typography from './typograph';
 
 const {
-  black,
-  white,
   gray,
 } = colors;
 
