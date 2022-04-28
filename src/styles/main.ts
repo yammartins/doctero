@@ -44,7 +44,19 @@ h4 {
 }
 
 h5 {
-  font: 600 ${sizes.md}
+  font: 600 ${sizes.md};
+}
+
+p {
+  font: ${family.bodoni} ${sizes.base} ${gray[400]};
+}
+
+span {
+  font: ${family.bodoni} ${sizes.sm};
+}
+
+small {
+  font: ${family.bodoni} ${sizes.xs};
 }
 
 /**
@@ -54,7 +66,7 @@ h5 {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: ${gray[200]};
+  background-color: ${gray[600]};
 }
 
 `;

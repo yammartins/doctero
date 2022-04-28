@@ -4,11 +4,9 @@ import { GlobalStyles } from '~/styles';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
-
     <GlobalStyles />
 
     <Component {...pageProps} />
-
   </>
 );
 
