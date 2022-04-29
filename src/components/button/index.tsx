@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import View from './styles';
 import { ButtonHandles } from './types';
 
 const Button: React.FC<ButtonHandles> = ({
@@ -11,27 +12,37 @@ const Button: React.FC<ButtonHandles> = ({
   icon,
   submit,
   disabled,
+  className,
   ...rest
 }) => {
   const styled = classNames(
     'button',
+    full && 'is-full',
+    size && `is-${size}`,
+    appearance && `is-${appearance}`,
+    disabled && 'is-disabled',
+    className,
   );
 
   return (
-    <button
-      {...rest}
-      type={submit ? 'submit' : 'button'}
-      disabled={disabled}
-      className={styled}
-    >
-      {icon}
+    <View>
 
-      {loading ? (
-        <div className="loading" />
-      ) : (
-        label
-      )}
-    </button>
+      <button
+        {...rest}
+        type={submit ? 'submit' : 'button'}
+        disabled={disabled}
+        className={styled}
+      >
+        {icon}
+
+        {loading ? (
+          <div className="loading" />
+        ) : (
+          label
+        )}
+      </button>
+
+    </View>
   );
 };
 

@@ -1,3 +1,11 @@
 export {
-  default as Table,
-} from './table';
+  default as Button,
+} from './button';
+
+export {
+  default as Input,
+} from './input';
+
+export {
+  default as BaseInput,
+} from './input/base';

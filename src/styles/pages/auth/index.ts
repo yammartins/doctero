@@ -1,3 +1,3 @@
 export {
-  default as Public,
+  default as PublicView,
 } from './public';
