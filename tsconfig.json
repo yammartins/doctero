@@ -27,7 +27,7 @@
     "module": "esnext",
     "target": "esnext",
     "strict": false,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "allowJs": false,
     "sourceMap": true,
     "declaration": true,

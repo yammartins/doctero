@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-import { typograph, colors } from '~/styles';
-
-const {
-  family,
-  sizes,
-} = typograph;
+import { colors } from '~/styles';
 
 const {
   white,
@@ -19,7 +14,7 @@ const View = styled.div`
     display: flex;
     position: relative;
     padding: 1rem 0;
-    font-size: 600 ${sizes.base} ${family.bodoni};
+    font-size: 600;
 
     .loading {
       display: inline-block;

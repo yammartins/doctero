@@ -12,6 +12,10 @@ module.exports = SVG({
       COOKIE_EMAIL: process.env.COOKIE_EMAIL,
     },
 
+    compiler: {
+      styledComponents: true,
+    },
+
     include: resolve(__dirname, 'src/assets/svgs'),
 
     swcMinify: true,

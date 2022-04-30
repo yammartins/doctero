@@ -53,3 +53,7 @@ export {
 export {
   default as EmailSend,
 } from './animations/email-send.json';
+
+export {
+  default as Example,
+} from './images/public.jpeg';

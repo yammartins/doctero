@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const View = styled.div`
   .wrapper {
     display: flex;
-    flex-direction: column;
-
+    flex-direction: column
 
   }
 `;
