@@ -9,3 +9,7 @@ export {
 export {
   default as BaseInput,
 } from './input/base';
+
+export {
+  default as Text,
+} from './text';

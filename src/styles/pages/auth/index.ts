@@ -1,3 +1,7 @@
 export {
-  default as PublicView,
-} from './public';
+  default as Login,
+} from './signIn';
+
+export {
+  default as Created,
+} from './signUp';

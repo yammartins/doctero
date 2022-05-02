@@ -4,13 +4,13 @@ import View from './styles';
 import { ButtonHandles } from './types';
 
 const Button: React.FC<ButtonHandles> = ({
-  size,
-  full,
+  size = 'md',
+  full = false,
   label,
   loading,
-  appearance,
+  appearance = 'primary',
   icon,
-  submit,
+  submit = true,
   disabled,
   className,
   ...rest

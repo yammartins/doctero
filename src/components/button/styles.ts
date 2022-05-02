@@ -14,9 +14,12 @@ const View = styled.div`
     display: flex;
     position: relative;
     padding: 1rem 0;
-    font-size: 600;
+    font: 500 1.125rem 'Roboto, sans-serif';
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
 
-    .loading {
+    &.loading {
       display: inline-block;
       width: 2rem;
       height: 2rem;
@@ -41,6 +44,17 @@ const View = styled.div`
     &.is-primary {
       background-color: ${blue[500]};
       color: ${white};
+      transition: 0.3s ease-in-out all;
+
+      &:hover {
+        background-color: ${blue[600]};
+        transition: 0.3s ease-in-out all;
+      }
+
+      &:focus {
+        background-color: ${blue[700]};
+        transition: 0.3s ease-in-out all;
+      }
     }
   }
 `;

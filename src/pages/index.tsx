@@ -1,7 +1,7 @@
-import { Public } from '~/layouts';
+import SignIn from './auth/signin';
 
 const Home: React.FC = () => (
-  <Public />
+  <SignIn />
 );
 
 export default Home;

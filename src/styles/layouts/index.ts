@@ -1,3 +1,3 @@
 export {
-  default as Auth,
+  default as View,
 } from './auth';

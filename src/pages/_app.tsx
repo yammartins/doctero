@@ -1,12 +1,17 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
+import { GlobalStyles } from '~/styles';
 import { colors } from '~/styles';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
-  <ThemeProvider theme={colors}>
-    <Component {...pageProps} />
-  </ThemeProvider>
+  <>
+    <GlobalStyles />
+
+    <ThemeProvider theme={colors}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </>
 );
 
 export default App;

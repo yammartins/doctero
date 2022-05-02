@@ -44,6 +44,38 @@ export {
 
 export {
   default as Email,
+} from './svgs/email.svg';
+
+export {
+  default as Password,
+} from './svgs/password.svg';
+
+export {
+  default as User,
+} from './svgs/user.svg';
+
+export {
+  default as CPF,
+} from './svgs/document.svg';
+
+export {
+  default as Phone,
+} from './svgs/phone.svg';
+
+export {
+  default as Reveal,
+} from './svgs/reveal.svg';
+
+export {
+  default as Unreveal,
+} from './svgs/unreveal.svg';
+
+export {
+  default as House,
+} from './svgs/house.svg';
+
+export {
+  default as EmailJSON,
 } from './animations/email.json';
 
 export {
