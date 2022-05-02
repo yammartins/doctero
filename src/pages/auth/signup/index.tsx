@@ -64,26 +64,24 @@ const SignUp: React.FC = () => (
             />
 
             <Input
-              label="Bairro"
-              name="district"
+              label="Complemento"
+              name="complement"
             />
 
             <Input
-              label="Complemento"
-              name="complement"
+              label="Bairro"
+              name="district"
             />
 
           </div>
 
         </div>
 
-        <div className="footer">
-          <Button
-            type="submit"
-            label="Criar conta"
-            full
-          />
-        </div>
+        <Button
+          type="submit"
+          label="Criar conta"
+          full
+        />
 
       </Form>
     </Created>

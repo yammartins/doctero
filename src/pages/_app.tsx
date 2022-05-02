@@ -1,3 +1,5 @@
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 

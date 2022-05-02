@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 const Created = styled.div`
  display: flex;
+ width: 100%;
 
   .signup-box {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
 
+    gap: 2.5rem;
     align-items: center;
     width: 100%;
 
