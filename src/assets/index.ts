@@ -75,6 +75,10 @@ export {
 } from './svgs/house.svg';
 
 export {
+  default as Return,
+} from './svgs/left-arrow.svg';
+
+export {
   default as EmailJSON,
 } from './animations/email.json';
 

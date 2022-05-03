@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Logo } from '~/assets';
+import { Logo, Return } from '~/assets';
 import { Text } from '~/components';
 import { View } from '~/styles';
 
@@ -12,35 +13,42 @@ const Auth: React.FC<AuthHandles> = ({
   children,
   title,
   description,
+  previous,
 }) => {
   const content = [
     {
       id: 1,
-      image: '/assets/images/slide-1.jpeg',
+      image: '/assets/images/slide.jpeg',
       alt: 'Imagem de uma Hárpia-real',
       spotlight: 'A boa ação muda o mundo!',
-      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é o gesto.',
+      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é a intenção.',
     },
     {
       id: 2,
-      image: '/assets/images/slide-2.jpeg',
+      image: '/assets/images/slide.jpeg',
       alt: 'Imagem de uma Hárpia-real',
       spotlight: 'A boa ação muda o mundo!',
-      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é o gesto.',
+      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é a intenção.',
     },
     {
       id: 3,
-      image: '/assets/images/slide-3.jpg',
+      image: '/assets/images/slide.jpeg',
       alt: 'Imagem de Goethe',
       spotlight: 'A boa ação muda o mundo!',
-      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é o gesto.',
+      text: 'Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é a intenção.',
     },
   ];
+
+  const router = useRouter();
 
   return (
     <View>
 
       <div className="container">
+
+        {previous && (
+          <Return onClick={() => router.back()} className="return" />
+        )}
 
         <div className="main">
 
@@ -70,39 +78,42 @@ const Auth: React.FC<AuthHandles> = ({
           </div>
         </div>
 
-        <div className="slides">
+        <div className="slide">
 
           <Swiper
             pagination
             modules={[Pagination]}
-            className="mySwiper"
+            className="authSwiper"
           >
             {content.map(({
               id, image, spotlight, text, alt,
             }) => (
               <SwiperSlide key={id}>
 
-                <Image
-                  src={image}
-                  alt={alt}
-                  width="568px"
-                  height="412px"
-                />
+                <div className="slide-content-wrapper">
+                  <Image
+                    src={image}
+                    alt={alt}
+                    width="568px"
+                    height="412px"
+                    className="slide-image"
+                  />
 
-                <Text
-                  type="h2"
-                  label={spotlight}
-                  size="xlg"
-                  weight="700"
-                  family="poppins"
-                  align="center"
-                />
+                  <Text
+                    type="h2"
+                    label={spotlight}
+                    size="xlg"
+                    weight="700"
+                    family="poppins"
+                    align="center"
+                  />
 
-                <Text
-                  label={text}
-                  family="poppins"
-                  align="center"
-                />
+                  <Text
+                    label={text}
+                    family="poppins"
+                    align="center"
+                  />
+                </div>
 
               </SwiperSlide>
             ))}

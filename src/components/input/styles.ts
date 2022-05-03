@@ -66,7 +66,7 @@ const View = styled.div`
             font-size: 0.75rem;
             top: -0.675rem;
             left: 1rem;
-            background: ${({ theme }) => theme.gray[100]};
+            background: ${({ theme }) => theme.white};
             border-radius: 1rem;
             padding: 0 0.25rem;
             transition: 0.4s ease-in-out all;

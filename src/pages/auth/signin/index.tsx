@@ -2,6 +2,7 @@ import { Form } from '@unform/web';
 import Link from 'next/link';
 
 import { Input, Button } from '~/components';
+import { Text } from '~/components';
 import { Auth } from '~/layouts';
 import { Login } from '~/styles';
 
@@ -41,12 +42,20 @@ const SignIn: React.FC = () => (
             type="submit"
             label="Entrar"
             full
+            appearance="secondary"
           />
 
-          <Link href="/auth/signup">
-            <a>Não tem conta ainda? Seja um de nós!</a>
-          </Link>
-
+          <Text
+            type="p"
+            size="sm"
+            weight="500"
+            align="center"
+          >
+            Você ainda não é um de nós?
+            <Link href="/auth/signup">
+              <a>Registrar-se</a>
+            </Link>
+          </Text>
         </div>
       </Form>
     </Login>

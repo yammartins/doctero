@@ -7,7 +7,8 @@ import { Created } from '~/styles';
 const SignUp: React.FC = () => (
   <Auth
     title="Criar conta"
-    description="Cadastre-se e nos ajude a continuar essa causa!"
+    description="Vamos começar por algumas informações essenciais."
+    previous
   >
     <Created>
       <Form
@@ -38,42 +39,11 @@ const SignUp: React.FC = () => (
           />
 
           <Input
-            label="CPF"
-            name="cpf"
-            icon="cpf"
-            mask="999.999.999-99"
-          />
-
-          <Input
             label="Telefone"
             name="phone"
             icon="phone"
             mask="(99) 99999-9999"
           />
-
-          <div className="address-box">
-            <Input
-              label="Endereço"
-              name="address"
-              icon="address"
-            />
-
-            <Input
-              label="Número"
-              name="number"
-            />
-
-            <Input
-              label="Complemento"
-              name="complement"
-            />
-
-            <Input
-              label="Bairro"
-              name="district"
-            />
-
-          </div>
 
         </div>
 
@@ -81,6 +51,7 @@ const SignUp: React.FC = () => (
           type="submit"
           label="Criar conta"
           full
+          appearance="secondary"
         />
 
       </Form>

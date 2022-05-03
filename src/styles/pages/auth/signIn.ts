@@ -16,8 +16,8 @@ const View = styled.div`
       a {
         display: flex;
         justify-content: flex-end;
-        color: ${({ theme }) => theme.blue[400]};
-        font: 500 0.875rem 'Roboto, sans-serif';
+        color: ${({ theme }) => theme.indigo[500]};
+        font: 600 0.875rem 'Roboto, sans-serif';
       }
     }
 
@@ -26,11 +26,20 @@ const View = styled.div`
       flex-direction: column;
       gap: 0.5rem;
 
-      a {
+      p {
         display: flex;
-        justify-content: flex-end;
-        color: ${({ theme }) => theme.blue[400]};
-        font: 500 0.875rem 'Roboto, sans-serif';
+        flex-direction: column;
+        gap: 0.125rem;
+
+        margin-top: 1.5rem;
+        color: ${({ theme }) => theme.gray[500]};
+
+        a {
+        display: flex;
+        justify-content: center;
+        color: ${({ theme }) => theme.indigo[500]};
+        font: 600 0.875rem 'Roboto, sans-serif';
+       }
       }
     }
 

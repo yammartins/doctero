@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '~/styles';
-
-const {
-  white,
-  gray,
-  blue,
-} = colors;
-
 const View = styled.div`
 
   .button {
@@ -23,9 +15,9 @@ const View = styled.div`
       display: inline-block;
       width: 2rem;
       height: 2rem;
-      border: 0.125rem solid ${gray[300]};
+      border: 0.125rem solid ${({ theme }) => theme.gray[300]};
       border-radius: 50%;
-      border-top-color: ${white};
+      border-top-color: ${({ theme }) => theme.white};
       animation: spin 1.2s ease-in-out infinite;
       -webkit-animation: spin 1.2s ease-in-out infinite;
     }
@@ -43,20 +35,37 @@ const View = styled.div`
     }
 
     &.is-primary {
-      background-color: ${blue[500]};
-      color: ${white};
+      background-color: ${({ theme }) => theme.blue[500]};
+      color: ${({ theme }) => theme.white};
       transition: 0.3s ease-in-out all;
 
       &:hover {
-        background-color: ${blue[600]};
+        background-color: ${({ theme }) => theme.blue[600]};
         transition: 0.3s ease-in-out all;
       }
 
       &:focus {
-        background-color: ${blue[700]};
+        background-color: ${({ theme }) => theme.blue[700]};
         transition: 0.3s ease-in-out all;
       }
     }
+
+    &.is-secondary {
+      background-color: ${({ theme }) => theme.indigo[500]};
+      color: ${({ theme }) => theme.white};
+      transition: 0.3s ease-in-out all;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.indigo[600]};
+        transition: 0.3s ease-in-out all;
+      }
+
+      &:focus {
+        background-color: ${({ theme }) => theme.indigo[700]};
+        transition: 0.3s ease-in-out all;
+      }
+    }
+
   }
 `;
 

@@ -4,5 +4,5 @@ export interface AuthHandles {
   children: ReactNode;
   title: string,
   description: string,
-  type: ReactNode,
+  previous?: boolean,
 }
