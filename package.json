@@ -27,7 +27,7 @@
   "dependencies": {
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
-    "@uxoctopus/core": "^0.2.11",
+    "@uxoctopus/core": "^0.2.12",
     "@uxoctopus/helpers": "^0.1.2",
     "@uxoctopus/hooks": "^0.1.2",
     "@uxoctopus/icons": "^0.0.2",

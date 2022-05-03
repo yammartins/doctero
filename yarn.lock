@@ -751,13 +751,13 @@
   dependencies:
     "@unform/core" "2.1.6"
 
-"@uxoctopus/core@^0.2.11":
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.2.11.tgz#585dd2cfa4758a2327434c762031d8a53f32f7af"
-  integrity sha512-i3WqPf5LyMsyY7YcYtCIPNUgd73YrGwF678GaMUtBYIfqGsnFD3E9vnO2iIJhpfseraVJlo2FZnRWjzMPeZaaA==
+"@uxoctopus/core@^0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@uxoctopus/core/-/core-0.2.12.tgz#c380f1644daefb76821601a881aa3bf2a5219efc"
+  integrity sha512-x8OcMSlMphy1qiWhHWUebJjbnWrZImtSJCAfRUn74TcVkWgVXQuJZ/krDPVGxex3a6TH3pUt5M7v0JmmwKOBBA==
   dependencies:
     classnames "^2.3.1"
-    react-datepicker "^4.6.0"
+    react-datepicker "^4.7.0"
     react-input-mask "3.0.0-alpha.2"
     react-select "^5.2.2"
 
@@ -3117,10 +3117,10 @@ ramda@0.21.0:
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
   integrity sha1-oAGr7bP/YQd9T/HVd9RN536NCjU=
 
-react-datepicker@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.6.0.tgz#10fc7c5b9c72df5c3e29712d559cb3fe73fd9f62"
-  integrity sha512-JGSQnQSQYUkS7zvSaZuyHv5lxp3wMrN7GXV0VA0E9Ax9fL3Bb6E1pSXjL6C3WoeuV8dt/mItQfRkPpRGCrl/OA==
+react-datepicker@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.7.0.tgz#75e03b0a6718b97b84287933307faf2ed5f03cf4"
+  integrity sha512-FS8KgbwqpxmJBv/bUdA42MYqYZa+fEYcpc746DZiHvVE2nhjrW/dg7c5B5fIUuI8gZET6FOzuDgezNcj568Czw==
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"
