@@ -74,7 +74,6 @@ const View = styled.div`
         }
       }
     }
-
   }
 `;
 

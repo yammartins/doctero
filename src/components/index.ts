@@ -13,3 +13,7 @@ export {
 export {
   default as Text,
 } from './text';
+
+export {
+  default as Checkbox,
+} from './checkbox';

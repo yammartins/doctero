@@ -11,15 +11,20 @@ const Created = styled.div`
     align-items: center;
     width: 100%;
 
-    .input-box {
+    .first-step {
       width: 100%;
-      display: grid;
       gap: 1rem;
+      display: none;
 
       .address-box {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.625rem;
+      }
+
+      &.is-show {
+        display: grid;
+        transition: all;
       }
     }
   }

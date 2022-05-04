@@ -2,17 +2,19 @@ import { useState } from 'react';
 
 import { Form } from '@unform/web';
 
-import { Input, Button } from '~/components';
+import { Input, Button, Checkbox } from '~/components';
 import { Auth } from '~/layouts';
 import { Created } from '~/styles';
 
 const SignUp: React.FC = () => {
-  const [nextStep, onNextStep] = useState(null);
+  const [nextStep, onNextStep] = useState(0);
 
   return (
     <Auth
       title="Criar conta"
-      description="Vamos começar por algumas informações essenciais."
+      description={nextStep === 0
+        ? 'Vamos começar por algumas informações essenciais.'
+        : 'Agora nos diga qual o seu objetivo.'}
       previous
     >
       <Created>
@@ -21,7 +23,7 @@ const SignUp: React.FC = () => {
           className="signup-box"
         >
 
-          <div className="input-box">
+          <div className={`first-step ${nextStep === 0 ? 'is-show' : ''}`}>
 
             <Input
               label="Nome completo"
@@ -53,11 +55,19 @@ const SignUp: React.FC = () => {
           </div>
 
           <Button
-            type="submit"
-            label="Criar conta"
+            type={nextStep === 0 ? 'button' : 'submit'}
+            label={nextStep === 0 ? 'Avançar' : 'Cadastrar'}
             full
+            onClick={() => onNextStep(nextStep + 1)}
             appearance="secondary"
           />
+
+          <div className={`second-step ${nextStep === 1 ? 'is-show' : ''}`}>
+            <Checkbox
+              label="Donatário"
+              weight="500"
+            />
+          </div>
 
         </Form>
       </Created>

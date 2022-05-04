@@ -89,7 +89,6 @@ const Base: React.ForwardRefRenderFunction<RefInputHandles, InputHandles> = ({
 
           {how === 'textarea' && (
             <textarea
-              name=""
               id={fieldName}
               cols={cols}
               rows={rows}
