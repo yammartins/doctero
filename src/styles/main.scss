@@ -1,5 +1,13 @@
 @import "tailwindcss/base";
 
 @import "tailwindcss/components";
+@import "./public.scss";
 
 @import "tailwindcss/utilities";
+
+
+body,
+html,
+#__next {
+  @apply h-full w-full;
+}
