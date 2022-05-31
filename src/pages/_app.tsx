@@ -1,19 +1,7 @@
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
+import type { AppProps } from 'next/app'
 
-import { GlobalStyles } from '~/styles';
-import { colors } from '~/styles';
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => (
-  <>
-    <GlobalStyles />
-
-    <ThemeProvider theme={colors}>
-      <Component {...pageProps} />
-    </ThemeProvider>
-  </>
-);
-
-export default App;
+export default MyApp

@@ -1,6 +1,0 @@
-dist
-*.md
-*.html
-*.config.js
-.eslintrc.js
-node_modules

@@ -1,7 +1,11 @@
-import SignIn from './auth/signin';
+import type { NextPage } from 'next'
 
-const Home: React.FC = () => (
-  <SignIn />
-);
+const Home: NextPage = () => {
+  return (
+    <h1>
+      Vasco.
+    </h1>
+  )
+}
 
-export default Home;
+export default Home

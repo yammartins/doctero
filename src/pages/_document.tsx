@@ -8,15 +8,16 @@ import {
 const Document: React.FC = () => (
   <Html>
     <Head>
-      <meta charSet="utf-8" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
 
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+      <script src="https://unpkg.com/phosphor-icons"></script>
 
-      <link rel="stylesheet" href="https://unpkg.com/tailwindcss/src/css/preflight.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+      <link rel="icon" type="image/png" href="/icon.jpeg" />
     </Head>
     <body>
       <Main />
-
       <NextScript />
     </body>
   </Html>

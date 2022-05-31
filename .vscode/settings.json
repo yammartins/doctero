@@ -1,10 +1,6 @@
 {
-    "cSpell.language": "pt-BR,en,pt,en-GB,en-US",
+    "git.ignoreLimitWarning": true,
     "cSpell.words": [
-        "Hárpia",
-        "signup",
-        "swiper",
-        "Swiper",
-        "unform"
+        "tailwindcss"
     ]
 }
