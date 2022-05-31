@@ -1,11 +1,11 @@
-import { Head, Header } from '~/layouts';
+import type { NextPage } from 'next'
 
-const Home: React.FC = () => (
-  <>
-    <Head />
+const Home: NextPage = () => {
+  return (
+    <h1>
+      Vasco.
+    </h1>
+  )
+}
 
-    <Header />
-  </>
-);
-
-export default Home;
+export default Home
