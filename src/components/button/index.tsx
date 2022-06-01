@@ -31,6 +31,7 @@ const Button: React.FC<ButtonHandles> = ({
      className={styled}
      disabled={disabled}
     >
+
       {icon && ! loading && (
         <Icon
         name={icon as string}

@@ -1,0 +1,21 @@
+@layer components {
+  .button {
+    @apply font-inter text-base font-semibold flex py-4;
+
+    &.is-base {
+      @apply px-10 rounded-3xl;
+    }
+
+    &.is-outline {
+      @apply border border-blue-600 text-blue-600 bg-white;
+      @apply hover:border-blue-800 hover:text-blue-800 hover:transition-all;
+      @apply focus:border-blue-900 focus:text-blue-900 focus:transition-all;
+    }
+
+    &.is-primary {
+      @apply border border-blue-700 text-white bg-blue-700;
+      @apply hover:bg-blue-800 hover:text-white hover:transition-all;
+      @apply focus:bg-blue-900 focus:text-white focus:transition-all;
+    }
+  }
+}

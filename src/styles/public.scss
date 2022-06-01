@@ -1,6 +1,6 @@
 @layer components {
   .public {
-    @apply w-full h-full relative px-12 py-12;
+    @apply w-full h-full relative px-12 py-8;
 
     header {
       @apply fixed bg-white z-10 top-0 left-0 w-full px-12 py-8 flex items-center justify-between shadow-md;
@@ -16,10 +16,10 @@
           @apply flex gap-8 items-center;
 
           a {
-            @apply font-semibold font-jakarta text-blue-600;
+            @apply font-medium font-jakarta text-gray-500;
 
             &:hover {
-              @apply text-blue-700 transition-all;
+              @apply text-gray-600 transition-all;
             }
           }
         }
@@ -37,11 +37,15 @@
         @apply gap-4 flex flex-col;
 
         h1 {
-          @apply text-3xl font-bold text-blue-700 font-jakarta;
+          @apply text-3xl font-bold text-black font-jakarta;
         }
 
         p {
-          @apply mt-1 mb-10 text-blue-500 font-medium font-inter w-10/12;
+          @apply mt-1 mb-10 text-gray-500 font-medium font-inter w-10/12;
+        }
+
+        button {
+          @apply self-start;
         }
       }
 
@@ -60,10 +64,10 @@
           @apply flex gap-[6.875rem];
 
           a {
-            @apply font-medium font-jakarta text-blue-600;
+            @apply font-medium font-jakarta text-gray-500;
 
             &:hover {
-              @apply text-blue-700 transition-all;
+              @apply text-gray-600 transition-all;
             }
           }
         }

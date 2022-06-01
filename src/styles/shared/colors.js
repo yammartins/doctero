@@ -26,6 +26,12 @@ const blue = {
   900: '#0032AC',
 };
 
+const gray = {
+  400: '#9CA3AF',
+  500: '#6B7280',
+  600: '#4B5563',
+}
+
 const red = {
   500: '#EF4444',
   600: '#DC2626',
@@ -37,6 +43,7 @@ const black = '#000000';
 module.exports = {
   green,
   blue,
+  gray,
   red,
   white,
   black,

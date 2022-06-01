@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '~/components'
 
 const Home: NextPage = () => {
   const menu = [
@@ -11,17 +13,17 @@ const Home: NextPage = () => {
     {
       id: 2,
       name: 'Missão',
-      path: 'mission',
+      path: '#mission',
     },
     {
       id: 3,
       name: 'Como ajudar',
-      path: 'help',
+      path: '#help',
     },
     {
       id: 4,
       name: 'Contato',
-      path: 'contact-us'
+      path: '#contact-us'
     }
   ];
 
@@ -66,7 +68,24 @@ const Home: NextPage = () => {
             </nav>
           </div>
 
-          <div className="public-header-button">botões</div>
+          <div className="public-header-button">
+           <Link
+            href="/signUp"
+           >
+              <Button
+                appearance='outline'
+                label='Registrar'
+              />
+           </Link>
+
+           <Link
+            href="/signIn"
+           >
+              <Button
+                label='Entrar'
+              />
+           </Link>
+          </div>
       </header>
 
       <section
@@ -78,7 +97,13 @@ const Home: NextPage = () => {
            <p>Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é o gesto.
            </p>
 
-           <button>Nada</button>
+           <Link
+            href="/signUp"
+           >
+              <Button
+                label='Cadastre-se agora'
+              />
+           </Link>
         </div>
 
         <div className="section-main-image">
@@ -93,12 +118,14 @@ const Home: NextPage = () => {
         <footer className='section-main-footer'>
           <nav>
             {org.map(({id, name, path}) => (
-              <a
+              <Link
               key={id}
               href={path}
               >
-                {name}
-              </a>
+                <a>
+                  {name}
+                </a>
+              </Link>
             ))}
           </nav>
         </footer>
