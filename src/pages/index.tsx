@@ -70,7 +70,7 @@ const Home: NextPage = () => {
 
           <div className="public-header-button">
            <Link
-            href="/signUp"
+            href="auth/signup"
            >
               <Button
                 appearance='outline'
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
            </Link>
 
            <Link
-            href="/signIn"
+            href="auth/signin"
            >
               <Button
                 label='Entrar'
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
            </p>
 
            <Link
-            href="/signUp"
+            href="auth/signup"
            >
               <Button
                 label='Cadastre-se agora'

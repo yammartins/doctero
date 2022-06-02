@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { TextHandles } from './types';
 
 const Text: React.FC<TextHandles> = ({
-  type,
+  type = 'p',
   label,
   size = 'base',
   align = 'left',

@@ -49,6 +49,8 @@ module.exports = {
   content: [
     "./src/components/*.tsx",
     "./src/components/**/*.tsx",
+    "./src/layouts/*.tsx",
+    "./src/layouts/**/*.tsx",
     "./src/pages/*.tsx",
     "./src/pages/**/*.tsx",
     "./src/styles/*.scss",
