@@ -3,7 +3,7 @@
     @apply w-full h-full relative px-12 py-8;
 
     header {
-      @apply fixed bg-white z-10 top-0 left-0 w-full px-12 py-8 flex items-center justify-between shadow-md;
+      @apply fixed bg-white z-10 top-0 left-0 w-full px-12 py-6 flex items-center justify-between shadow-md;
 
       .public-header-menu {
         @apply flex items-center justify-between gap-20;
@@ -37,7 +37,7 @@
         @apply gap-4 flex flex-col;
 
         h1 {
-          @apply text-3xl font-bold text-black font-jakarta;
+          @apply text-4xl font-bold text-black font-jakarta;
         }
 
         p {

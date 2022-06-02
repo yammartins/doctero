@@ -19,6 +19,9 @@
         "./src/*"
       ]
     },
+    "plugins": [
+      { "name": "typescript-tslint-plugin" }
+    ],
     "incremental": true
   },
   "include": [
