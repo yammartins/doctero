@@ -26,7 +26,12 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    "eqeqeq": "error",
+    "react/jsx-props-no-spreading": [<enabled />, {
+      "html": "ignore" | "enforce",
+      "custom": "ignore" | "enforce",
+      "explicitSpread": "ignore" | "enforce",
+      "exceptions": [<string />]
+    }],
     "no-console": "warn",
     "prettier/prettier": ["error", {
       "endOfLine":"auto"
@@ -37,6 +42,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-unused-vars": "off",
+
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "react/function-component-definition": [
