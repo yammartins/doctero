@@ -8,7 +8,7 @@ import { useField } from '@unform/core'
 
 import Base from './base';
 
-import { FormProps, InputHandles } from './types';
+import { FormProps, InputElementProps } from './types';
 
 const InputForm: React.FC<FormProps> = ({
   name,
@@ -17,8 +17,8 @@ const InputForm: React.FC<FormProps> = ({
 
   const [filled, onFilled] = useState('');
 
-  const ref = useRef<InputHandles>(null);
-  const { fieldName, defaultValue, registerField, error } = useField(name)
+  const ref = useRef<InputElementProps>(null);
+  const { fieldName, defaultValue, registerField, clearError, error } = useField(name)
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -38,9 +38,10 @@ const InputForm: React.FC<FormProps> = ({
   return (
     <Base
     {...rest}
-      ref={ref as any}
+      ref={ref}
       fieldName={fieldName}
       defaultValue={defaultValue}
+      onFocus={clearError}
       name={name}
     />
   );

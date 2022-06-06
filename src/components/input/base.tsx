@@ -1,10 +1,10 @@
 import ReactInputMask from "react-input-mask";
 import { Icon, Text } from '~/components';
-import { FormProps } from "./types";
-import { useState, forwardRef, memo } from "react";
+import { InputElementProps, InputProps } from "./types";
+import { useState, forwardRef, memo, ForwardRefRenderFunction } from "react";
 import classNames from "classnames";
 
-const Base: React.FC<FormProps> = ({
+const Base: ForwardRefRenderFunction<InputElementProps, InputProps> = ({
   icon,
   full,
   placeholder,
@@ -22,7 +22,10 @@ const Base: React.FC<FormProps> = ({
 
   return (
      <div className="input-box">
-       <label htmlFor={fieldName}>
+       <label
+        className="input-box-label"
+        htmlFor={fieldName}
+      >
         {icon && (
            <Icon
             name={icon}
@@ -36,11 +39,12 @@ const Base: React.FC<FormProps> = ({
        {how === 'default' && (
          <ReactInputMask
            {...rest}
+           ref={ref}
            id={fieldName}
            mask={mask}
            maskPlaceholder=""
            type={typed}
-           ref={ref}
+           className={`input-box-mask ${className}`}
          />
        )}
 
@@ -48,4 +52,4 @@ const Base: React.FC<FormProps> = ({
   );
 };
 
-export default Base;
+export default memo(forwardRef(Base));

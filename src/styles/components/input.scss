@@ -1,0 +1,10 @@
+@layer components {
+  .input-box {
+    @apply flex border p-4 rounded-base gap-2 items-center;
+
+    &-label {
+      @apply flex gap-3 items-center;
+
+    }
+  }
+}

@@ -1,20 +1,20 @@
-import { Props } from "react-input-mask";
+import ReactInputMask, { Props } from "react-input-mask";
 
-export type InputHandles = JSX.IntrinsicElements["input"] & JSX.IntrinsicElements["textarea"];
+export type InputHandles = JSX.IntrinsicElements["input"] &
+  JSX.IntrinsicElements["textarea"] &
+  Props;
 
-export interface BaseHandles extends Omit<Props, "value" | "mask"> {
+export type InputElementProps = InputHandles & ReactInputMask;
+
+export type InputProps = Omit<InputHandles, "mask" | "value"> & {
+  mask?: Props["mask"];
   icon?: string;
   full?: boolean;
-  placeholder?: string;
-  fieldName: string;
+  fieldName?: string;
   label?: string;
   how?: "input" | "textarea" | "default";
-  mask?: Props["mask"];
-  cols?: number;
-  rows?: number;
-  className?: string;
-}
+};
 
-export type FormProps = BaseHandles & InputHandles & {
+export type FormProps = InputProps & {
   name: string;
 };
