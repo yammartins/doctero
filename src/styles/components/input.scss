@@ -1,10 +1,35 @@
 @layer components {
   .input-box {
-    @apply flex border p-4 rounded-base gap-2 items-center;
+    @apply flex border border-gray-400 p-4 rounded-base gap-2 items-center relative transition-all duration-300;
 
     &-label {
-      @apply flex gap-3 items-center;
+      @apply flex gap-3 min-w-fit items-center w-auto;
 
+      i {
+        @apply text-gray-600 text-xmd;
+      }
+
+      p {
+        @apply text-gray-500 text-sm font-semibold font-jakarta absolute top-4 left-[3.25rem] transition-all duration-300;
+      }
+    }
+
+    &-mask {
+      @apply w-full outline-none;
+    }
+
+    &.on-focus {
+      @apply border-gray-800 transition-all duration-300;
+
+      .input-box-label {
+        i {
+          @apply text-gray-800 transition-all;
+        }
+
+        p {
+          @apply text-xs bg-white px-2 text-gray-800 rounded-base absolute -top-2 left-5 transition-all duration-300;
+        }
+      }
     }
   }
 }

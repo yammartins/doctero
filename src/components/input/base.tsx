@@ -19,9 +19,11 @@ const Base: ForwardRefRenderFunction<InputElementProps, InputProps> = ({
   ...rest
 }, ref) => {
   const [typed, onTyped] = useState(type);
+  const [focused, onFocused] = useState(false);
+  const [filled, onFilled] = useState('');
 
   return (
-     <div className="input-box">
+     <div className={`input-box ${focused || filled.length > 0 ? 'on-focus' : ''}`}>
        <label
         className="input-box-label"
         htmlFor={fieldName}
@@ -42,6 +44,9 @@ const Base: ForwardRefRenderFunction<InputElementProps, InputProps> = ({
            ref={ref}
            id={fieldName}
            mask={mask}
+           onFocus={() => onFocused(true)}
+           onBlur={() => onFocused(false)}
+           onChange={({ target }) => onFilled(target.value)}
            maskPlaceholder=""
            type={typed}
            className={`input-box-mask ${className}`}
