@@ -74,6 +74,7 @@ const Home: NextPage = () => {
            >
               <Button
                 appearance='outline'
+                size="md"
                 label='Registrar'
               />
            </Link>
@@ -83,6 +84,7 @@ const Home: NextPage = () => {
            >
               <Button
                 label='Entrar'
+                size="md"
               />
            </Link>
           </div>
@@ -102,6 +104,7 @@ const Home: NextPage = () => {
            >
               <Button
                 label='Cadastre-se agora'
+                size="md"
               />
            </Link>
         </div>

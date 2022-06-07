@@ -3,7 +3,7 @@ import { Form } from "@unform/web";
 import { FormHandles, SubmitHandler } from "@unform/core";
 import Link from "next/link";
 import { AuthLayout } from "~/layouts";
-import { Button, FormInput } from "~/components";
+import { Text, Button, FormInput, Checkbox } from "~/components";
 import { SignInHandles } from "~/types";
 
 const SignUp: React.FC = () => {
@@ -39,44 +39,63 @@ const SignUp: React.FC = () => {
           </div>
         </div>
 
-        <div className="signUp-box-content">
+        { step === 1 && (
+          <div className="first-step-input">
+            <FormInput
+            fieldName="name"
+            name="name"
+            label="Nome"
+            icon="user-circle"
+            />
 
-          { step === 1 && (
-            <div className="first-step-input">
-              <FormInput
-               fieldName="name"
-               name="name"
-               label="Nome"
-               icon="user-circle"
-              />
+            <FormInput
+            fieldName="email"
+            icon="envelope-simple-bold"
+            label="E-mail"
+            name="email"
+            />
 
-              <FormInput
-               fieldName="email"
-               icon="envelope-simple-bold"
-               label="E-mail"
-               name="email"
-              />
+            <FormInput
+            fieldName="password"
+            icon="lock-bold"
+            label="Senha"
+            name="password"
+            />
 
-              <FormInput
-               fieldName="password"
-               icon="lock-bold"
-               label="Senha"
-               name="password"
-              />
-            </div>
-          )}
-
-        </div>
+            <Checkbox
+             label="Li e aceito os termos de serviço e a política de privacidade."
+            />
+          </div>
+        )}
 
         <div className="signUp-box-footer">
-          Já é cadastrado?
-          <Link
-           href="/auth/signin"
+
+          <div className="signUp-button-box">
+            {step === 1 && (
+              <Button
+                label="Continuar"
+                onClick={() => onStep(step + 1)}
+                size="lg"
+                className="firstStep-button"
+              />
+            )}
+          </div>
+
+          <Text
+           weight="medium"
+           size="sm"
+           className="text-gray-500"
+           align="center"
           >
-            <a>
-              Entrar
-            </a>
-          </Link>
+            Já é cadastrado?
+            <Link
+            href="/auth/signin"
+            >
+              <a>
+                Entrar
+              </a>
+            </Link>
+          </Text>
         </div>
       </Form>
     </AuthLayout>

@@ -2,8 +2,16 @@
   .button {
     @apply font-inter text-base font-semibold flex py-4;
 
-    &.is-base {
+    &.is-md {
       @apply px-10;
+    }
+
+    &.is-base {
+      @apply px-12;
+    }
+
+    &.is-lg {
+      @apply px-14;
     }
 
     &.is-outline {

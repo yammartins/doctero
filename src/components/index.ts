@@ -7,3 +7,5 @@ export { default as FormInput } from "./input";
 export { default as Icon } from "./icon";
 
 export { default as Text } from "./typography";
+
+export { default as Checkbox } from "./checkbox";

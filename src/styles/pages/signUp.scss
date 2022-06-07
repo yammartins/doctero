@@ -1,0 +1,61 @@
+@layer components {
+  .signUp-box {
+    @apply flex flex-col gap-6;
+
+    &-header {
+      @apply flex justify-center p-4;
+
+      .signUp-step-box {
+        @apply flex gap-12 items-center relative;
+
+        .step-1 {
+          @apply w-10 h-10 rounded-full bg-blue-primary text-white font-bold font-jakarta flex   items-center justify-center;
+
+          &::after {
+            @apply content-[''] w-12 h-1 bg-blue-100 absolute top-4 left-10;
+          }
+        }
+
+        .step-2 {
+          @apply w-10 h-10 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
+
+          &::after {
+            @apply content-[''] w-12 h-1 bg-blue-100 absolute top-4 right-10;
+          }
+        }
+
+        .step-3 {
+          @apply w-10 h-10 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
+        }
+      }
+    }
+
+    .first-step-input {
+      @apply flex flex-col gap-4 mt-2;
+    }
+
+    &-footer {
+      @apply flex flex-col gap-8;
+
+      .signUp-button-box {
+        @apply flex gap-4 justify-center mb-8;
+
+        .firstStep-button {
+          @apply rounded-2xl;
+        }
+      }
+
+      p {
+        @apply flex flex-col gap-1;
+
+        a {
+          @apply text-blue-primary transition-colors;
+
+          &:hover {
+            @apply text-blue-800 transition-colors;
+          }
+        }
+      }
+    }
+  }
+}

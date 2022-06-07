@@ -15,7 +15,7 @@ const green = {
 const blue = {
   'primary': '#2563EB',
   50: '#D5E7FF',
-  100: '#BCD0FF',
+  100: '#EFF6FF',
   200: '#A3BAFF',
   300: '#89A5FF',
   400: '#6F90FF',
