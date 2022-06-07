@@ -3,7 +3,7 @@
     @apply font-inter text-base font-semibold flex py-4;
 
     &.is-base {
-      @apply px-10 rounded-3xl;
+      @apply px-10;
     }
 
     &.is-outline {

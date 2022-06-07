@@ -62,7 +62,7 @@ const SignIn: React.FC = () => {
          Não possui uma conta?
 
          <Link
-          href=""
+          href="/auth/signup"
          >
           <a>
             Cadastrar

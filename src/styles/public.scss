@@ -27,6 +27,10 @@
 
       .public-header-button {
         @apply flex gap-4;
+
+        button {
+          @apply rounded-3xl;
+        }
       }
     }
 
@@ -45,7 +49,7 @@
         }
 
         button {
-          @apply self-start;
+          @apply self-start rounded-3xl;
         }
       }
 
