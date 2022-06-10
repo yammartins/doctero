@@ -1,29 +1,31 @@
-import { useRef, useState } from "react";
-import { Form } from "@unform/web";
-import { FormHandles, SubmitHandler } from "@unform/core";
-import Link from "next/link";
-import { AuthLayout } from "~/layouts";
-import { Text, Button, FormInput, Checkbox } from "~/components";
-import { SignInHandles } from "~/types";
+import { useRef, useState } from 'react';
+import { Form } from '@unform/web';
+import { FormHandles, SubmitHandler } from '@unform/core';
+import Link from 'next/link';
+import { AuthLayout } from '~/layouts';
+import {
+  Text, Button, FormInput, Checkbox,
+} from '~/components';
+import { SignInHandles } from '~/types';
 
 const SignUp: React.FC = () => {
   const [step, onStep] = useState(1);
   const signUpRef = useRef<FormHandles>(null);
 
-  const handleSubmit: SubmitHandler<SignInHandles> = data => {
+  const handleSubmit: SubmitHandler<SignInHandles> = (data) => {
     console.log(signUpRef);
-  }
+  };
 
   return (
     <AuthLayout
-     title="Cadastrar"
-     description="Primeiro, precisamos de algumas informações básicas a respeito de você:"
-     back
+      title="Cadastrar"
+      description="Primeiro, precisamos de algumas informações básicas a respeito de você:"
+      back
     >
       <Form
-       ref={signUpRef}
-       onSubmit={handleSubmit}
-       className="signUp-box"
+        ref={signUpRef}
+        onSubmit={handleSubmit}
+        className="signUp-box"
       >
         <div className="signUp-box-header">
           <div className="signUp-step-box">
@@ -40,31 +42,45 @@ const SignUp: React.FC = () => {
         </div>
 
         { step === 1 && (
-          <div className="first-step-input">
+          <div className="firstStep-input">
             <FormInput
-            fieldName="name"
-            name="name"
-            label="Nome"
-            icon="user-circle"
+              fieldName="name"
+              name="name"
+              label="Nome"
+              icon="user-circle"
             />
 
             <FormInput
-            fieldName="email"
-            icon="envelope-simple-bold"
-            label="E-mail"
-            name="email"
+              fieldName="email"
+              icon="envelope-simple-bold"
+              label="E-mail"
+              name="email"
             />
 
             <FormInput
-            fieldName="password"
-            icon="lock-bold"
-            label="Senha"
-            name="password"
+              fieldName="password"
+              icon="lock-bold"
+              label="Senha"
+              name="password"
             />
 
             <Checkbox
-             label="Li e aceito os termos de serviço e a política de privacidade."
+              name="privacy"
+              label="Li e aceito os termos de serviço e a política de privacidade."
             />
+          </div>
+        )}
+
+        { step === 2 && (
+          <div className="secondStep-input">
+            <div className="secondStep-input-type">
+              <input type="radio" name="" id="" />
+              <input type="radio" name="" id="" />
+            </div>
+
+            <div className="secondStep-input-box">
+              .
+            </div>
           </div>
         )}
 
@@ -74,22 +90,42 @@ const SignUp: React.FC = () => {
             {step === 1 && (
               <Button
                 label="Continuar"
+                submit
                 onClick={() => onStep(step + 1)}
                 size="lg"
                 className="firstStep-button"
               />
             )}
+
+            {step === 2 && (
+              <>
+                <Button
+                  label="Voltar"
+                  onClick={() => onStep(step - 1)}
+                  appearance="outline"
+                  className="secondStep-button"
+                />
+
+                <Button
+                  label="Continuar"
+                  submit
+                  onClick={() => onStep(step + 1)}
+                  size="base"
+                  className="secondStep-button"
+                />
+              </>
+            )}
           </div>
 
           <Text
-           weight="medium"
-           size="sm"
-           className="text-gray-500"
-           align="center"
+            weight="medium"
+            size="sm"
+            className="text-gray-500"
+            align="center"
           >
             Já é cadastrado?
             <Link
-            href="/auth/signin"
+              href="/auth/signin"
             >
               <a>
                 Entrar
@@ -99,7 +135,7 @@ const SignUp: React.FC = () => {
         </div>
       </Form>
     </AuthLayout>
-  )
+  );
 };
 
 export default SignUp;

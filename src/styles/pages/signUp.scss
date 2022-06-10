@@ -30,7 +30,7 @@
       }
     }
 
-    .first-step-input {
+    .firstStep-input {
       @apply flex flex-col gap-4 mt-2;
     }
 
@@ -38,10 +38,14 @@
       @apply flex flex-col gap-8;
 
       .signUp-button-box {
-        @apply flex gap-4 justify-center mb-8;
+        @apply flex gap-2 justify-center mb-8;
 
         .firstStep-button {
           @apply rounded-2xl;
+        }
+
+        .secondStep-button {
+          @apply rounded-xlg;
         }
       }
 

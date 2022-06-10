@@ -4,16 +4,13 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  plugins: ['@typescript-eslint', 'eslint-comments'],
   extends: [
-    'plugin:react/recommended',
-    'prettier',
-    'plugin:prettier/recommended',
     'airbnb',
-    'airbnb-typescript',
     'airbnb/hooks',
+    'airbnb-typescript',
+    'plugin:react/recommended',
+    'plugin:@next/next/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,27 +21,17 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react','react-hooks','@typescript-eslint'],
   rules: {
-    "react/jsx-props-no-spreading": [<enabled />, {
-      "html": "ignore" | "enforce",
-      "custom": "ignore" | "enforce",
-      "explicitSpread": "ignore" | "enforce",
-      "exceptions": [<string />]
-    }],
-    "no-console": "warn",
-    "prettier/prettier": ["error", {
-      "endOfLine":"auto"
-    }],
-    "react/display-name": "off",
-    "react/no-children-prop": "off",
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "no-unused-vars": "off",
-
+    "import/extensions": ['error', {
+      ignorePackages: true,
+    }],
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
     "react/function-component-definition": [
       2,
       {
@@ -52,5 +39,12 @@ module.exports = {
         unnamedComponents: "arrow-function",
       },
     ],
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+
+    'import/extensions': ['.ts', '.tsx']
   },
 };
