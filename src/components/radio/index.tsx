@@ -34,39 +34,45 @@ const Radio: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <div className="">
-      {options.map(({ id, value, label }, index) => (
-        <div
-          key={id}
-          className=""
-        >
-          <div className="">
-            <input
-              {...rest}
-              ref={(ref) => {
-                inputRefs.current[index] = ref as HTMLInputElement;
-              }}
-              type="radio"
-              name={name}
-              value={value}
-              id={id}
-              defaultChecked={defaultValue.includes(id)}
-            />
-
-            <span className="" />
-          </div>
-
-          <label
-            htmlFor={label}
+    <div className="radio">
+      <div className="radioWrapper">
+        {options.map(({ id, value, label }, index) => (
+          <div
+            key={id}
+            className="radioWrapper-box"
           >
-            {label}
-          </label>
-        </div>
-      ))}
+            <div
+              className="radioWrapper-box-input"
+            >
+              <input
+                {...rest}
+                ref={(ref) => {
+                  inputRefs.current[index] = ref as HTMLInputElement;
+                }}
+                type="radio"
+                name={name}
+                value={value}
+                id={id}
+                defaultChecked={defaultValue.includes(id)}
+              />
+
+              <span />
+            </div>
+
+            <label
+              htmlFor={label}
+            >
+              {label}
+            </label>
+          </div>
+        ))}
+      </div>
 
       {error
        && (
-       <Text>
+       <Text
+         className="radio-error"
+       >
          {error}
        </Text>
        )}

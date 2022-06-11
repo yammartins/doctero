@@ -1,0 +1,41 @@
+@layer components {
+  .radio {
+    @apply flex w-full flex-col gap-4 items-center;
+
+    .radioWrapper {
+      @apply flex gap-3 items-center;
+
+      &-box {
+        @apply flex gap-1 items-center;
+
+        &-input {
+          @apply flex w-6 h-6 bg-gray-100 rounded-full relative;
+
+          span {
+            @apply absolute top-2 left-3 w-2 h-2 bg-gray-100 rounded-full pointer-events-none transition-all duration-200;
+
+            &::after {
+              @apply content-[''] bg-none -top-2 -left-2 absolute border-none rounded-full w-6 h-6 transition-all duration-200;
+            }
+          }
+
+          input {
+            @apply opacity-0 absolute top-0 left-0 w-full h-full;
+
+            &:checked + span {
+              @apply w-4 h-4 top-1 left-1 bg-blue-primary transition-all duration-200;
+
+              &::after {
+                @apply content-[''] -top-1 -left-1 border border-solid border-gray-300 transition-all duration-200;
+              }
+            }
+          }
+        }
+
+        label {
+          @apply text-sm text-gray-500;
+        }
+      }
+    }
+  }
+}

@@ -4,13 +4,18 @@ import { FormHandles, SubmitHandler } from '@unform/core';
 import Link from 'next/link';
 import { AuthLayout } from '~/layouts';
 import {
-  Text, Button, FormInput, Checkbox,
+  Text, Button, FormInput, Checkbox, Radio,
 } from '~/components';
 import { SignInHandles } from '~/types';
 
 const SignUp: React.FC = () => {
   const [step, onStep] = useState(1);
   const signUpRef = useRef<FormHandles>(null);
+
+  const clientType = [
+    { id: 'giver', value: 'giver', label: 'Doador' },
+    { id: 'donatory', value: 'donatory', label: 'Donatário' },
+  ];
 
   const handleSubmit: SubmitHandler<SignInHandles> = (data) => {
     console.log(signUpRef);
@@ -74,8 +79,10 @@ const SignUp: React.FC = () => {
         { step === 2 && (
           <div className="secondStep-input">
             <div className="secondStep-input-type">
-              <input type="radio" name="" id="" />
-              <input type="radio" name="" id="" />
+              <Radio
+                name="clientType"
+                options={clientType}
+              />
             </div>
 
             <div className="secondStep-input-box">
