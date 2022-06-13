@@ -1,6 +1,6 @@
 @layer components {
   .button {
-    @apply font-inter text-base font-semibold flex py-4;
+    @apply font-inter text-base justify-center font-semibold flex py-4;
 
     &.is-md {
       @apply px-10;

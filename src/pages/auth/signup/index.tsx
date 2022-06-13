@@ -4,7 +4,7 @@ import { FormHandles, SubmitHandler } from '@unform/core';
 import Link from 'next/link';
 import { AuthLayout } from '~/layouts';
 import {
-  Text, Button, FormInput, Checkbox, Radio,
+  Text, Button, FormInput, Checkbox, Radio, Icon,
 } from '~/components';
 import { SignInHandles } from '~/types';
 
@@ -23,28 +23,31 @@ const SignUp: React.FC = () => {
     console.log(signUpRef);
   };
 
-  console.log(cliType);
+  console.log(step);
 
   return (
     <AuthLayout
       title="Cadastrar"
-      description="Primeiro, precisamos de algumas informações básicas a respeito de você:"
+      description={`${step === 1 ? 'Primeiro, precisamos de algumas informações básicas a respeito de você' : ''}
+       ${step === 2 ? 'Para concluir, selecione o perfil de usuário que melhor se adéque a você' : ''}
+      `}
       back
     >
       <Form
         ref={signUpRef}
         onSubmit={handleSubmit}
+        initialData={{ clientType: 'donatory' }}
         className="signUp-box"
       >
         <div className="signUp-box-header">
           <div className="signUp-step-box">
-            <div className="step-1">
+            <div className={`step-1 ${step >= 2 ? 'nextAfter-step' : ''}`}>
               1
             </div>
-            <div className="step-2">
+            <div className={`step-2 ${step >= 2 ? 'nextStep' : ''} ${step >= 3 ? 'nextAfter-step' : ''}`}>
               2
             </div>
-            <div className="step-3">
+            <div className={`step-3 ${step === 3 ? 'nextStep' : ''}`}>
               3
             </div>
           </div>
@@ -86,8 +89,6 @@ const SignUp: React.FC = () => {
               <Radio
                 name="clientType"
                 options={clientType}
-                defaultValue="donatory"
-                defaultChecked
                 onChange={(target) => onCliType(target.target.value)}
               />
             </div>
@@ -152,6 +153,20 @@ const SignUp: React.FC = () => {
           </div>
         )}
 
+        { step === 3 && (
+          <div className="thirdStep-box">
+            <Icon
+              name="check-circle"
+            />
+
+            <Text
+              label="Sua conta foi criada e você já pode acessar o nosso site.
+              Por questão de segurança, pediremos mais algumas informações suas nos próximos dias."
+              align="center"
+            />
+          </div>
+        )}
+
         <div className="signUp-box-footer">
 
           <div className="signUp-button-box">
@@ -160,7 +175,7 @@ const SignUp: React.FC = () => {
                 label="Continuar"
                 submit
                 onClick={() => onStep(step + 1)}
-                size="lg"
+                full
                 className="firstStep-button"
               />
             )}
@@ -171,6 +186,7 @@ const SignUp: React.FC = () => {
                   label="Voltar"
                   onClick={() => onStep(step - 1)}
                   appearance="outline"
+                  full
                   className="secondStep-button"
                 />
 
@@ -178,10 +194,19 @@ const SignUp: React.FC = () => {
                   label="Continuar"
                   submit
                   onClick={() => onStep(step + 1)}
-                  size="base"
+                  full
                   className="secondStep-button"
                 />
               </>
+            )}
+
+            {step === 3 && (
+              <Button
+                label="Quero continuar para o site!"
+                submit
+                full
+                className="thirdStep-button"
+              />
             )}
           </div>
 

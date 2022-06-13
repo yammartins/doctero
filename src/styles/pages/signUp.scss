@@ -9,23 +9,31 @@
         @apply flex gap-12 items-center relative;
 
         .step-1 {
-          @apply w-10 h-10 rounded-full bg-blue-primary text-white font-bold font-jakarta flex   items-center justify-center;
+          @apply w-11 h-11 rounded-full bg-blue-primary text-white font-bold font-jakarta flex   items-center justify-center;
 
           &::after {
-            @apply content-[''] w-12 h-1 bg-blue-100 absolute top-4 left-10;
+            @apply content-[''] w-[3.25rem] h-1 bg-blue-100 absolute top-5 left-11;
           }
         }
 
         .step-2 {
-          @apply w-10 h-10 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
+          @apply w-11 h-11 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
 
           &::after {
-            @apply content-[''] w-12 h-1 bg-blue-100 absolute top-4 right-10;
+            @apply content-[''] w-[3.25rem] h-1 bg-blue-100 absolute top-5 right-10;
           }
         }
 
         .step-3 {
-          @apply w-10 h-10 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
+          @apply w-11 h-11 rounded-full bg-blue-100 text-blue-primary font-bold font-jakarta flex   items-center justify-center;
+        }
+
+        .nextAfter-step::after {
+          @apply bg-blue-primary;
+        }
+
+        .nextStep {
+          @apply bg-blue-primary text-white;
         }
       }
     }
@@ -48,11 +56,23 @@
       }
     }
 
+    .thirdStep-box {
+      @apply flex flex-col gap-4 items-center justify-center;
+
+      i {
+        @apply text-[6rem] text-green-600;
+      }
+
+      p {
+        @apply mt-1 text-gray-500;
+      }
+    }
+
     &-footer {
       @apply flex flex-col gap-8;
 
       .signUp-button-box {
-        @apply flex gap-2 justify-center mb-8;
+        @apply flex gap-2 justify-center mb-4;
 
         .firstStep-button {
           @apply rounded-2xl;
@@ -60,6 +80,10 @@
 
         .secondStep-button {
           @apply rounded-xlg;
+        }
+
+        .thirdStep-button {
+          @apply mt-4 rounded-2xl;
         }
       }
 

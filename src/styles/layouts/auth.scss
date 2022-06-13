@@ -6,7 +6,7 @@
       @apply relative w-[45%] h-full px-[6.25rem] items-center flex;
 
       &-box {
-        @apply flex flex-col gap-6 p-4 w-full rounded-md;
+        @apply flex flex-col gap-6 pt-8 px-4 w-full rounded-md;
 
         &-header {
           @apply flex flex-col text-gray-500;
