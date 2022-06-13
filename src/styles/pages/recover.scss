@@ -3,10 +3,10 @@
     @apply flex flex-col gap-8;
 
     &-content {
-      @apply flex flex-col gap-10 mt-4;
+      @apply flex flex-col gap-4 mt-4;
 
       button {
-        @apply rounded-2xl;
+        @apply rounded-2xl mt-8;
       }
     }
 
