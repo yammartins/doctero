@@ -10,16 +10,20 @@ import { SignInHandles } from '~/types';
 
 const SignUp: React.FC = () => {
   const [step, onStep] = useState(1);
+  const [cliType, onCliType] = useState('donatory');
+
   const signUpRef = useRef<FormHandles>(null);
 
   const clientType = [
-    { id: 'giver', value: 'giver', label: 'Doador' },
     { id: 'donatory', value: 'donatory', label: 'Donatário' },
+    { id: 'giver', value: 'giver', label: 'Doador' },
   ];
 
   const handleSubmit: SubmitHandler<SignInHandles> = (data) => {
     console.log(signUpRef);
   };
+
+  console.log(cliType);
 
   return (
     <AuthLayout
@@ -82,12 +86,69 @@ const SignUp: React.FC = () => {
               <Radio
                 name="clientType"
                 options={clientType}
+                defaultValue="donatory"
+                defaultChecked
+                onChange={(target) => onCliType(target.target.value)}
               />
             </div>
 
-            <div className="secondStep-input-box">
-              .
-            </div>
+            {cliType === 'donatory' && (
+              <div className="secondStep-input-donatory">
+                <FormInput
+                  name="document"
+                  label="CPF"
+                />
+
+                <FormInput
+                  name="phone"
+                  label="Telefone"
+                />
+
+                <FormInput
+                  name="address"
+                  label="Endereço"
+                />
+
+                <div className="donatoryAddress-box">
+                  <FormInput
+                    name="district"
+                    label="Bairro"
+                  />
+
+                  <FormInput
+                    name="number"
+                    label="Número"
+                  />
+                </div>
+              </div>
+            )}
+
+            {cliType === 'giver' && (
+              <div className="secondStep-input-giver">
+                <FormInput
+                  name="phone"
+                  label="Telefone"
+                />
+
+                <FormInput
+                  name="address"
+                  label="Endereço"
+                />
+
+                <div className="giverAddress-box">
+                  <FormInput
+                    name="district"
+                    label="Bairro"
+                  />
+
+                  <FormInput
+                    name="number"
+                    label="Número"
+                  />
+                </div>
+              </div>
+            )}
+
           </div>
         )}
 

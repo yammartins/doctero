@@ -34,6 +34,20 @@
       @apply flex flex-col gap-4 mt-2;
     }
 
+    .secondStep-input {
+      @apply flex flex-col gap-8 mt-8 mb-4;
+
+      &-donatory,
+      &-giver {
+        @apply flex flex-col gap-5;
+
+        .donatoryAddress-box,
+        .giverAddress-box {
+          @apply flex gap-4;
+        }
+      }
+    }
+
     &-footer {
       @apply flex flex-col gap-8;
 

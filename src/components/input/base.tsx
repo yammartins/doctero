@@ -1,8 +1,10 @@
-import ReactInputMask from "react-input-mask";
+import ReactInputMask from 'react-input-mask';
+import {
+  useState, forwardRef, memo, ForwardRefRenderFunction,
+} from 'react';
+import classNames from 'classnames';
 import { Icon, Text } from '~/components';
-import { InputElementProps, InputProps } from "./types";
-import { useState, forwardRef, memo, ForwardRefRenderFunction } from "react";
-import classNames from "classnames";
+import { InputElementProps, InputProps } from './types';
 
 const Base: ForwardRefRenderFunction<InputElementProps, InputProps> = ({
   icon,
@@ -23,37 +25,38 @@ const Base: ForwardRefRenderFunction<InputElementProps, InputProps> = ({
   const [filled, onFilled] = useState('');
 
   return (
-     <div className={`input-box ${focused || filled.length > 0 ? 'on-focus' : ''}`}>
-       <label
+    <div className={`input-box ${focused || filled.length > 0 ? 'on-focus' : ''}`}>
+      <label
         className="input-box-label"
         htmlFor={fieldName}
       >
         {icon && (
-           <Icon
-            name={icon}
-          />
+        <Icon
+          name={icon}
+        />
         )}
 
         <Text
           label={label}
+          className={!icon ? 'icon-off' : ''}
         />
-       </label>
-       {how === 'default' && (
-         <ReactInputMask
-           {...rest}
-           ref={ref}
-           id={fieldName}
-           mask={mask}
-           onFocus={() => onFocused(true)}
-           onBlur={() => onFocused(false)}
-           onChange={({ target }) => onFilled(target.value)}
-           maskPlaceholder=""
-           type={typed}
-           className={`input-box-mask ${className}`}
-         />
-       )}
+      </label>
+      {how === 'default' && (
+      <ReactInputMask
+        {...rest}
+        ref={ref}
+        id={fieldName}
+        mask={mask}
+        onFocus={() => onFocused(true)}
+        onBlur={() => onFocused(false)}
+        onChange={({ target }) => onFilled(target.value)}
+        maskPlaceholder=""
+        type={typed}
+        className={`input-box-mask ${className}`}
+      />
+      )}
 
-     </div>
+    </div>
   );
 };
 

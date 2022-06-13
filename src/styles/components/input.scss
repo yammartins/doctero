@@ -12,6 +12,10 @@
       p {
         @apply text-gray-500 text-sm font-semibold font-jakarta absolute top-4 left-[3.25rem] transition-all duration-300;
       }
+
+      .icon-off {
+        @apply left-5;
+      }
     }
 
     &-mask {
