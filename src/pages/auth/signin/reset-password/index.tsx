@@ -44,6 +44,7 @@ const ResetPassword: React.FC = () => {
             label="Enviar e-mail"
             full
             submit
+            className="recoverPassword-button"
           />
         </div>
 
