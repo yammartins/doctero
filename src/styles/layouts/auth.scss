@@ -1,0 +1,65 @@
+@layer components {
+  .auth {
+    @apply flex w-full h-full relative;
+
+    &-content {
+      @apply relative w-[45%] h-full px-[6.25rem] items-center flex;
+
+      &-box {
+        @apply flex flex-col gap-6 pt-8 px-4 w-full rounded-md;
+
+        &-header {
+          @apply flex flex-col text-gray-500;
+
+          h2 {
+            @apply flex items-center gap-3 text-gray-800;
+
+            button {
+              @apply flex text-xlg;
+            }
+          }
+        }
+      }
+    }
+
+    &-aside {
+      @apply flex items-center relative w-[55%] bg-gray-100 px-[6.75rem];
+
+      &-slider {
+        @apply w-full flex flex-col items-center justify-center gap-12;
+
+        &-image {
+          @apply rounded-base;
+        }
+
+        &-description {
+          @apply flex flex-col gap-2 w-full;
+
+          h5 {
+            @apply text-gray-800;
+          }
+
+          p {
+            @apply text-gray-500;
+          }
+        }
+      }
+
+      .swiper {
+        @apply flex w-full pb-10;
+
+        .swiper-pagination-bullets {
+          @apply -bottom-1;
+
+          .swiper-pagination-bullet {
+            @apply w-16 h-1 rounded-xs bg-gray-400;
+          }
+
+          .swiper-pagination-bullet-active {
+            @apply bg-blue-primary;
+          }
+        }
+      }
+    }
+  }
+}

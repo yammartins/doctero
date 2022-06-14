@@ -3,6 +3,17 @@
 @import "tailwindcss/components";
 @import "./public.scss";
 
+@import "./components/button.scss";
+@import "./components/input.scss";
+@import "./components/checkbox.scss";
+@import "./components/radio.scss";
+
+@import "./layouts/auth.scss";
+
+@import "./pages/signIn.scss";
+@import "./pages/signUp.scss";
+@import "./pages/recover.scss";
+
 @import "tailwindcss/utilities";
 
 

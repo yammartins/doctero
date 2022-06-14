@@ -1,0 +1,25 @@
+@layer components {
+  .recoverPassword-box {
+    @apply flex flex-col gap-8;
+
+    &-content {
+      @apply flex flex-col gap-4 mt-4;
+
+      button {
+        @apply rounded-2xl mt-8;
+      }
+    }
+
+    &-footer {
+      @apply flex flex-col mt-8 gap-1 text-gray-500;
+
+      a {
+        @apply text-blue-primary font-bold;
+
+        &:hover {
+          @apply text-opacity-80 transition-all;
+        }
+      }
+    }
+  }
+}

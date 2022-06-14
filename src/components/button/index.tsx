@@ -1,6 +1,6 @@
-import { ButtonHandles } from "./types"
-import classNames from "classnames"
-import { Icon } from '../index'
+import classNames from 'classnames';
+import { ButtonHandles } from './types';
+import Icon from '../icon';
 
 const Button: React.FC<ButtonHandles> = ({
   label,
@@ -21,31 +21,32 @@ const Button: React.FC<ButtonHandles> = ({
     full && 'w-full',
     disabled && 'is-disabled',
     className,
-  )
+  );
 
   return (
 
     <button
-     {...rest}
-     type={submit ? 'submit' : 'button'}
-     className={styled}
-     disabled={disabled}
+      {...rest}
+      type={submit ? 'submit' : 'button'}
+      className={styled}
+      disabled={disabled}
     >
-      {icon && ! loading && (
+
+      {icon && !loading && (
         <Icon
-        name={icon as string}
-        color={appearance}
-       />
+          name={icon as string}
+          color={appearance}
+        />
       )}
 
-      {! loading ? (
+      {!loading ? (
         label
       ) : (
         <div className="loading" />
       )}
 
     </button>
-  )
+  );
 };
 
 export default Button;

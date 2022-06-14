@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app'
-import "../styles/main.scss"
+import "swiper/css";
+import "swiper/css/pagination";
+import "~/styles/main.scss"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />

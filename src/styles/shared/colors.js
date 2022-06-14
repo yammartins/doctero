@@ -15,7 +15,7 @@ const green = {
 const blue = {
   'primary': '#2563EB',
   50: '#D5E7FF',
-  100: '#BCD0FF',
+  100: '#EFF6FF',
   200: '#A3BAFF',
   300: '#89A5FF',
   400: '#6F90FF',
@@ -25,6 +25,16 @@ const blue = {
   800: '#0043C3',
   900: '#0032AC',
 };
+
+const gray = {
+  100: '#F7F9FC',
+  200: '#EDF1F7',
+  300: '#E4E9F2',
+  400: '#9CA3AF',
+  500: '#6B7280',
+  600: '#4B5563',
+  800: '#1A2138',
+}
 
 const red = {
   500: '#EF4444',
@@ -37,6 +47,7 @@ const black = '#000000';
 module.exports = {
   green,
   blue,
+  gray,
   red,
   white,
   black,

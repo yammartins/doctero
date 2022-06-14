@@ -1,35 +1,37 @@
-import type { NextPage } from 'next'
-import Image from 'next/image'
+import type { NextPage } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '~/components';
 
 const Home: NextPage = () => {
   const menu = [
     {
       id: 1,
       name: 'Sobre nós',
-      path: '#about-us'
+      path: '#about-us',
     },
     {
       id: 2,
       name: 'Missão',
-      path: 'mission',
+      path: '#mission',
     },
     {
       id: 3,
       name: 'Como ajudar',
-      path: 'help',
+      path: '#help',
     },
     {
       id: 4,
       name: 'Contato',
-      path: 'contact-us'
-    }
+      path: '#contact-us',
+    },
   ];
 
   const org = [
     {
       id: 1,
       name: 'Supervisor',
-      path: '/supervisor'
+      path: '/supervisor',
     },
     {
       id: 2,
@@ -45,66 +47,96 @@ const Home: NextPage = () => {
       id: 4,
       name: 'Médicos',
       path: '/doctors',
-    }
+    },
   ];
 
   return (
     <main className="public">
       <header>
-          <div className="public-header-menu">
-            <h3>Doctero</h3>
+        <div className="public-header-menu">
+          <h3>Doctero</h3>
 
-            <nav>
-            {menu.map(({id, name, path}) => (
-               <a
-               key={id}
-               href={path}
-               >
-                 {name}
-               </a>
-            ))}
-            </nav>
-          </div>
-
-          <div className="public-header-button">botões</div>
-      </header>
-
-      <section
-       className='section-main'
-      >
-        <div className="section-main-content">
-           <h1>Doctero, a boa ação que muda o mundo!</h1>
-
-           <p>Pouco ou muito, o que importa? toda boa ação já vale a pena. Para nós, o que interessa mesmo é o gesto.
-           </p>
-
-           <button>Nada</button>
-        </div>
-
-        <div className="section-main-image">
-          <Image
-          src="/public.jpeg"
-          alt="Alexandre, o Grande"
-          width="540"
-          height="392"
-          />
-        </div>
-
-        <footer className='section-main-footer'>
           <nav>
-            {org.map(({id, name, path}) => (
+            {menu.map(({ id, name, path }) => (
               <a
-              key={id}
-              href={path}
+                key={id}
+                href={path}
               >
                 {name}
               </a>
             ))}
           </nav>
+        </div>
+
+        <div className="public-header-button">
+          <Link
+            href="auth/signup"
+          >
+            <Button
+              appearance="outline"
+              size="md"
+              label="Registrar"
+            />
+          </Link>
+
+          <Link
+            href="auth/signin"
+          >
+            <Button
+              label="Entrar"
+              size="md"
+            />
+          </Link>
+        </div>
+      </header>
+
+      <section
+        className="section-main"
+      >
+        <div className="section-main-content">
+          <h1>Doctero, a boa ação que muda o mundo!</h1>
+
+          <p>
+            Pouco ou muito, o que importa? toda boa ação já vale a pena.
+            Para nós, o que interessa mesmo é o gesto.
+          </p>
+
+          <Link
+            href="auth/signup"
+          >
+            <Button
+              label="Cadastre-se agora"
+              size="md"
+            />
+          </Link>
+        </div>
+
+        <div className="section-main-image">
+          <Image
+            src="/public.jpeg"
+            alt="Alexandre, o Grande"
+            width="540"
+            height="392"
+          />
+        </div>
+
+        <footer className="section-main-footer">
+          <nav>
+            {org.map(({ id, name, path }) => (
+              <Link
+                key={id}
+                href={path}
+              >
+                <a>
+                  {name}
+                </a>
+              </Link>
+            ))}
+          </nav>
         </footer>
       </section>
     </main>
-  )
-}
+  );
+};
 
 export default Home;

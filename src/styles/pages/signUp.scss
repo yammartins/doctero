@@ -1,0 +1,67 @@
+@layer components {
+  .signUp-box {
+    @apply flex flex-col gap-6;
+
+    .firstStep-input {
+      @apply flex flex-col gap-4 mt-2;
+    }
+
+    .secondStep-input {
+      @apply flex flex-col gap-8 mt-8 mb-4;
+
+      &-donatory,
+      &-giver {
+        @apply flex flex-col gap-5;
+
+        .donatoryAddress-box,
+        .giverAddress-box {
+          @apply flex gap-4;
+        }
+      }
+    }
+
+    .thirdStep-box {
+      @apply flex flex-col gap-4 items-center justify-center;
+
+      i {
+        @apply text-[6rem] text-green-600;
+      }
+
+      p {
+        @apply mt-1 text-gray-500;
+      }
+    }
+
+    &-footer {
+      @apply flex flex-col gap-8;
+
+      .signUp-button-box {
+        @apply flex gap-2 justify-center mb-4;
+
+        .firstStep-button {
+          @apply rounded-2xl;
+        }
+
+        .secondStep-button {
+          @apply rounded-xlg;
+        }
+
+        .thirdStep-button {
+          @apply mt-4 rounded-2xl;
+        }
+      }
+
+      p {
+        @apply flex flex-col gap-1;
+
+        a {
+          @apply text-blue-primary transition-colors;
+
+          &:hover {
+            @apply text-blue-800 transition-colors;
+          }
+        }
+      }
+    }
+  }
+}

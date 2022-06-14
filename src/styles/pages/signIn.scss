@@ -1,0 +1,35 @@
+.signIn-box {
+  @apply flex flex-col gap-12;
+
+  &-input {
+    @apply flex flex-col gap-4;
+
+    a {
+      @apply flex justify-end text-gray-500 font-semibold font-jakarta text-sm;
+
+      &:hover {
+        @apply text-blue-500 transition-all;
+      }
+    }
+  }
+
+  &-button {
+    @apply flex flex-col;
+
+    button {
+      @apply rounded-base justify-center;
+    }
+
+    p {
+      @apply mt-10 flex flex-col gap-1 text-center text-gray-500 font-medium font-jakarta text-sm;
+
+      a {
+        @apply text-blue-primary;
+
+        &:hover {
+          @apply text-blue-700 transition-colors;
+        }
+      }
+    }
+  }
+}

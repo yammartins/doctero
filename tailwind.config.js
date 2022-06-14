@@ -2,6 +2,7 @@ const {
   green,
   blue,
   white,
+  gray,
   black,
   red,
 } = require('./src/styles/shared/colors');
@@ -18,6 +19,8 @@ module.exports = {
       blue,
       white,
       black,
+      red,
+      gray,
     },
 
     fontSize: sizes,
@@ -34,6 +37,7 @@ module.exports = {
       'lg': '0.75rem',
       'xlg': '0.875rem',
       '2xl': '1rem',
+      '3xl': '2rem',
       'full': '9999px',
     },
 
@@ -45,8 +49,11 @@ module.exports = {
   content: [
     "./src/components/*.tsx",
     "./src/components/**/*.tsx",
+    "./src/layouts/*.tsx",
+    "./src/layouts/**/*.tsx",
     "./src/pages/*.tsx",
     "./src/pages/**/*.tsx",
     "./src/styles/*.scss",
+    "./src/styles/**/.scss",
   ],
 }

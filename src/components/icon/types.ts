@@ -1,4 +1,5 @@
 export interface IconHandles {
-  name: string,
-  color: string,
+  name: string;
+  color?: string;
+  className?: string;
 }
