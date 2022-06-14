@@ -4,9 +4,10 @@ import { FormHandles, SubmitHandler } from '@unform/core';
 import Link from 'next/link';
 import { AuthLayout } from '~/layouts';
 import {
-  Text, Button, FormInput, Checkbox, Radio, Icon,
+  Text, Button, FormInput, Checkbox, Radio,
 } from '~/components';
 import { SignInHandles } from '~/types';
+import { Successful } from '~/assets';
 
 const SignUp: React.FC = () => {
   const [step, onStep] = useState(1);
@@ -23,8 +24,6 @@ const SignUp: React.FC = () => {
     console.log(signUpRef);
   };
 
-  console.log(step);
-
   return (
     <AuthLayout
       title="Cadastrar"
@@ -39,19 +38,6 @@ const SignUp: React.FC = () => {
         initialData={{ clientType: 'donatory' }}
         className="signUp-box"
       >
-        <div className="signUp-box-header">
-          <div className="signUp-step-box">
-            <div className={`step-1 ${step >= 2 ? 'nextAfter-step' : ''}`}>
-              1
-            </div>
-            <div className={`step-2 ${step >= 2 ? 'nextStep' : ''} ${step >= 3 ? 'nextAfter-step' : ''}`}>
-              2
-            </div>
-            <div className={`step-3 ${step === 3 ? 'nextStep' : ''}`}>
-              3
-            </div>
-          </div>
-        </div>
 
         { step === 1 && (
           <div className="firstStep-input">
@@ -156,9 +142,7 @@ const SignUp: React.FC = () => {
 
         { step === 3 && (
           <div className="thirdStep-box">
-            <Icon
-              name="check-circle"
-            />
+            <Successful />
 
             <Text
               label="Sua conta foi criada e você já pode acessar o nosso site.
