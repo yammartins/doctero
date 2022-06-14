@@ -35,6 +35,7 @@ const SignIn: React.FC = () => {
             icon="lock-bold"
             label="Senha"
             name="password"
+            type="password"
           />
 
           <Link

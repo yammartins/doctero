@@ -29,6 +29,7 @@ const ResetPassword: React.FC = () => {
             icon="lock-bold"
             label="Senha"
             name="password"
+            type="password"
           />
 
           <FormInput
@@ -36,6 +37,7 @@ const ResetPassword: React.FC = () => {
             icon="lock-bold"
             label="Confirme a senha"
             name="confirmPassword"
+            type="password"
           />
 
           <Button

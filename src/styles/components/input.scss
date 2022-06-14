@@ -19,7 +19,7 @@
     }
 
     &-mask {
-      @apply w-full outline-none;
+      @apply w-full outline-none border-0 p-0 focus:ring-0;
     }
 
     &.on-focus {
@@ -33,6 +33,14 @@
         p {
           @apply text-xs bg-white px-2 text-gray-800 rounded-base absolute -top-2 left-5 transition-all duration-300;
         }
+      }
+    }
+
+    &-password {
+      @apply absolute right-5 top-4;
+
+      .icon {
+        @apply text-lg text-gray-600;
       }
     }
   }

@@ -73,6 +73,7 @@ const SignUp: React.FC = () => {
               fieldName="password"
               icon="lock-bold"
               label="Senha"
+              type="password"
               name="password"
             />
 
